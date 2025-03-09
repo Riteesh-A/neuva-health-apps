@@ -6,7 +6,7 @@ import { Footer } from '@/components/navigation/footer';
 import { NotifyForm } from '@/components/notify-form';
 import { TypewriterEffectSmooth } from '@neuva-health/ui/components/base/typewriter-effect';
 import { WavyBackground } from '@neuva-health/ui/components/base/wavy-background';
-import { Card, CardContent, CardHeader } from '@neuva-health/ui/components/base/card';
+import { Card, CardContent } from '@neuva-health/ui/components/base/card';
 
 export default function HomePage() {
   return (
