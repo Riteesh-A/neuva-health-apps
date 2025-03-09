@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "prefix": "",
+    "cssVariables": true,
+    "baseColor": "neutral",
+    "css": "src/styles/default.css"
+  },
+  "aliases": {
+    "components": "@neuva-health/ui/components",
+    "ui": "@neuva-health/ui/components/base",
+    "utils": "@neuva-health/ui/lib/utils",
+    "lib": "@neuva-health/ui/lib",
+    "hooks": "@neuva-health/ui/hooks"
+  },
+  "iconLibrary": "lucide"
+}

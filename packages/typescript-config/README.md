@@ -1,0 +1,1 @@
+# `@neuva-health/typescript-config`

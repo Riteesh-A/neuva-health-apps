@@ -1,0 +1,26 @@
+{
+  "name": "@neuva-health/apps",
+  "private": true,
+  "scripts": {
+    "start": "turbo run start",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.0",
+    "turbo": "^2.4.4",
+    "typescript": "5.7.3"
+  },
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "yarn": ">=1.22.22",
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

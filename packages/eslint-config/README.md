@@ -1,0 +1,1 @@
+# `@neuva-health/eslint-config`
