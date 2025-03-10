@@ -8,8 +8,10 @@ declare global {
       SHOPIFY_STORE_DOMAIN: string;
       SITE_URL: string;
       NEXT_PUBLIC_SITE_URL: string;
+      RESEND_API_KEY: string;
+      NEXT_PUBLIC_RESEND_API_KEY: string;
     }
   }
 }
 
-export {}
+export {};
