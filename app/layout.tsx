@@ -35,7 +35,7 @@ export default async function RootLayout({
       <body className={cn(hankenGrotesk.className)}>
         <ThemeProvider
           enableSystem
-          defaultTheme="dark"
+          defaultTheme="light"
           storageKey="neuva-health-theme"
           attribute={"class"}
         >
