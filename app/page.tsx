@@ -17,7 +17,7 @@ export default async function HomePage() {
           <Separator className="bg-sidebar-accent-foreground" />
           <div className="flex self-start relative w-full">
             {/* First Sentence */}
-            <p className="absolute left-0 overflow-hidden whitespace-nowrap text-base md:text-2xl font-mono animate-[typewriter-1_6s_steps(30)_infinite]">
+            <p className="absolute left-0 overflow-hidden whitespace-nowrap text-base md:text-2xl animate-[typewriter-1_6s_steps(30)_infinite]">
               Making India Healthier and Happier
               <span className="border-r-2 border-white animate-[blink_0.7s_steps(2)_infinite]">
                 &nbsp;
@@ -25,7 +25,7 @@ export default async function HomePage() {
             </p>
 
             {/* Second Sentence */}
-            <p className="absolute left-0 overflow-hidden whitespace-nowrap text-base md:text-2xl font-mono animate-[typewriter-2_6s_steps(20)_infinite]">
+            <p className="absolute left-0 overflow-hidden whitespace-nowrap text-base md:text-2xl animate-[typewriter-2_6s_steps(20)_infinite]">
               We are launching soon!
               <span className="border-r-2 border-white animate-[blink_0.7s_steps(2)_infinite]">
                 &nbsp;
