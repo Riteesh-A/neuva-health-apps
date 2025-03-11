@@ -1,0 +1,20 @@
+<svg width="597" height="597" viewBox="0 0 597 597" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_102_2)">
+<rect width="597" height="597" fill="white"/>
+<g opacity="0.6">
+<rect width="298.5" height="298.5" transform="matrix(1 0 0 -1 0 298.5)" fill="#C2DBFF"/>
+<rect x="298.5" width="298.5" height="298.5" fill="#546EF3"/>
+<path d="M298.5 1.04904e-05C298.5 39.1996 306.221 78.0153 321.222 114.231C336.223 150.447 358.21 183.353 385.929 211.071C413.647 238.79 446.553 260.777 482.769 275.778C518.985 290.779 557.8 298.5 597 298.5L597 1.04904e-05H298.5Z" fill="#C2DBFF"/>
+<rect width="298.5" height="298.5" transform="matrix(1 0 0 -1 0 597)" fill="#546EF3"/>
+<path d="M298.5 298.5C298.5 337.7 290.779 376.515 275.778 412.731C260.777 448.947 238.79 481.853 211.071 509.571C183.353 537.29 150.447 559.277 114.231 574.278C78.0153 589.279 39.1996 597 0 597L2.27737e-05 298.5H298.5Z" fill="#C2DBFF"/>
+<rect x="298.5" y="298.5" width="298.5" height="298.5" fill="#546EF3"/>
+<rect x="298.5" y="447.75" width="298.5" height="149.25" fill="#B4BFF5"/>
+<path d="M447.75 298.5C530.178 298.5 597 365.322 597 447.75H298.5C298.5 365.322 365.322 298.5 447.75 298.5Z" fill="#B4BFF5"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_102_2">
+<rect width="597" height="597" fill="white"/>
+</clipPath>
+</defs>
+</svg>
