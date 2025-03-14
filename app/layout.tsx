@@ -34,7 +34,7 @@ export const metadata = {
     siteName: companyName,
     images: [
       {
-        url: "/screenshots/mobile-preview.jpeg",
+        url: "/screenshots/mobile-preview.png",
         width: 1200,
         height: 630,
         alt: "Neuva Health",
@@ -48,7 +48,7 @@ export const metadata = {
     site: "@NeuvaHealth",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/screenshots/mobile-preview.jpeg"],
+    images: ["/screenshots/mobile-preview.png"],
   },
   alternates: {
     canonical: baseUrl,
