@@ -1,5 +1,6 @@
 "use client";
 
+import { useMixpanel } from "@/core/hooks/use-mixpanel";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "emailjs-com";
 import { Loader2 } from "lucide-react";
@@ -24,6 +25,8 @@ export const NotifyForm = () => {
     defaultValues: { from_email: "" },
   });
 
+  const { sendToMixpanel } = useMixpanel();
+
   const isLoading = form.formState.isSubmitting;
 
   const sendEmail = async (values: InputType) => {
@@ -39,6 +42,10 @@ export const NotifyForm = () => {
 
       toast.error("Thank you for subscribing!");
       form.reset();
+
+      await sendToMixpanel("subscribe_clicked", {
+        email: values.from_email,
+      });
     } catch (err) {
       toast.error("Failed to send email");
     }
