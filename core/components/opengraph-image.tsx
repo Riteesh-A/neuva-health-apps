@@ -3,7 +3,6 @@
 import { readFile } from "fs/promises";
 import { ImageResponse } from "next/og";
 import { join } from "path";
-import { Logo } from "./logo";
 
 export type Props = {
   title?: string;
@@ -20,28 +19,23 @@ export default async function OpengraphImage(
   };
 
   const file = await readFile(
-    join(process.cwd(), "./core/fonts/Inter-Bold.ttf")
+    join(process.cwd(), "./core/fonts/YoungSerif-Regular.ttf")
   );
   const font = Uint8Array.from(file).buffer;
 
   return new ImageResponse(
     (
-      <div tw="flex h-full w-full flex-col items-center justify-center bg-black">
-        <div tw="flex flex-none items-center justify-center border border-neutral-700 h-[160px] w-[160px] rounded-3xl">
-          <Logo />
-        </div>
-        <p tw="mt-12 text-6xl font-bold text-white">{title}</p>
-      </div>
+      <div className="flex flex-col w-full h-full items-center justify-center bg-[url('/screenshots/mobile-preview.jpeg')] bg-cover bg-center" />
     ),
     {
       width: 1200,
-      height: 630,
+      height: 900,
       fonts: [
         {
-          name: "Inter",
+          name: "YoungSerif",
           data: font,
           style: "normal",
-          weight: 700,
+          weight: 400,
         },
       ],
     }
