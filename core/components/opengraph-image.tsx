@@ -25,7 +25,7 @@ export default async function OpengraphImage(
 
   return new ImageResponse(
     (
-      <div className="flex flex-col w-full h-full items-center justify-center bg-[url('/screenshots/mobile-preview.jpeg')] bg-cover bg-center" />
+      <div tw="flex flex-col w-full h-full items-center justify-center bg-[url('/screenshots/mobile-preview.jpeg')] bg-cover bg-center" />
     ),
     {
       width: 1200,
