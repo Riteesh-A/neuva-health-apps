@@ -7,16 +7,20 @@ import { Toaster } from "sonner";
 import "./globals.css";
 
 export const metadata = {
-  metadataBase: new URL(baseUrl),
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.title}`,
   },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  url: siteConfig.url,
+  image: siteConfig.image,
+  locale: siteConfig.locale,
+  metadataBase: new URL(baseUrl),
   robots: {
     follow: true,
     index: true,
   },
-  description: siteConfig.description,
   icons: [
     {
       url: "/favicon.png",

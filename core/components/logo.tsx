@@ -1,4 +1,4 @@
-import { siteConfig } from "@/site-config";
+import { companyName } from "@/site-config";
 import { youngSerif } from "../fonts";
 import { cn } from "../lib/utils";
 
@@ -11,7 +11,7 @@ export const Logo = () => {
         youngSerif.className
       )}
     >
-      {siteConfig.companyName.split(" ").map((word, index) => (
+      {companyName.split(" ").map((word, index) => (
         <span key={index} className="block">
           {word}
         </span>

@@ -1,4 +1,4 @@
-import { siteConfig } from "@/site-config";
+import { companyName, siteConfig } from "@/site-config";
 
 export type SortFilterItem = {
   title: string;
@@ -53,4 +53,4 @@ export const DEFAULT_OPTION = "Default Title";
 export const SHOPIFY_GRAPHQL_API_ENDPOINT = "/api/2023-01/graphql.json";
 
 export const copyrightYear = new Date().getFullYear();
-export const copyrightName = siteConfig.companyName || siteConfig.title || "";
+export const copyrightName = companyName || siteConfig.title || "";
