@@ -1,8 +1,8 @@
-import { companyName } from "@/site-config";
 import { youngSerif } from "../fonts";
 import { cn } from "../lib/utils";
 
 export const Logo = () => {
+let companyName = "Neuva Health";  
   return (
     <a
       href="/"

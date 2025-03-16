@@ -41,3 +41,5 @@ next-env.d.ts
 bun.lock
 
 app/temp/
+
+dev_images/

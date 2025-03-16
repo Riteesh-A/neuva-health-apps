@@ -194,3 +194,68 @@ html,
 body {
   height: 100%;
 }
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Hide the default scrollbar */
+body::-webkit-scrollbar {
+  width: 8px; /* Adjust the width as needed */
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar color */
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid #f1f1f1; /* Space around scrollbar */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Scrollbar color on hover */
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.animate-scroll-left {
+  display: flex;
+  animation: scroll-left 20s linear infinite;
+}
+
+.animate-scroll-right {
+  display: flex;
+  animation: scroll-right 20s linear infinite;
+}
