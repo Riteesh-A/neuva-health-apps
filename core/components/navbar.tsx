@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className={cn(hankenGrotesk.className, `flex justify-between items-center p-4 px-6 z-[20] transition-all duration-300 ${isScrolled ? 'fixed top-0 left-0 right-0 bg-white bg-opacity-30 backdrop-blur-md shadow-md backdrop-grain' : ''}`)}><div className=" flex items-center space-x-10">
+            <div className={cn(hankenGrotesk.className, `flex justify-between items-center p-4 px-6 z-[40] transition-all duration-300 ${isScrolled ? 'fixed top-0 left-0 right-0 bg-white bg-opacity-30 backdrop-blur-md shadow-md backdrop-grain' : ''}`)}><div className=" flex items-center space-x-10">
                     {/* <img src="/path/to/logo.png" alt="Neuva Health" className="h-8" /> */}
                     <span className="">
                         <Logo />
