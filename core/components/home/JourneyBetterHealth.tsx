@@ -108,7 +108,6 @@ const JourneyBetterHealth = ({ className }: { className?: string }) => {
                 <Button
                   variant={index === 0 ? "default" : "outline"}
                   className={cn(
-                    "rounded-full",
                     index === 0
                       ? "bg-white text-secondary-foreground hover:bg-secondary hover:text-secondary-foreground"
                       : "bg-transparent"

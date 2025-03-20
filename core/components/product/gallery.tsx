@@ -7,6 +7,7 @@ import {
 } from "@/core/components/product/product-context";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 export function Gallery({
   images,
@@ -41,7 +42,7 @@ export function Gallery({
         {images.length > 1 ? (
           <div className="absolute bottom-[15%] flex w-full justify-center">
             <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-muted-foreground backdrop-blur-sm dark:border-black dark:bg-neutral-900/80">
-              <button
+              <Button
                 formAction={() => {
                   const newState = updateImage(previousImageIndex.toString());
                   updateURL(newState);
@@ -50,9 +51,9 @@ export function Gallery({
                 className={buttonClassName}
               >
                 <ArrowLeftIcon className="h-5" />
-              </button>
+              </Button>
               <div className="mx-1 h-6 w-px bg-neutral-500"></div>
-              <button
+              <Button
                 formAction={() => {
                   const newState = updateImage(nextImageIndex.toString());
                   updateURL(newState);
@@ -61,7 +62,7 @@ export function Gallery({
                 className={buttonClassName}
               >
                 <ArrowRightIcon className="h-5" />
-              </button>
+              </Button>
             </div>
           </div>
         ) : null}
@@ -74,7 +75,7 @@ export function Gallery({
 
             return (
               <li key={image.src} className="h-20 w-20">
-                <button
+                <Button
                   formAction={() => {
                     const newState = updateImage(index.toString());
                     updateURL(newState);
@@ -89,7 +90,7 @@ export function Gallery({
                     height={80}
                     active={isActive}
                   />
-                </button>
+                </Button>
               </li>
             );
           })}

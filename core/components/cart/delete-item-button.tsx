@@ -4,6 +4,7 @@ import { removeItem } from "@/core/components/cart/actions";
 import type { CartItem } from "@/core/lib/shopify/types";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useActionState } from "react";
+import { Button } from "../ui/button";
 
 export function DeleteItemButton({
   item,
@@ -23,13 +24,13 @@ export function DeleteItemButton({
         removeItemAction();
       }}
     >
-      <button
+      <Button
         type="submit"
         aria-label="Remove cart item"
-        className="flex h-[24px] w-[24px] items-center justify-center rounded-full bg-neutral-500"
+        className="flex h-[24px] w-[24px] items-center justify-center bg-neutral-500"
       >
         <XMarkIcon className="mx-[1px] h-4 w-4" />
-      </button>
+      </Button>
       <p aria-live="polite" className="sr-only" role="status">
         {message}
       </p>

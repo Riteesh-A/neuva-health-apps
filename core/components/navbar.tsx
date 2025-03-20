@@ -101,11 +101,11 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <Button
             size={"lg"}
-            className="bg-[#2F5F8D] text-white rounded-full hidden md:flex"
+            className="bg-[#2F5F8D] text-white hidden md:flex"
           >
             Book Free Consultation
           </Button>
-          <Button size={"lg"} variant={"outline"} className="rounded-full">
+          <Button size={"lg"} variant={"outline"}>
             Sign In
           </Button>
           <MobileMenu className="md:hidden" />

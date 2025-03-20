@@ -40,9 +40,9 @@ export function FeatureCard({
         alt=""
         className="-z-1 absolute inset-0 h-full w-full object-cover"
       />
-      <div className="flex flex-col items-center justify-end h-full p-4 bg-black/30 text-white">
-        <h1 className="text-sm font-semibold">{name}</h1>
-        <h1 className="text-sm">{experience}</h1>
+      <div className="flex flex-col items-start justify-end h-full p-4 bg-black/30 text-white">
+        <h1 className="text-[8px] md:text-sm font-semibold">{name}</h1>
+        <h1 className="text-[7px] md:text-sm">{experience}</h1>
       </div>
     </>
   );

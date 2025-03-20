@@ -36,9 +36,15 @@ const Footer = () => {
       <div className="flex flex-col gap-3">
         <Logo />
         <div className="flex items-center gap-3 text-black/60">
-          <IoLogoFacebook className="size-8 pointer-cursor" />
-          <FaInstagram className="size-8 pointer-cursor" />
-          <FaXTwitter className="size-8 pointer-cursor" />
+          <Link href={"#"}>
+            <IoLogoFacebook className="size-8" />
+          </Link>
+          <Link href={"#"}>
+            <FaInstagram className="size-8" />
+          </Link>
+          <Link href={"#"}>
+            <FaXTwitter className="size-8" />
+          </Link>
         </div>
       </div>
       <div className="flex flex-col-reverse md:grid grid-cols-4 gap-10 w-full">

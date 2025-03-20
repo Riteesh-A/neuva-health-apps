@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
+import { Button } from "../ui/button";
 import { createCartAndSetCookie, redirectToCheckout } from "./actions";
 import { useCart } from "./cart-context";
 import { DeleteItemButton } from "./delete-item-button";
@@ -245,12 +246,12 @@ function CheckoutButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button
-      className="block w-full rounded-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
+    <Button
+      className="block w-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
       type="submit"
       disabled={pending}
     >
       {pending ? <LoadingDots className="bg-white" /> : "Proceed to Checkout"}
-    </button>
+    </Button>
   );
 }

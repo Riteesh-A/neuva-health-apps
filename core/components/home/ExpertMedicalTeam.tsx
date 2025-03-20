@@ -65,9 +65,9 @@ const ExpertMedicalTeam = ({ className }: { className?: string }) => {
         </Balancer>
       </motion.header>
 
-      <div className="relative flex items-center md:mt-20 w-full justify-center gap-8 px-4 py-12 sm:flex-row sm:gap-0">
+      <div className="relative flex items-center md:mt-20 w-full justify-center gap-8 py-12 sm:flex-row sm:gap-0">
         <FeatureCard
-          className="h-60 md:h-80 w-32 md:w-48"
+          className="h-48 md:h-80 w-40 md:w-48"
           feature={team[0]!}
           initial={{
             x: cardWidth,
@@ -90,7 +90,7 @@ const ExpertMedicalTeam = ({ className }: { className?: string }) => {
         />
 
         <FeatureCard
-          className="h-72 md:h-96 w-40 md:w-48"
+          className="h-60 md:h-96 w-48 md:w-56"
           feature={team[1]!}
           initial={{
             y: yOffset,
@@ -109,7 +109,7 @@ const ExpertMedicalTeam = ({ className }: { className?: string }) => {
         />
 
         <FeatureCard
-          className="h-60 md:h-80 w-32 md:w-48"
+          className="h-48 md:h-80 w-40 md:w-48"
           feature={team[2]!}
           initial={{
             x: -cardWidth,
@@ -145,7 +145,7 @@ const ExpertMedicalTeam = ({ className }: { className?: string }) => {
           },
         }}
       >
-        <Button className="rounded-full md:mt-20" variant={"outline"}>
+        <Button className="md:mt-20" variant={"outline"}>
           Book a Consultation
         </Button>
       </motion.div>

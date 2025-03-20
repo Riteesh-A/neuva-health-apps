@@ -34,19 +34,18 @@ const QualityTreatment = ({ className }: { className?: string }) => {
           maximum effectiveness.
         </h2>
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="flex flex-col md:grid grid-cols-3 gap-4">
         {cards.map((card, index) => (
           <Card
             key={index}
             className="p-0 overflow-hidden w-80 aspect-[3/4] bg-[#FCF9F9]"
           >
             <CardContent
-              className={"p-6 relative bg-cover bg-center bg-no-repeat] h-full"}
+              className="p-6 flex flex-col h-full relative z-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${card.imageUrl})`,
+              }}
             >
-              <div
-                className="absolute inset-0 w-full h-full"
-                style={{ backgroundImage: `url(${card.imageUrl})` }}
-              />
               <div className="flex flex-col justify-between">
                 <h1 className="text-xl">{card.title}</h1>
                 <h2 className="text-xs font-extralight">{card.description}</h2>

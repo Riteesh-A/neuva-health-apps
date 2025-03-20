@@ -40,12 +40,10 @@ const TakeFirstStep = ({ className }: { className?: string }) => {
         </h2>
       </div>
       <div className="flex flex-col w-full md:flex-row md:justify-center gap-4">
-        <Button className="bg-[#4F7CAC] text-white rounded-full">
+        <Button className="bg-[#4F7CAC] text-white">
           Start Free Assessment
         </Button>
-        <Button variant={"outline"} className="rounded-full">
-          Book Consultation
-        </Button>
+        <Button variant={"outline"}>Book Consultation</Button>
       </div>
       <div className="w-dvw overflow-hidden">
         <ScrollingCards data={content} />

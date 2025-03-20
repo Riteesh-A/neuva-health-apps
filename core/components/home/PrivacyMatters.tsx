@@ -58,9 +58,7 @@ const PrivacyMatters = ({ className }: { className?: string }) => {
         ))}
       </div>
       <div className="flex flex-col">
-        <Button className="rounded-full" variant={"outline"}>
-          Start Free Assessment
-        </Button>
+        <Button variant={"outline"}>Start Free Assessment</Button>
       </div>
     </div>
   );
