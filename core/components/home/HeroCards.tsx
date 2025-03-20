@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/core/lib/utils";
+import { motion } from "framer-motion";
 import { ArrowRightCircle } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 
@@ -24,7 +25,20 @@ const HeroCards = () => {
   ];
 
   return (
-    <div className="flex flex-col md:grid grid-cols-2 gap-4">
+    <motion.header
+      initial={{
+        y: 100,
+        opacity: 0,
+      }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+        },
+      }}
+      className="flex flex-col md:grid grid-cols-2 gap-4"
+    >
       {cards.map((card, index) => (
         <Card
           key={index}
@@ -45,7 +59,7 @@ const HeroCards = () => {
           </CardContent>
         </Card>
       ))}
-    </div>
+    </motion.header>
   );
 };
 

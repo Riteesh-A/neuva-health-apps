@@ -1,86 +1,110 @@
 "use client";
 
 import { cn } from "@/core/lib/utils";
-import React from "react";
+import ScrollingTestimonials from "../animata/scrolling-testimonials";
+import {
+  Testimonial,
+  TestimonialCard,
+} from "../animata/scrolling-testimonials/testimonial-card";
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
-    quote:
-      "The online consultation was professional and discreet. The doctor was knowledgeable and helped me understand my options.",
+    quote: [
+      { text: "The online consultation was professional and discreet." },
+      {
+        text: " The doctor was knowledgeable and helped me understand my options.",
+        highlight: true,
+      },
+    ],
     name: "Rajesh K.",
+    image:
+      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     location: "32, Bangalore",
   },
   {
-    quote:
-      "I was hesitant to seek help, but Neuva made the process comfortable. The medication has made a significant difference.",
+    quote: [
+      { text: "I was hesitant to seek help," },
+      { text: " but Neuva made the process comfortable.", highlight: true },
+      { text: "The medication has made a significant difference." },
+    ],
     name: "Vikram S.",
     location: "41, Mumbai",
+    image:
+      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    quote:
-      "The assessment was easy to complete, and I got my prescription the same day. The quality of the medication is excellent.",
+    quote: [
+      {
+        text: "The assessment was easy to complete, and I got my prescription the same day.",
+        highlight: true,
+      },
+      { text: " The quality of the medication is excellent." },
+    ],
     name: "Arjun T.",
     location: "35, Delhi",
+    image:
+      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+
+  {
+    quote: [
+      { text: "The online consultation was professional and discreet." },
+      {
+        text: " The doctor was knowledgeable and helped me understand my options.",
+        highlight: true,
+      },
+    ],
+    name: "Rajesh K.",
+    image:
+      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    location: "32, Bangalore",
   },
   {
-    quote:
-      "I was hesitant to seek help, but Neuva made the process comfortable. The medication has made a significant difference.",
+    quote: [
+      { text: "I was hesitant to seek help," },
+      { text: " but Neuva made the process comfortable.", highlight: true },
+      { text: "The medication has made a significant difference." },
+    ],
     name: "Vikram S.",
     location: "41, Mumbai",
+    image:
+      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    quote:
-      "The assessment was easy to complete, and I got my prescription the same day. The quality of the medication is excellent.",
+    quote: [
+      {
+        text: "The assessment was easy to complete, and I got my prescription the same day.",
+        highlight: true,
+      },
+      { text: " The quality of the medication is excellent." },
+    ],
     name: "Arjun T.",
     location: "35, Delhi",
-  },
-  {
-    quote:
-      "The assessment was easy to complete, and I got my prescription the same day. The quality of the medication is excellent.",
-    name: "Arjun T.",
-    location: "35, Delhi",
+    image:
+      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 
-const TrustedByMen: React.FC = () => {
+const TrustedByMen = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("container mx-auto py-12 overflow-hidden mb-[450px]")}>
-      <h1 className="text-4xl text-center">Trusted by Men Across India</h1>
-      <p className="text-center mt-2 mb-8 font-light">
-        At Neuva Health, we understand the importance of discretion. Our
-        consultations are confidential, and all medications are delivered in
-        plain, unmarked packaging.
-      </p>
-
-      {/* Scrolling Testimonials */}
-      <div className="absolute w-[99vw] overflow-hidden left-1/2 right-1/2 -ml-[49.5vw] -mr-[49.5vw] space-y-6 ">
-        {/* First Row - Scroll Left */}
-        <div className="w-full flex space-x-6 animate-scroll-left">
-          {[...testimonials, ...testimonials].map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-[#E3EDFB] p-6 rounded-lg w-80 flex-shrink-0"
-            >
-              <p className="font-light mb-4">"{testimonial.quote}"</p>
-              <p className="font-semibold">{testimonial.name}</p>
-              <p className="text-sm text-gray-600">{testimonial.location}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Second Row - Scroll Right (Offset for Staggering) */}
-        <div className="flex space-x-6 animate-scroll-right ml-40">
-          {[...testimonials, ...testimonials].map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-[#E3EDFB] p-6 rounded-lg w-80 flex-shrink-0"
-            >
-              <p className="font-light mb-4">"{testimonial.quote}"</p>
-              <p className="font-semibold">{testimonial.name}</p>
-              <p className="text-sm text-gray-600">{testimonial.location}</p>
-            </div>
-          ))}
-        </div>
+    <div className={cn("flex flex-col items-center gap-20", className)}>
+      <div className="flex flex-col gap-8 text-center max-w-2xl">
+        <h1 className="text-3xl md:text-6xl tracking-tight">
+          Your Privacy Matters
+        </h1>
+        <h2 className="font-extralight text-lg">
+          We maintain strict confidentiality protocols at every touchpoint, from
+          consultation to delivery, ensuring your personal health journey
+          remains private.
+        </h2>
+      </div>
+      <div className="hidden md:block w-dvw overflow-hidden">
+        <ScrollingTestimonials data={testimonials} />
+      </div>
+      <div className="flex flex-col md:hidden gap-4">
+        {testimonials.splice(0, 3).map((testimonial, index) => (
+          <TestimonialCard key={index} testimonial={testimonial} />
+        ))}
       </div>
     </div>
   );

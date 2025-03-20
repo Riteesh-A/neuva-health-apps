@@ -1,75 +1,59 @@
 "use client";
 
 import { cn } from "@/core/lib/utils";
-import React from "react";
+import { Card, CardContent } from "../ui/card";
 
-const QualityTreatment: React.FC = () => {
+const cards = [
+  {
+    imageUrl: "/assets/quality-treatment-1.png",
+    title: "Neuva Extend",
+    description: "Starting from $10.50",
+  },
+  {
+    imageUrl: "/assets/quality-treatment-2.png",
+    title: "Neuva Relief",
+    description: "Starting from $10.50",
+  },
+  {
+    imageUrl: "/assets/quality-treatment-3.png",
+    title: "Neuva Balance",
+    description: "Starting from $10.50",
+  },
+];
+
+const QualityTreatment = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("container mx-auto py-12")}>
-      <h1 className="text-4xl text-center">Quality Treatment Options</h1>
-      <p className="text-center mt-2 mb-8 font-light">
-        Some subtitle/marketing copy goes here
-      </p>
-      <div className="flex justify-between space-x-4">
-        <div className="w-1/3">
-          <div className="bg-[#E3EDFB] rounded-lg h-80 w-full mb-2"></div>
-          <div className="bg-[#E3EDFB] py-3 px-8 rounded-lg flex flex-col justify-between h-fit">
-            <div className="flex-grow"></div>
-            <div className="items-start text-left">
-              <h2 className="text-xl">Performance Enhancement Kit</h2>
-              <p className="font-light">
-                Doctor-recommended medication to improve erectile function.
-              </p>
-              <p className="">₹XXX / month</p>
-              <div className="justify-items-end items-end">
-                <div className="bg-[#4F7CAC] text-white py-2 px-4 rounded-full">
-                  Buy Now
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="w-1/3">
-          <div className="bg-[#E3EDFB] rounded-lg h-80 w-full mb-2"></div>
-          <div className="bg-[#E3EDFB] py-3 px-8 rounded-lg flex flex-col justify-between h-fit">
-            <div className="flex-grow"></div>
-            <div className="items-start text-left ">
-              <h2 className="text-xl">Duration Control Solution</h2>
-              <p className="font-light">
-                Clinically proven medication that will help you last longer.
-              </p>
-              <p className="">₹XXX / month</p>
-              <div className="justify-items-end items-end">
-                <div className="bg-[#4F7CAC] text-white py-2 px-4 rounded-full">
-                  Buy Now
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="w-1/3">
-          <div className="bg-[#E3EDFB] rounded-lg h-80 w-full mb-2"></div>
-          <div className="bg-[#E3EDFB] py-3 px-8 rounded-lg flex flex-col justify-between h-fit">
-            <div className="flex-grow"></div>
-            <div className="items-start text-left">
-              <h2 className="text-xl">Performance Enhancement Kit</h2>
-              <p className="font-light">
-                Doctor-recommended medication to improve erectile function.
-              </p>
-              <p className="">₹XXX / month</p>
-              <div className="justify-items-end items-end">
-                <div className="bg-[#4F7CAC] text-white py-2 px-4 rounded-full">
-                  Buy Now
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className={cn("flex flex-col items-center gap-20", className)}>
+      <div className="flex flex-col gap-8 text-center max-w-xl">
+        <h1 className="text-3xl md:text-6xl tracking-tight">
+          Quality Treatment <br />
+          Options
+        </h1>
+        <h2 className="font-extralight text-lg">
+          FDA-approved medications & evidence-based treatments selected for
+          maximum effectiveness.
+        </h2>
       </div>
-      <div className="text-center mt-8">
-        <button className="bg-[#D7DDE4] text-gray-800 py-2 px-4 rounded-full">
-          View All Products
-        </button>
+      <div className="grid grid-cols-3 gap-4">
+        {cards.map((card, index) => (
+          <Card
+            key={index}
+            className="p-0 overflow-hidden w-80 aspect-[3/4] bg-[#FCF9F9]"
+          >
+            <CardContent
+              className={"p-6 relative bg-cover bg-center bg-no-repeat] h-full"}
+            >
+              <div
+                className="absolute inset-0 w-full h-full"
+                style={{ backgroundImage: `url(${card.imageUrl})` }}
+              />
+              <div className="flex flex-col justify-between">
+                <h1 className="text-xl">{card.title}</h1>
+                <h2 className="text-xs font-extralight">{card.description}</h2>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   );

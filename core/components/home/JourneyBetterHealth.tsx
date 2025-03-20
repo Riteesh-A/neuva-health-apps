@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/core/lib/utils";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
@@ -42,7 +43,20 @@ const cards = [
 
 const JourneyBetterHealth = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("flex flex-col py-10 md:py-20 items-center", className)}>
+    <motion.header
+      initial={{
+        y: 100,
+        opacity: 0,
+      }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+        },
+      }}
+      className={cn("flex flex-col py-10 md:py-20 items-center", className)}
+    >
       <div className="flex flex-col gap-8 text-center">
         <div className="text-4xl md:text-6xl font-semibold tracking-tight">
           <h1>Your Journey to</h1>
@@ -107,7 +121,7 @@ const JourneyBetterHealth = ({ className }: { className?: string }) => {
           </Card>
         ))}
       </div>
-    </div>
+    </motion.header>
   );
 };
 

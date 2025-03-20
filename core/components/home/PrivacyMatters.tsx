@@ -1,41 +1,66 @@
 "use client";
-
 import { cn } from "@/core/lib/utils";
-import React from "react";
+import { Box, CreditCard, ShieldCheck, Sparkles } from "lucide-react";
+import { Button } from "../ui/button";
+import { Card, CardContent } from "../ui/card";
 
-// filepath: c:/Users/punee/OneDrive/Documents/GitHub/neuva-health-apps/core/components/home/PrivacyMatters.tsx
+const cards = [
+  {
+    Icon: ShieldCheck,
+    title: "End-to-end Encryption",
+    description:
+      "Your medical information is secured with advanced encryption, protecting your privacy throughout your care.",
+  },
+  {
+    Icon: Box,
+    title: "Discreet Packaging",
+    description:
+      "Products arrive in plain, unmarked boxes with no indication of contents or our company name.",
+  },
+  {
+    Icon: CreditCard,
+    title: "Discreet Billing",
+    description:
+      "Your statements show only a generic company name, never revealing what you've purchased.",
+  },
+  {
+    Icon: Sparkles,
+    title: "100% Authentic",
+    description:
+      "All medications come directly from licensed U.S. pharmacies, guaranteed genuine and effective.",
+  },
+];
 
-const PrivacyMatters: React.FC = () => {
+const PrivacyMatters = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("container mx-auto py-12 text-center")}>
-      <h1 className="text-4xl">Your Privacy Matters</h1>
-      <p className="mt-2 mb-8 font-light px-72">
-        At Neuva Health, we understand the importance of discretion. Our
-        consultations are confidential, and all medications are delivered in
-        plain, unmarked packaging.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-[#E3EDFB] rounded-lg py-8 px-4 flex flex-col items-center">
-          <div className="bg-[#C3D1E5] rounded-full h-16 w-16 mb-4"></div>
-          <h2 className="text-xl">End-to-end encryption</h2>
-        </div>
-        <div className="bg-[#E3EDFB] rounded-lg py-8 px-4 flex flex-col items-center">
-          <div className="bg-[#C3D1E5] rounded-full h-16 w-16 mb-4"></div>
-          <h2 className="text-xl">Discreet packaging</h2>
-        </div>
-        <div className="bg-[#E3EDFB] rounded-lg py-8 px-4 flex flex-col items-center">
-          <div className="bg-[#C3D1E5] rounded-full h-16 w-16 mb-4"></div>
-          <h2 className="text-xl">Discreet billing</h2>
-        </div>
-        <div className="bg-[#E3EDFB] rounded-lg py-8 px-4 flex flex-col items-center">
-          <div className="bg-[#C3D1E5] rounded-full h-16 w-16 mb-4"></div>
-          <h2 className="text-xl">100% authentic medications</h2>
-        </div>
+    <div className={cn("flex flex-col items-center gap-20", className)}>
+      <div className="flex flex-col gap-8 text-center max-w-xl">
+        <h1 className="text-3xl md:text-6xl tracking-tight">
+          Your Privacy Matters
+        </h1>
+        <h2 className="font-extralight text-lg">
+          We maintain strict confidentiality protocols at every touchpoint, from
+          consultation to delivery, ensuring your personal health journey
+          remains private.
+        </h2>
       </div>
-      <div className="mt-8">
-        <button className="bg-[#D7DDE4] text-gray-800 py-2 px-4 rounded-full">
-          Learn more about Neuva
-        </button>
+      <div className="grid grid-cols-2 gap-10 w-full">
+        {cards.map(({ Icon, title, description }, i) => (
+          <Card key={i} className="p-0">
+            <CardContent className="flex flex-col p-6 gap-4 p-4 items-start">
+              <Icon className="size-8" />
+              <h1>{title}</h1>
+              <p className="text-start font-extralight text-xs">
+                {description}
+              </p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      <div className="flex flex-col">
+        <Button className="rounded-full" variant={"outline"}>
+          Start Free Assessment
+        </Button>
       </div>
     </div>
   );

@@ -107,6 +107,9 @@ button {
 }
 
 @theme inline {
+  --animate-marquee-horizontal: marquee-x var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-y var(--duration) linear infinite;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -258,4 +261,24 @@ body {
 .animate-scroll-right {
   display: flex;
   animation: scroll-right 20s linear infinite;
+}
+
+@keyframes marquee-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
 }

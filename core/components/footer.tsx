@@ -1,82 +1,77 @@
 "use client";
 
-import { hankenGrotesk } from "@/core/fonts";
-import { cn } from "@/core/lib/utils";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import React from "react";
+import Link from "next/link";
+import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { IoLogoFacebook } from "react-icons/io";
+import { cn } from "../lib/utils";
+import { Logo } from "./logo";
+import { Button, buttonVariants } from "./ui/button";
+import { Input } from "./ui/input";
 
-// filepath: c:\Users\punee\OneDrive\Documents\GitHub\neuva-health-apps\core\components\footer.tsx
+const links = [
+  {
+    category: "Company",
+    links: [
+      { name: "About", href: "#" },
+      { name: "Careers", href: "#" },
+      { name: "Press", href: "#" },
+      { name: "Blog", href: "#" },
+    ],
+  },
+  {
+    category: "Support",
+    links: [
+      { name: "Contact Us", href: "#" },
+      { name: "FAQs", href: "#" },
+      { name: "Privacy Policy", href: "#" },
+      { name: "Terms of Service", href: "#" },
+    ],
+  },
+];
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
-    <footer className={cn(hankenGrotesk.className, "bg-white py-16 px-12")}>
-      <div className="container mx-auto flex justify-between items-start">
-        <div className="flex flex-col space-y-4">
-          <div className="flex items-center space-x-2">
-            <img
-              src="/icons/neuva_logo_small_transparent.png"
-              alt="Neuva Health"
-              className="h-10"
-            />
+    <footer className="flex flex-col md:flex-row justify-between gap-10 py-10 md:py-20 px-4 md:px-10 max-w-screen-xl self-center w-full">
+      <div className="flex flex-col gap-3">
+        <Logo />
+        <div className="flex items-center gap-3 text-black/60">
+          <IoLogoFacebook className="size-8 pointer-cursor" />
+          <FaInstagram className="size-8 pointer-cursor" />
+          <FaXTwitter className="size-8 pointer-cursor" />
+        </div>
+      </div>
+      <div className="flex flex-col-reverse md:grid grid-cols-4 gap-10 w-full">
+        {links.map(({ category, links }, i) => (
+          <div key={i} className="flex flex-col md:items-center">
+            <div key={i} className="flex flex-col gap-4">
+              <h1 className="text-sm text-primary">{category}</h1>
+              <div className="flex flex-col">
+                {links.map(({ name, href }, j) => (
+                  <Link
+                    key={j}
+                    href={href}
+                    className={cn(
+                      buttonVariants({ variant: "link" }),
+                      "p-0 justify-start text-base"
+                    )}
+                  >
+                    {name}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="flex space-x-4">
-            <a href="#" className="text-gray-600 hover:text-gray-800">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="text-gray-600 hover:text-gray-800">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="#" className="text-gray-600 hover:text-gray-800">
-              <i className="fab fa-twitter"></i>
-            </a>
-          </div>
-        </div>
-        <div className="flex flex-col space-y-4">
-          <h4 className="font-semibold text-gray-800">Company</h4>
-          <a href="#" className="text-gray-600 hover:text-gray-800">
-            About Us
-          </a>
-          <a href="#" className="text-gray-600 hover:text-gray-800">
-            Careers
-          </a>
-          <a href="#" className="text-gray-600 hover:text-gray-800">
-            Press
-          </a>
-          <a href="#" className="text-gray-600 hover:text-gray-800">
-            Blog
-          </a>
-        </div>
-        <div className="flex flex-col space-y-4">
-          <h4 className="font-semibold text-gray-800">Support</h4>
-          <a href="#" className="text-gray-600 hover:text-gray-800">
-            Contact Us
-          </a>
-          <a href="#" className="text-gray-600 hover:text-gray-800">
-            FAQs
-          </a>
-          <a href="#" className="text-gray-600 hover:text-gray-800">
-            Privacy Policy
-          </a>
-          <a href="#" className="text-gray-600 hover:text-gray-800">
-            Terms of Service
-          </a>
-        </div>
-        <div className="flex flex-col space-y-2">
-          <h4 className="font-semibold text-gray-800">
-            Subscribe to our Newsletter
-          </h4>
-          <p className="text-gray-600">
+        ))}
+        <div className="col-span-2 flex flex-col gap-2">
+          <h1 className="text-sm">Subscribe to our Newsletter</h1>
+          <h2 className="font-light">
             Stay updated with our latest products and offers.
-          </p>
-          <div className="flex space-x-2">
-            <input
-              type="email"
-              placeholder="Email address"
-              className="px-4 py-2 bg-[#E0E1E2] border border-gray-300 rounded-full focus:outline-none"
-            />
-            <button className="bg-white text-gray-600 border border-gray-300 px-4 py-2 rounded-full">
-              Subscribe
-            </button>
+          </h2>
+
+          <div className="flex flex-col md:flex-row gap-4 w-full">
+            <Input type="text" />
+            <Button size={"sm"}>Subscribe</Button>
           </div>
         </div>
       </div>

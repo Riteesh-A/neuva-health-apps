@@ -1,26 +1,54 @@
 "use client";
 
 import { cn } from "@/core/lib/utils";
-import React from "react";
+import ScrollingCards from "../animata/scrolling-cards";
+import { Button } from "../ui/button";
 
-// filepath: c:\Users\punee\OneDrive\Documents\GitHub\neuva-health-apps\core\components\home\TakeFirstStep.tsx
+const content = [
+  {
+    stat: { statLabel: "Vitality Age", statValue: 39 },
+    description: "9 years younger than your calendar age",
+    image: "/assets/person-1.png",
+  },
+  {
+    stat: { statLabel: "Performance Score", statValue: 24 },
+    description: "Outperforming 72% of men in his age group",
+    image: "/assets/person-2.png",
+  },
+  {
+    stat: { statLabel: "Stamina Rating", statValue: 41 },
+    description: "7 years sharper than average for your age",
+    image: "/assets/person-3.png",
+  },
+  {
+    stat: { statLabel: "Vitality Age", statValue: 92 },
+    description: "9 years younger than your calendar age",
+    image: "/assets/person-4.png",
+  },
+];
 
-const TakeFirstStep: React.FC = () => {
+const TakeFirstStep = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("bg-[#E3EDFB] rounded-lg px-8 py-32 text-center")}>
-      <h1 className="text-4xl mb-4">Take the First Step Today</h1>
-      <p className="text-lg mb-8 font-light px-64">
-        Join thousands of men who have improved their sexual health with Neuva.
-        Our discrete, professional approach puts you in control of your wellness
-        journey.
-      </p>
-      <div className="flex justify-center space-x-4">
-        <button className="bg-[#4F7CAC] text-white py-2 px-4 rounded-full">
+    <div className={cn("flex flex-col items-center gap-8", className)}>
+      <div className="flex flex-col gap-8 text-center max-w-xl">
+        <h1 className="text-3xl md:text-6xl tracking-tight">
+          Take the First Step Today
+        </h1>
+        <h2 className="font-extralight text-lg">
+          Begin your journey to better health with a free online consultation
+          and discover personalized solutions designed for your specific needs.
+        </h2>
+      </div>
+      <div className="flex flex-col w-full md:flex-row md:justify-center gap-4">
+        <Button className="bg-[#4F7CAC] text-white rounded-full">
           Start Free Assessment
-        </button>
-        <button className="bg-[#D7DDE4] text-gray-800 py-2 px-4 rounded-full">
+        </Button>
+        <Button variant={"outline"} className="rounded-full">
           Book Consultation
-        </button>
+        </Button>
+      </div>
+      <div className="w-dvw overflow-hidden">
+        <ScrollingCards data={content} />
       </div>
     </div>
   );

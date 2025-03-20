@@ -1,54 +1,60 @@
 "use client";
 
 import { cn } from "@/core/lib/utils";
-import React, { useState } from "react";
+import { Plus, X } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
 
-// filepath: c:/Users/punee/OneDrive/Documents/GitHub/neuva-health-apps/core/components/home/CommonQuestions.tsx
+const faqs = [
+  {
+    question: "Are the doctors licensed medical professionals?",
+    answer:
+      "Yes. Our doctors are licensed medical professionals who are experienced in providing telehealth services.",
+  },
+  {
+    question: "How discreet is the packaging?",
+    answer:
+      "Our packaging is discreet and does not have any branding or indication of the contents inside.",
+  },
+  {
+    question: "Are the medications authentic?",
+    answer:
+      "Yes. All medications are sourced from licensed pharmacies and are authentic.",
+  },
+];
 
-const CommonQuestions: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleQuestion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const questions = [
-    "Are the doctors licensed medical professionals?",
-    "How discreet is the packaging?",
-    "Are the medications authentic?",
-  ];
-
+const CommonQuestions = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("container mx-auto py-12")}>
-      <h1 className="text-4xl text-center">Common Questions</h1>
-      <p className="text-center mt-2 mb-8 font-light px-72">
-        At Neuva Health, we understand the importance of discretion. Our
-        consultations are confidential, and all medications are delivered in
-        plain, unmarked packaging.
-      </p>
-      <div className="space-y-4 px-64">
-        {questions.map((question, index) => (
-          <div key={index} className="bg-[#E3EDFB] rounded-lg">
-            <button
-              className="w-full text-left py-4 px-6 flex justify-between items-center"
-              onClick={() => toggleQuestion(index)}
+    <div className={cn("flex flex-col items-center gap-20", className)}>
+      <div className="flex flex-col gap-8 text-center max-w-xl">
+        <h1 className="text-3xl md:text-6xl tracking-tight">
+          Common Questions
+        </h1>
+        <h2 className="font-extralight text-lg">
+          Find answers to frequently asked questions about our treatments,
+          billing, shipping, and medical process to help you make informed
+          decisions.
+        </h2>
+      </div>
+      <Accordion type="single" collapsible className="w-full max-w-2xl">
+        {faqs.map(({ question, answer }, index) => (
+          <AccordionItem key={index} value={`${index}`}>
+            <AccordionTrigger
+              icons={{ Open: Plus, Closed: X }}
+              className="text-xl font-normal relative"
             >
-              <span>{question}</span>
-              <span>{openIndex === index ? "▲" : "▼"}</span>
-            </button>
-            {openIndex === index && (
-              <div className="px-6 pb-4">
-                <p className="font-light">Answer to the question goes here.</p>
-              </div>
-            )}
-          </div>
+              {question}
+            </AccordionTrigger>
+            <AccordionContent className="font-extralight text-lg">
+              {answer}
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
-      <div className="text-center mt-8">
-        <button className="bg-[#D7DDE4] text-gray-800 py-2 px-4 rounded-full">
-          View All FAQs
-        </button>
-      </div>
+      </Accordion>
     </div>
   );
 };

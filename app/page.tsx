@@ -7,7 +7,7 @@ import { cn } from "@/core/lib/utils";
 
 export default async function HomePage() {
   return (
-    <div className="flex flex-col h-screen max-h-screen bg-[url('/bg.png')] bg-bottom bg-cover bg-no-repeat bg-fixed">
+    <div className="flex flex-col h-screen max-h-screen bg-[url(/bg.png)] bg-bottom bg-cover bg-no-repeat bg-fixed">
       <header className="flex gap-4 p-4 lg:px-6 justify-between">
         <Logo />
       </header>
