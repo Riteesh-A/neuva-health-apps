@@ -22,7 +22,7 @@ export function ScrollingCard({
   content: ScrollingCard;
 }) {
   return (
-    <Card className="flex p-0 h-96 aspect-[3/4] overflow-hidden rounded-xl bg-[#E3EDFB]">
+    <Card className="flex p-0 h-96 aspect-[3/4] overflow-hidden rounded-xl bg-primary-98">
       <CardContent
         className="p-0 flex flex-col h-full relative z-0 bg-cover bg-center"
         style={{

@@ -6,15 +6,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { Logo } from "./logo";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { Separator } from "./ui/separator";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
 
@@ -62,10 +60,10 @@ const Navbar = () => {
         <h1 className="whitespace-nowrap md:px-4">Why Neuva?</h1>
         <Separator
           orientation="vertical"
-          className="ml-2 h-4 w-1 bg-[#1a1c1f38]"
+          className="ml-2 h-4 w-1 bg-muted-foreground"
         />
         <div className="relative w-11/12 overflow-hidden whitespace-nowrap">
-          <div className="flex animate-scroll space-x-16 w-max text-[#4F7CAC]">
+          <div className="flex animate-scroll space-x-16 w-max text-primary-25">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex space-x-16">
                 {items.map((item, i) => (
@@ -99,10 +97,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button
-            size={"lg"}
-            className="bg-[#2F5F8D] text-white hidden md:flex"
-          >
+          <Button size={"lg"} className="hidden md:flex">
             Book Free Consultation
           </Button>
           <Button size={"lg"} variant={"outline"}>
@@ -123,13 +118,29 @@ const MobileMenu = ({ className }: { className?: string }) => {
       </SheetTrigger>
       <SheetContent className="gap-0">
         <SheetHeader>
-          <SheetTitle>mobile menu</SheetTitle>
-          <SheetDescription>description</SheetDescription>
+          <div className="flex">
+            <Logo />
+          </div>
         </SheetHeader>
         <Separator />
-        <div className="flex flex-col flex-1 p-4">main content</div>
+        <div className="flex flex-col flex-1 p-4 gap-2">
+          {links.map((link, i) => (
+            <Link
+              key={i}
+              href={link.href}
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                "text-base justify-start"
+              )}
+            >
+              {link.text}
+            </Link>
+          ))}
+        </div>
         <Separator />
-        <SheetFooter>footer</SheetFooter>
+        <SheetFooter>
+          <Button>Book Free Consultation</Button>
+        </SheetFooter>
       </SheetContent>
     </Sheet>
   );

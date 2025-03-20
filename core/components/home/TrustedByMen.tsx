@@ -90,12 +90,11 @@ const TrustedByMen = ({ className }: { className?: string }) => {
     <div className={cn("flex flex-col items-center gap-20", className)}>
       <div className="flex flex-col gap-8 text-center max-w-2xl">
         <h1 className="text-3xl md:text-6xl tracking-tight">
-          Your Privacy Matters
+          Trusted by Men Across India
         </h1>
         <h2 className="font-extralight text-lg">
-          We maintain strict confidentiality protocols at every touchpoint, from
-          consultation to delivery, ensuring your personal health journey
-          remains private.
+          Join thousands of men who have experienced improved health and
+          confidence through our discreet, effective healthcare solutions.
         </h2>
       </div>
       <div className="hidden md:block w-dvw overflow-hidden">

@@ -38,7 +38,7 @@ const QualityTreatment = ({ className }: { className?: string }) => {
         {cards.map((card, index) => (
           <Card
             key={index}
-            className="p-0 overflow-hidden w-80 aspect-[3/4] bg-[#FCF9F9]"
+            className="p-0 overflow-hidden w-80 aspect-[3/4] bg-primary-98"
           >
             <CardContent
               className="p-6 flex flex-col h-full relative z-0 bg-cover bg-center"

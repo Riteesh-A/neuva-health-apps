@@ -19,7 +19,7 @@ export function TestimonialCard({
 }) {
   return (
     <Card
-      className="flex p-0 h-44 w-96 overflow-hidden rounded-xl bg-[#E3EDFB]"
+      className="flex p-0 h-44 w-96 overflow-hidden rounded-xl bg-primary-98"
       key={name}
     >
       <CardContent className="p-0 flex items-center h-full">
@@ -30,7 +30,7 @@ export function TestimonialCard({
           <p className="block text-base tracking-tight leading-6 text-foreground">
             "
             {quote.map(({ text, highlight }, i) => (
-              <span key={i} className={cn(highlight && "text-[#2F5F8D]")}>
+              <span key={i} className={cn(highlight && "text-primary-25")}>
                 {text}
               </span>
             ))}

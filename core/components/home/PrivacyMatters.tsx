@@ -47,7 +47,7 @@ const PrivacyMatters = ({ className }: { className?: string }) => {
       <div className="grid grid-cols-2 gap-10 w-full">
         {cards.map(({ Icon, title, description }, i) => (
           <Card key={i} className="p-0">
-            <CardContent className="flex flex-col p-6 gap-4 p-4 items-start">
+            <CardContent className="flex flex-col p-6 gap-4 items-start">
               <Icon className="size-8" />
               <h1>{title}</h1>
               <p className="text-start font-extralight text-xs">

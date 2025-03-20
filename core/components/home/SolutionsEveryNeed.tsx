@@ -33,7 +33,7 @@ const SolutionsEveryNeed: React.FC = () => {
           <div
             key={index}
             className={cn(
-              "bg-[#E3EDFB] p-6 rounded-lg flex flex-col items-start w-1/3"
+              "bg-primary-98 p-6 rounded-lg flex flex-col items-start w-1/3"
             )}
           >
             <h3 className="text-xl mb-2">{card.title}</h3>

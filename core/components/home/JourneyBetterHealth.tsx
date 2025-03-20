@@ -8,7 +8,7 @@ import { Card, CardContent } from "../ui/card";
 
 const cards = [
   {
-    title: "Have longer sex",
+    title: "Have better sex",
     image:
       "https://s3-alpha-sig.figma.com/img/4289/6577/8583bfc1a2ede6f5372b854ef2c8c2cd?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hs2-tC2wt~PdQ5Bb2vPV11f8NhcZ2XudjUv9bSfZXNeTBWWLS3O~RdMpFCWcE~QT2gtbN32UgUIX9niHJcdgTVHq4F~yn88oLMJCyEiXDy6FLc589ztAfJVnXgJwsDT7t-yAreEsLWwD77uwQyVyoEDJzukIUoRV0hafRcYzDFtyKsEfszwkoYulRbXMCi1vIaizUVewKW04JMzrdCeVEdceabBJjC7X-grGIOKyJsYnUpc4nBMsjL43lxCm3Rb-belWEGBCHUKl3A7oWwJ5JGlAJUkesBFcm-7WqVDib43W~NJhO7RZ03iy5jPFiLDf2Apg-4bxrSDY-YLT6EIsCQ__",
     description: "Improve stamina and confidence with personalized solutions.",

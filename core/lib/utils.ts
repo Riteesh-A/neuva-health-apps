@@ -1,4 +1,5 @@
 import { clsx, type ClassValue } from "clsx";
+import { converter, parse } from "culori";
 import { ReadonlyURLSearchParams } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 
@@ -54,4 +55,23 @@ export const validateEnvironmentVariables = () => {
       "Your `SHOPIFY_STORE_DOMAIN` environment variable includes brackets (ie. `[` and / or `]`). Your site will not work with them there. Please remove them."
     );
   }
+};
+
+export const hexToOklch = (hex: string): string | null => {
+  const color = parse(hex);
+
+  if (!color) {
+    throw new Error("Invalid hex color format");
+  }
+
+  // Convert to OKLCH
+  const toOklch = converter("oklch");
+  const oklch = toOklch(color);
+
+  if (!oklch) {
+    throw new Error("Failed to convert to OKLCH");
+  }
+
+  const { l, c, h } = oklch;
+  return `oklch(${l.toFixed(3)} ${c.toFixed(3)} ${h?.toFixed(3) || 0})`;
 };

@@ -61,12 +61,8 @@ const HeroText = () => {
         }}
         className="flex flex-col w-full md:w-auto md:flex-row justify-start gap-4"
       >
-        <Button className="bg-[#4F7CAC] text-white py-2 px-4">
-          Start Free Assessment
-        </Button>
-        <Button className="bg-[#D7DDE4] text-gray-700 py-2 px-4">
-          View Products
-        </Button>
+        <Button>Start Free Assessment</Button>
+        <Button variant={"outline"}>View Products</Button>
       </motion.header>
     </div>
   );
