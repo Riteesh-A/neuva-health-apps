@@ -1,5 +1,5 @@
 import Marquee from "../container/marquee";
-import { ScrollingCard, ScrollingCardProps } from "./scrolling-card";
+import { ScrollingCard, type ScrollingCardProps } from "./scrolling-card";
 
 export default function ScrollingCards({ data }: ScrollingCardProps) {
   return (
