@@ -26,7 +26,7 @@ export const SlugHeader = ({ slug }: { slug: string }) => {
   }
 
   return (
-    <div className="flex flex-col p-20 mx-auto">
+    <div className="flex flex-col p-20 px-4 md:px-20 mx-auto">
       <div className="flex flex-col items-center gap-8 max-w-screen-lg w-full">
         <div className="flex items-center gap-3 p-1">
           <span>Home</span>
@@ -63,25 +63,25 @@ export const SlugHeader = ({ slug }: { slug: string }) => {
           </Select>
         </div>
 
-        <div className="flex flex-col items-center text-center w-3/4">
-          <h1 className="text-5xl font-semibold tracking-tight leading-15">
+        <div className="flex flex-col items-center text-center md:w-3/4">
+          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight md:leading-15">
             {data.heroTitle}
           </h1>
         </div>
 
-        <div className="flex items-center gap-15 justify-between">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-15 justify-between">
           <div className="flex items-center gap-3">
-            <TbRosetteDiscountCheck className="text-2xl text-primary" />
+            <TbRosetteDiscountCheck />
             <span className="">Clinically-proven ingredients</span>
           </div>
 
           <div className="flex items-center gap-3">
-            <PiHospital className="text-2xl text-primary" />
+            <PiHospital />
             <span className="">No Clinic visit required</span>
           </div>
 
           <div className="flex items-center gap-3">
-            <PiPackage className="text-2xl text-primary" />
+            <PiPackage />
             <span className="">Discreet Delivery</span>
           </div>
         </div>

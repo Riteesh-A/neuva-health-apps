@@ -10,7 +10,7 @@ export default async function HomeSlugPage() {
     <div className="flex flex-col overflow-x-hidden">
       <div className="flex flex-col items-center p-20 gap-20 max-w-screen-lg w-full px-4 md:px-10 mx-auto">
         <div className="flex flex-col items-center text-center w-full gap-6">
-          <h1 className="text-4xl font-medium w-1/2 tracking-tight">
+          <h1 className="text-2xl md:text-4xl font-medium md:w-1/2 tracking-tight">
             {category?.heroSubTitle}
           </h1>
           <p className="font-medium text-muted-foreground">
@@ -18,7 +18,7 @@ export default async function HomeSlugPage() {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4">
           {category?.products.map((product, index) => (
             <Card
               key={index}
