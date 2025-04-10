@@ -21,12 +21,12 @@ export default function ScrollingTestimonials({ data }: TestimonialProps) {
           <TestimonialCard key={index} testimonial={testimonial} />
         ))}
       </Marquee>
-
+{/* 
       <Marquee className="[--duration:25s]" pauseOnHover applyMask={false}>
         {data.map((testimonial, index) => (
           <TestimonialCard key={index} testimonial={testimonial} />
         ))}
-      </Marquee>
+      </Marquee> */}
     </div>
   );
 }

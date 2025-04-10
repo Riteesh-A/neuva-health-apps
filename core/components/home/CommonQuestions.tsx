@@ -31,7 +31,7 @@ const CommonQuestions = ({ className }: { className?: string }) => {
   return (
     <div className={cn("flex flex-col items-center gap-20", className)}>
       <div className="flex flex-col gap-8 text-center max-w-xl">
-        <h1 className="text-3xl md:text-6xl tracking-tight">
+        <h1 className="text-3xl md:text-6xl font-bold tracking-tight">
           Common Questions
         </h1>
         <h2 className="font-extralight text-lg">

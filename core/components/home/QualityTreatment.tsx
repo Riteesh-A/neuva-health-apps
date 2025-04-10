@@ -30,7 +30,7 @@ const QualityTreatment = ({ className }: { className?: string }) => {
           Quality Treatment <br />
           Options
         </h1>
-        <h2 className="font-extralight text-lg">
+        <h2 className="font-extralight text-sm md:text-lg">
           FDA-approved medications & evidence-based treatments selected for
           maximum effectiveness.
         </h2>

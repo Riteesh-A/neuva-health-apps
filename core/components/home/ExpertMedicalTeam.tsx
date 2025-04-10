@@ -54,12 +54,12 @@ const ExpertMedicalTeam = ({ className }: { className?: string }) => {
             duration: 0.5,
           },
         }}
-        className="flex max-w-md flex-col items-center gap-2 text-center"
+        className="flex max-w-md md:max-w-xl flex-col items-center gap-2 md:gap-4 text-center"
       >
         <h1 className="text-3xl md:text-6xl font-bold tracking-tight">
           Expert Medical Team
         </h1>
-        <Balancer className="block text-lg font-extralight">
+        <Balancer className="block text-sm md:text-lg font-extralight">
           Our board-certified physicians specialize in men's health and provide
           personalized care tailored to your specific needs.
         </Balancer>

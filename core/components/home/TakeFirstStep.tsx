@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/core/lib/utils";
-import Marquee from "../animata/container/marquee";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 
@@ -94,7 +93,7 @@ const TakeFirstStep = ({ className }: { className?: string }) => {
   return (
     <div className={cn("flex flex-col items-center gap-8", className)}>
       <div className="flex flex-col gap-8 text-center max-w-xl">
-        <h1 className="text-3xl md:text-6xl tracking-tight">
+        <h1 className="text-3xl md:text-6xl font-bold tracking-tight">
           Take the First Step Today
         </h1>
         <h2 className="font-extralight text-lg">
@@ -108,7 +107,7 @@ const TakeFirstStep = ({ className }: { className?: string }) => {
       </div>
       <div className="w-dvw overflow-hidden">
         {/* <ScrollingCards data={content} /> */}
-        <div className="w-full">
+        {/* <div className="w-full">
           <Marquee className="[--duration:25s]" pauseOnHover applyMask={false}>
             {data.map((card, index) => {
               if (card.type === "testimonial") {
@@ -117,7 +116,7 @@ const TakeFirstStep = ({ className }: { className?: string }) => {
               return <ImageCard key={index} {...card} />;
             })}
           </Marquee>
-        </div>
+        </div> */}
       </div>
     </div>
   );
