@@ -2,125 +2,545 @@
 
 import { cn } from "@/core/lib/utils";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 
-const cards = [
-  {
-    title: "Have better sex",
-    image:
-      "https://s3-alpha-sig.figma.com/img/4289/6577/8583bfc1a2ede6f5372b854ef2c8c2cd?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hs2-tC2wt~PdQ5Bb2vPV11f8NhcZ2XudjUv9bSfZXNeTBWWLS3O~RdMpFCWcE~QT2gtbN32UgUIX9niHJcdgTVHq4F~yn88oLMJCyEiXDy6FLc589ztAfJVnXgJwsDT7t-yAreEsLWwD77uwQyVyoEDJzukIUoRV0hafRcYzDFtyKsEfszwkoYulRbXMCi1vIaizUVewKW04JMzrdCeVEdceabBJjC7X-grGIOKyJsYnUpc4nBMsjL43lxCm3Rb-belWEGBCHUKl3A7oWwJ5JGlAJUkesBFcm-7WqVDib43W~NJhO7RZ03iy5jPFiLDf2Apg-4bxrSDY-YLT6EIsCQ__",
-    description: "Improve stamina and confidence with personalized solutions.",
-    buttonLabel: "Get Started",
-    href: "#",
-  },
-  {
-    title: "Lose weight",
-    image:
-      "https://s3-alpha-sig.figma.com/img/c7e1/b758/b832df8a58cfef1039e364d8ea41d24a?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UbND9auF3LNR88Lb8wvdfafyl72ebU9IR678TeOvacnqAL092ZxaBxR7rQDSlaXgzSfSIpl2uWzaQqrcxyPHUp-xO8Jziyb~uB3~wf3Gu6alZQ8Mcf2vaZLB3vMpb7YuajanRhrgKLEgktYw8M9cpUpNoz~-U2Rnkl~iyGJ0ZdQ5iggUpC0BaQ1CAb4YXRNXtLQHUT3DUoYEjZZj7ixHoH8Y~FgzHKHP6sNpfE-DTrZWPLrm4I5fs0h-FY64DDikB22f6po22ryIQRy~a4g~hiaCVIrt~G9Nv1TnbX8eta7jJzlYkGVdvghUpFWHjTVYvJV6k~gK~Jvy5HoqTJN-ag__",
-    description: "Answer a few questions about your health in just 3 minutes.",
-    buttonLabel: "Start your Journey",
-    href: "#",
-  },
-  {
-    title: "Tackle Anxiety",
-    image:
-      "https://s3-alpha-sig.figma.com/img/ffba/9dfc/d03933ec1d02004400998a83ed625ea3?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=p9NeT2gY6Ktqtc~dv~7Q9WITxx3v6JXR6IqiojwlmdekdmcXVMBCGbT28wMLsxahCLrEKKGwscWKqG4nUyu1Xt7mSVrEp2hkxJkDHy5EPm1EnDKRa1aLYIEVB7ftIoEURsAEzET7RkUtxZoEhGZ6k1vmqCfKjBLdFbgQzRPwObtbUoUtnAxFb016Kw~scIjw3fPxke7-P8S8aloWrFGaUr7erwOq01qGs7AS9Ly3GoNN3ga3c9kKYjgJER3mG~ddNZfB9-JpQFdNhkS9A-nTLUyruKU7FNgSQT3ELHiJQVGMcDmhfl7iebzR87BY0av6Cb-FydHjDNN7vZVa7jzidQ__",
-    description: "Answer a few questions about your health in just 3 minutes.",
-    buttonLabel: "Start your Journey",
-    href: "#",
-  },
-  {
-    title: "Regrow Hair",
-    image:
-      "https://s3-alpha-sig.figma.com/img/4a5f/4504/088d94a4dd8f0231562ff38322d3875d?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=pYNbcNZhC2-YMYOhf7huQhjvaEg9dD3xFODX6pWx7ZXXMHsJDcHBA-uIAYwovHOxQuZw4WIISoQW6qAROyFkxAtDyym5webZinf7K5PrBJ0d05JixTvKLZjLhORrNraRlpDzPTU2D5hO~p1CS~4Mn5rWkEyCfka5RNXbPKfgQhEkbuxmbTtXQm8SGATu2IV75qBMw8vxbzbYR61fvd5xQckzx3lMYRfx~uomfUjS7Xf0EGD30bqOLQ261GUYrTXLWET7CgBerqzJCu4SJzzHWC7SOyCGodJdhpRoEmn4-jALvwuEZm1Vjgsy8RmdZfXF3NJvDYzdOSJamGPPXn-0Vg__",
-    description: "Answer a few questions about your health in just 3 minutes.",
-    buttonLabel: "Start your Journey",
-    href: "#",
-  },
-];
-
 const JourneyBetterHealth = ({ className }: { className?: string }) => {
-  return (
-    <motion.header
-      initial={{
-        y: 100,
-        opacity: 0,
-      }}
-      animate={{
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
+  const [activeTab, setActiveTab] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const cardContainerRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const cardsRefs = useRef<(HTMLDivElement | null)[][]>([]);
+  
+  // Data array for tabs and their content
+  const tabsData = [
+    {
+      name: "Have longer sex",
+      cards: [
+        {
+          title: "Sildenafil (Viagra)",
+          description: "Lasts for 4-6 hours \nEffects start in 30 mins",
+          buttonText: "Start Assessment",
+          image: "/assets/blue-pills.png" // Placeholder for pill image
         },
-      }}
-      className={cn("flex flex-col py-10 md:py-20 items-center", className)}
-    >
-      <div className="flex flex-col gap-8 text-center">
-        <div className="text-4xl md:text-6xl font-semibold tracking-tight">
-          <h1>Your Journey to</h1>
-          <h1>Better Health</h1>
-        </div>
-        <div className="text-lg font-extralight max-w-screen-md">
-          Our comprehensive care approach guides you from initial consultation
-          to ongoing treatment, with physician support at every stage of your
-          wellness journey.
-        </div>
-      </div>
-      <div className="flex flex-col relative w-full h-[50vw] z-10">
-        <Image
-          src={"/assets/journey_to_better_health.svg"}
-          alt="wavy-bg"
-          fill
-          className="object-contain z-0"
-        />
-      </div>
-      <div className="flex flex-col md:grid grid-cols-2 max-w-screen-xl md:h-[90vh] w-full px-4 md:px-10 gap-5">
-        {cards.map((card, index) => (
-          <Card
-            key={index}
-            style={{
-              backgroundImage: `url(${card.image})`,
-            }}
+        {
+          title: "\"I was hesitant to seek help, but Neuva made the process comfortable. The medication has made a significant difference.\"",
+          testimonial: "Vikram S., 41, Mumbai",
+          image: "/assets/bg-bed-couple.jpg" // Placeholder for person image
+        },
+        {
+          title: "How do you want to improve your sex life?",
+          options: [
+            { label: "Last Longer", isActive: false },
+            { label: "Stay Hard", isActive: false },
+            { label: "Both", isActive: true }
+          ],
+          image: "/assets/fit-man-smiling.png"
+        }
+      ]
+    },
+    {
+      name: "Lose weight",
+      cards: [
+        {
+          title: "GLP-1 Medications",
+          description: "Lose 21% of body weight \nin 9 months",
+          buttonText: "Start Assessment",
+          image: "/assets/blue-pills.png" // Placeholder for pill image
+        },
+        {
+          title: "BMI Calculator",
+          options: [
+            { label: "Last Longer", isActive: false },
+            { label: "Stay Hard", isActive: false },
+            { label: "Both", isActive: true }
+          ],
+          image: "/assets/fit-man-smiling.png"
+        },
+        {
+          title: "Potential \nWeight Loss",
+          
+          description : "(See how much \nyou could lose)",
+          image: "/assets/bg-bed-couple.jpg"
+        }
+      ]
+    },
+    {
+      name: "Tackle Anxiety",
+      cards: [
+        {
+          title: "GLP-1 Medications",
+          description: "Lose 21% of body weight \nin 9 months",
+          buttonText: "Start Assessment",
+          image: "/assets/blue-pills.png" // Placeholder for pill image
+        },
+        {
+          title: "BMI Calculator",
+          options: [
+            { label: "Last Longer", isActive: false },
+            { label: "Stay Hard", isActive: false },
+            { label: "Both", isActive: true }
+          ],
+          image: "/assets/fit-man-smiling.png"
+        },
+        {
+          title: "Potential \nWeight Loss",
+          
+          description : "(See how much \nyou could lose)",
+          image: "/assets/bg-bed-couple.jpg"
+        }
+      ]
+    },
+    {
+      name: "Regrow Hair",
+      cards: [
+        {
+          title: "Regrow Hair in 3-6 \nmonths",
+          options: [
+            { label: "Start Assessment", isActive: false },
+          ],
+          image: "/assets/fit-man-smiling.png"
+        },
+        {
+          title: "Before and After",
+          options: [
+            { label: "Is this right for you?", isActive: false },
+          ],
+          image: "/assets/fit-man-smiling.png"
+        },
+        {
+          title: "Sildenafil (Viagra)",
+          description: "Lasts for 4-6 hours | Effects start in 30 mins",
+          buttonText: "Start Assessment",
+          image: "/assets/blue-pills.png" // Placeholder for pill image
+        },
+        {
+          title: "Finasteride",
+          description: "Lasts for 4-6 hours | Effects start in 30 mins",
+          buttonText: "Start Assessment",
+          image: "/assets/blue-pills.png" // Placeholder for pill image
+        },
+        {
+          title: "Topical Minoxidil + Finasteride Solution",
+          description: "Lasts for 4-6 hours | Effects start in 30 mins",
+          buttonText: "Start Assessment",
+          image: "/assets/blue-pills.png" // Placeholder for pill image
+        },
+      ]
+    }
+  ];
+
+  // Initialize 2D array for card refs
+  useEffect(() => {
+    cardsRefs.current = tabsData.map(() => []);
+  }, []);
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+  // Set up GSAP and ScrollTrigger
+  useEffect(() => {
+    // Register ScrollTrigger plugin
+
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+
+    // Make sure all refs are available
+    if (!containerRef.current || !sectionRef.current) return;
+    
+    // Skip GSAP setup for mobile devices
+
+    // Create a timeline for the entire section
+    const pinDuration = tabsData.length;
+    const sectionHeight = window.innerHeight * pinDuration;
+    
+    // Set the container height to accommodate scrolling
+    containerRef.current.style.height = `${sectionHeight}px`;
+    
+    // Pin the section
+    const pinTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: `+=${sectionHeight}`,
+        pin: sectionRef.current,
+        pinSpacing: true,
+        scrub: true,
+      }
+    });
+
+    // Create tab transitions
+    tabsData.forEach((_, index) => {
+      if (index < tabsData.length - 1) {
+        const progress = index / (tabsData.length - 1);
+        pinTl.to({}, { duration: 1 }, progress);
+      }
+    });
+    
+    // Create individual scroll triggers for each tab section
+    tabsData.forEach((_, index) => {
+      const sectionProgress = index / tabsData.length;
+      const nextSectionProgress = (index + 1) / tabsData.length;
+      
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: `top+=${sectionHeight * sectionProgress} top`,
+        end: index < tabsData.length - 1 
+          ? `top+=${sectionHeight * nextSectionProgress} top` 
+          : `bottom bottom`,
+        onEnter: () => setActiveTab(index),
+        onEnterBack: () => setActiveTab(index),
+      });
+    });
+
+    return () => {
+      // Clean up all ScrollTriggers when component unmounts
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, [tabsData.length]);
+
+  // Handle manual tab clicks
+  const handleTabClick = (index: number) => {
+    setActiveTab(index);
+    if (containerRef.current) {
+      const sectionHeight = window.innerHeight * tabsData.length;
+      const scrollPosition = window.scrollY - (window.scrollY % window.innerHeight) + 
+                            (sectionHeight / tabsData.length) * index;
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Render card based on type
+  const renderCard = (card: any, index: number) => {
+    if (index === 0) {
+      // Treatment card
+      return (
+        <Card className="shadow-none border-0 bg-primary-96 p-0 overflow-hidden h-60">
+          <CardContent className="p-0 flex flex-col h-full">
+            <div className="flex flex-row relative">
+              <div className="p-10 text-neutral-10 flex-grow z-10 overflow-y-visible">
+              <h2 className="text-3xl font-semibold mb-2">{card.title}</h2>
+              <p className="text-base whitespace-pre-line mb-4 leading-[20px]">
+                {card.description}
+              </p>
+              <Button variant={"outline"} className="bg-transparent py-3 px-5">
+                {card.buttonText}
+              </Button>
+              </div>
+              <img
+              className={cn(
+                "absolute right-0 top-0 h-full object-contain z-0",
+                card.title === "GLP-1 Medications" ? "mr-8 scale-150" : ""
+              )}
+              src={card.image}
+              alt="image"
+              />
+            </div>
+            {/* Image container - For medication */}
+            {activeTab === 0 && (
+              <div className="bg-blue-50 relative h-32 flex justify-end overflow-hidden">
+                <img src="/api/placeholder/150/150" alt="Medication" className="absolute bottom-0 right-4 h-32 object-contain" />
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      );
+    } else if (index === 2) {
+      // Testimonial card
+      return (
+        <Card className="p-0 overflow-hidden h-full">
+          <CardContent className="p-0 h-full flex flex-col bg-center" style={{ backgroundImage: `url(${card.image})`, backgroundSize:'230%', backgroundPositionX: 'center', backgroundPositionY: '60%' }}>
+            <div className=" text-white p-6 flex-grow bg-gradient-to-t from-gray-900/80 align-bottom to-gray-900/30">
+              <h2 className="text-5xl mt-11 leading-[48px] tracking-[-4%] font-semibold mb-4">{card.title}</h2>
+              <div className="mt-10">
+                <p className="text-2xl font-medium">{card.testimonial?.split(',')[0]}</p>
+                <p className="text-base ">{card.testimonial?.split(',')[1]}, {card.testimonial?.split(',')[2]}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      );
+    } else if (index === 1) {
+      // Options card
+      return (
+        <Card className="p-0 overflow-hidden bg-cover bg-center h-60" style={{ backgroundImage: `url(${card.image})`, backgroundSize: card.title === "Potential \nWeight Loss" ? '230%' : 'cover', backgroundPositionX: 'center', backgroundPositionY: card.title === "Potential \nWeight Loss" ? '60%' : '20%'}}>
+            <CardContent className="p-10 bg-gradient-to-t from-gray-900/80 align-bottom to-transparent text-white h-full flex flex-col justify-end">
+            <h2 className="text-[32px] font-semibold pr-24 mb-4 leading-[32px] whitespace-pre-line">{card.title}</h2>
+            <div className="flex gap-4">
+              {card.options?.map((option: any, idx: number) => (
+          <button
+            key={idx}
             className={cn(
-              "relative bg-cover text-white flex items-center justify-between p-4 overflow-hidden z-0",
-              index === 0 && "row-span-3"
+              "px-6 py-2 rounded-full text-sm font-medium border","bg-transparent text-white border-white"
             )}
           >
-            <CardContent
-              className={cn(
-                "flex flex-col w-full h-full p-6",
-                index === 0 && "justify-end"
-              )}
-            >
-              <div className="absolute inset-0 bg-black/40 bg-opacity-50 -z-10" />
-              <div
-                className={cn(
-                  "flex flex-col items-start w-full gap-6",
-                  index === 0 && "md:items-center"
+            {option.label}
+          </button>
+              ))}
+              {card.title=="Potential \nWeight Loss" && (
+                <div className="whitespace-pre-line text-xl font-medium text-white">
+                 {card.description} 
+                </div>
                 )}
-              >
-                <h1 className="font-semibold text-3xl md:text-5xl">
-                  {card.title}
-                </h1>
-                <h1 className="text-base">{card.description}</h1>
-                <Button
-                  variant={index === 0 ? "default" : "outline"}
-                  className={cn(
-                    index === 0
-                      ? "bg-white text-secondary-foreground hover:bg-secondary hover:text-secondary-foreground"
-                      : "bg-transparent"
-                  )}
-                >
-                  {card.buttonLabel}
-                </Button>
+            </div>
+          </CardContent>
+        </Card>
+      );
+    } else if (index===3){
+      return (
+        <Card className="shadow-none border-0 bg-primary-96 p-0 overflow-hidden">
+          <CardContent className="p-0 flex flex-col h-full">
+            <div className="flex flex-row relative">
+              <div className="px-10 py-4 text-neutral-10 flex-grow z-10 overflow-y-visible">
+              <h2 className="text-3xl font-semibold mb-2">{card.title}</h2>
+              <p className="text-base whitespace-pre-line mb-2 leading-[20px]">
+                {card.description}
+              </p>
+              <Button variant={"outline"} className="bg-transparent py-3 px-5">
+                {card.buttonText}
+              </Button>
               </div>
-            </CardContent>
-          </Card>
-        ))}
+              <img
+              className={cn(
+                "absolute right-0 top-0 h-full object-contain z-0",
+                card.title === "GLP-1 Medications" ? "mr-8 scale-150" : ""
+              )}
+              src={card.image}
+              alt="image"
+              />
+            </div>
+            {/* Image container - For medication */}
+            {activeTab === 0 && (
+              <div className="bg-blue-50 relative h-32 flex justify-end overflow-hidden">
+                <img src="/api/placeholder/150/150" alt="Medication" className="absolute bottom-0 right-4 h-32 object-contain" />
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <>
+    {isMobile ? (<>
+    <div className="flex flex-col h-fit gap-6 mx-4 mt-4">
+      <Card className="shadow-none border-0 bg-primary-96 p-0 overflow-hidden h-60">
+      <CardContent className="p-0 flex flex-col h-full justify-end">
+        <div className="flex flex-row relative items-end">
+          <div className="px-6 py-4 text-neutral-10 flex-grow z-10 overflow-y-visible">
+        <h2 className="text-3xl font-semibold mb-2">Sildenafil (Viagra)</h2>
+        <p className="text-base whitespace-pre-line mb-4 leading-[20px]">
+          Lasts for 4-6 hours{"\n"}Effects start in 30 mins
+        </p>
+        <Button variant={"outline"} className="bg-transparent py-2 px-4">
+          Start Assessment
+        </Button>
+          </div>
+          <img
+        className="absolute right-0 -top-24 h-full object-contain z-0"
+        src="/assets/blue-pills.png"
+        alt="image"
+          />
+        </div>
+      </CardContent>
+      </Card>
+
+      <Card
+      className="p-0 overflow-hidden bg-cover bg-center h-60"
+      style={{
+        backgroundImage: `url(/assets/fit-man-smiling.png)`,
+        backgroundSize: "cover",
+        backgroundPositionX: "center",
+        backgroundPositionY: "20%",
+      }}
+      >
+      <CardContent className="p-4 bg-gradient-to-t from-gray-900/80 align-bottom to-transparent text-white h-full flex flex-col justify-end">
+        <h2 className="text-[32px] font-semibold pr-24 mb-2 leading-[32px] whitespace-pre-line">
+        How do you want to improve your sex life?
+        </h2>
+        <div className="flex gap-2">
+        <Button
+          variant={"outline"}
+          className="px-4 py-1 rounded-full text-sm font-medium border bg-transparent text-white border-white"
+        >
+          Last Longer
+        </Button>
+        <Button
+          variant={"outline"}
+          className="px-4 py-1 rounded-full text-sm font-medium border bg-transparent text-white border-white"
+        >
+          Stay Hard
+        </Button>
+        <Button
+          variant={"outline"}
+          className="px-4 py-1 rounded-full text-sm font-medium border bg-transparent text-white border-white"
+        >
+          Both
+        </Button>
+        </div>
+      </CardContent>
+      </Card>
+
+      <Card className="p-0 overflow-hidden h-full">
+      <CardContent
+        className="p-0 h-full flex flex-col bg-center"
+        style={{
+        backgroundImage: `url(/assets/bg-bed-couple.jpg)`,
+        backgroundSize: "300%",
+        backgroundPositionX: "30%",
+        backgroundPositionY: "65%",
+        }}
+      >
+        <div className="text-white p-6 flex-grow bg-gradient-to-t from-gray-900/80 align-bottom to-gray-900/30">
+        <h2 className="text-2xl mt-11 leading-[28px] tracking-[-4%] font-semibold mb-4">
+          "I was hesitant to seek help, but Neuva made the process comfortable.
+          The medication has made a significant difference."
+        </h2>
+        <div className="mt-10">
+          <p className="text-2xl font-medium">Vikram S.</p>
+          <p className="text-base">41, Mumbai</p>
+        </div>
+        </div>
+      </CardContent>
+      </Card>
+
+      
+    </div>
+    </>) : (<>
+    
+    <div ref={containerRef} className={cn("relative", className)}>
+      {/* This is the pinned section that stays fixed while scrolling */}
+      <div 
+        ref={sectionRef}
+        className="w-full h-fit flex flex-col items-center justify-start overflow-hidden"
+      >
+        <motion.div
+          initial={{
+            y: -50,
+            opacity: 0,
+            scale: 0.98
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            transition: {
+              duration: 0.6,
+              ease: [0.22, 1, 0.36, 1], // cubic-bezier curve for smooth acceleration/deceleration
+              opacity: { duration: 0.4 },
+              scale: { duration: 0.5 }
+            },
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: 0.1,
+              duration: 0.7
+            }
+          }}
+          className="flex flex-col items-center w-full"
+        >
+          {/* Tab navigation */}
+          <div className="hidden md:flex md:flex-wrap gap-4 mt-10 mb-4 px-4 md:px-0">
+            {tabsData.map((tab, index) => (
+              <Button
+                key={index} 
+                variant={(activeTab === index) ? "default" : "outline"}
+                onClick={() => handleTabClick(index)}
+                className="text-sm md:text-base"
+              >
+                {tab.name}
+              </Button>
+            ))}
+          </div>
+          
+          {/* Card content area with different layouts for different tabs */}
+          <div 
+            ref={cardContainerRef}
+            className="mt-8 w-full px-4 md:px-36"
+          >
+            {/* Mobile view - simplified version with max 3 cards, no animations */}
+            <div className="md:hidden">
+              <div className="flex flex-col gap-4">
+                {tabsData[activeTab]?.cards.slice(0, 3).map((card, idx) => (
+                  <div key={idx}>
+                    {renderCard(card, idx)}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop view with animations and scrolling */}
+            <div className="hidden md:block">
+              {tabsData.map((tab, tabIndex) => (
+                <motion.div
+                  key={tabIndex}
+                  initial={false}
+                  animate={{
+                    opacity: activeTab === tabIndex ? 1 : 0,
+                    y: activeTab === tabIndex ? 0 : 30,
+                    display: activeTab === tabIndex ? 'grid' : 'none'
+                  }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full h-full"
+                >
+                  {/* Different layout based on tab index */}
+                  {(tabIndex === 0) ? (
+                    // First layout: Column 1 (card1, card2) Column 2 (card3)
+                    <div className="grid grid-cols-2 gap-6 h-full">
+                      <div className="flex flex-col gap-6">
+                        {renderCard(tab.cards[0], 0)}
+                        {renderCard(tab.cards[2], 1)}
+                      </div>
+                      <div>
+                        {renderCard(tab.cards[1], 2)}
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                    {(tabIndex === 3) ? (
+                      <div className="grid grid-cols-2 gap-6 h-full">
+                        <div className="flex flex-col gap-6">
+                          {renderCard(tab.cards[0], 1)}
+                          {renderCard(tab.cards[1], 1)}
+                        </div>
+                        <div className="flex flex-col gap-6">
+                          {renderCard(tab.cards[2], 3)}
+                          {renderCard(tab.cards[3], 3)}
+                          {renderCard(tab.cards[4], 3)}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col gap-6 h-full">
+                        <div>
+                          {renderCard(tab.cards[0], 0)}
+                        </div>
+                        <div className="grid grid-cols-2 gap-6">
+                          {renderCard(tab.cards[2], 1)}
+                          {renderCard(tab.cards[1], 1)}
+                        </div>
+                      </div>
+                    )}
+                   </>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </motion.header>
+    </div>
+    </>)}
+    </>
   );
 };
 

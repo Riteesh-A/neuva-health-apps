@@ -38,7 +38,7 @@ const ExpertMedicalTeam = ({ className }: { className?: string }) => {
   return (
     <section
       className={cn(
-        "storybook-fix flex w-full flex-col items-center gap-4 py-10",
+        "storybook-fix flex w-full flex-col items-center gap-4 py-10 md:mt-[100vh]",
         className
       )}
     >
@@ -56,7 +56,7 @@ const ExpertMedicalTeam = ({ className }: { className?: string }) => {
         }}
         className="flex max-w-md flex-col items-center gap-2 text-center"
       >
-        <h1 className="text-3xl md:text-6xl tracking-tight">
+        <h1 className="text-3xl md:text-6xl font-bold tracking-tight">
           Expert Medical Team
         </h1>
         <Balancer className="block text-lg font-extralight">

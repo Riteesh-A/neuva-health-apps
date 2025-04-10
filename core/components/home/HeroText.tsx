@@ -61,8 +61,8 @@ const HeroText = () => {
         }}
         className="flex flex-col w-full md:w-auto md:flex-row justify-start gap-4"
       >
-        <Button>Start Free Assessment</Button>
-        <Button variant={"outline"}>View Products</Button>
+        <Button variant={"default"}>Start Free Assessment</Button>
+        <Button variant={"outline"}>Explore Products</Button>
       </motion.header>
     </div>
   );

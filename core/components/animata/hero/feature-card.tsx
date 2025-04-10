@@ -31,7 +31,7 @@ export function FeatureCard({
     springValue,
     (value) => +Math.floor(value * 10) + 10 + zIndexOffset
   );
-  const scale = useTransform(springValue, [0, 1], [1, 1.3]);
+  const scale = useTransform(springValue, [0, 1], [1, 1.1]);
 
   const content = (
     <>
