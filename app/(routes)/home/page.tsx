@@ -1,9 +1,13 @@
+import CommonQuestions from "@/core/components/home/CommonQuestions";
 import ExpertMedicalTeam from "@/core/components/home/ExpertMedicalTeam";
 import HeroCards from "@/core/components/home/HeroCards";
 import HeroText from "@/core/components/home/HeroText";
 import JourneyBetterHealth from "@/core/components/home/JourneyBetterHealth";
 import PrivacyMatters from "@/core/components/home/PrivacyMatters";
 import QualityTreatment from "@/core/components/home/QualityTreatment";
+import TakeFirstStep from "@/core/components/home/TakeFirstStep";
+import TrustedByMen from "@/core/components/home/TrustedByMen";
+import { Separator } from "@/core/components/ui/separator";
 
 export default async function HomePage() {
   return (
@@ -29,6 +33,11 @@ export default async function HomePage() {
       <ExpertMedicalTeam className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
       <QualityTreatment className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
       <PrivacyMatters className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+      <Separator />
+      <TrustedByMen className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+      <CommonQuestions className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+      <TakeFirstStep className="p-20 w-full px-4 md:px-10 mx-auto" />
+      <Separator />
     </div>
   );
 }
