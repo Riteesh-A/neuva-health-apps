@@ -27,7 +27,7 @@ export function TestimonialCard({
           <img src={image} alt={name} className="h-full w-full object-cover" />
         </div> */}
         <div className="flex flex-col p-4 gap-1 justify-between h-full">
-          <p className="block text-xl font-bold tracking-tight leading-6 text-foreground">
+          <p className="block text-xl md:text-lg font-bold tracking-tight leading-6 text-foreground">
             "
             {quote.map(({ text, highlight }, i) => (
               <span key={i} className={cn(highlight && "text-primary-25")}>

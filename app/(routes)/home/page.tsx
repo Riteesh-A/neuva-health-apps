@@ -30,13 +30,13 @@ export default async function HomePage() {
                 
       <JourneyBetterHealth className="w-full mx-auto" />
       {/* <SolutionsEveryNeed /> */}
-      <ExpertMedicalTeam className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
-      <QualityTreatment className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
-      <PrivacyMatters className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
-      <Separator />
-      <TrustedByMen className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
-      <CommonQuestions className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
-      <TakeFirstStep className="p-20 w-full px-4 md:px-10 mx-auto" />
+      <ExpertMedicalTeam className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+      <QualityTreatment className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+      <PrivacyMatters className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+      {/* <Separator /> */}
+      <TrustedByMen className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+      <CommonQuestions className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+      <TakeFirstStep className="p-10 md:p-20 w-full px-4 md:px-10 mx-auto" />
       <Separator />
     </div>
   );

@@ -45,7 +45,7 @@ const CommonQuestions = ({ className }: { className?: string }) => {
           <AccordionItem key={index} value={`${index}`}>
             <AccordionTrigger
               icons={{ Open: Plus, Closed: X }}
-              className="text-xl font-normal relative"
+              className="text-xl font-semibold relative"
             >
               {question}
             </AccordionTrigger>
