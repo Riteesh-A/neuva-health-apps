@@ -1,6 +1,5 @@
 import { NotifyForm } from "@/core/components/form/notify-form";
 import { Logo } from "@/core/components/logo";
-import { Separator } from "@/core/components/ui/separator";
 import { youngSerif } from "@/core/fonts";
 import { copyrightName, copyrightYear } from "@/core/lib/constants";
 import { cn } from "@/core/lib/utils";
@@ -14,7 +13,7 @@ export default async function HomePage() {
       <div className="flex-grow flex flex-col gap-28 justify-center items-center px-4 lg:px-6">
         <div className="flex flex-col gap-2 w-full md:max-w-screen-lg">
           <h1 className={cn("text-7xl", youngSerif.className)}>neuva</h1>
-          <Separator className="bg-sidebar-accent-foreground" />
+          {/* <Separator className="bg-sidebar-accent-foreground" /> */}
           <div className="flex self-start relative w-full">
             {/* First Sentence */}
             <p className="absolute left-0 overflow-hidden whitespace-nowrap text-base md:text-2xl animate-[typewriter-1_6s_steps(30)_infinite]">
