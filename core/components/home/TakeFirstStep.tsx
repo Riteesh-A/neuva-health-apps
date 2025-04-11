@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/core/lib/utils";
+import Marquee from "../animata/container/marquee";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 
@@ -105,19 +106,21 @@ const TakeFirstStep = ({ className }: { className?: string }) => {
         <Button className="text-white">Start Free Assessment</Button>
         <Button variant={"outline"}>Book Consultation</Button>
       </div>
-      <div className="w-dvw overflow-hidden">
-        {/* <ScrollingCards data={content} /> */}
-        {/* <div className="w-full">
-          <Marquee className="[--duration:25s]" pauseOnHover applyMask={false}>
-            {data.map((card, index) => {
-              if (card.type === "testimonial") {
-                return <TestimonialCard key={index} {...card} />;
-              }
-              return <ImageCard key={index} {...card} />;
-            })}
-          </Marquee>
-        </div> */}
-      </div>
+      {typeof window !== "undefined" && window.location.pathname !== "/home" && (
+        <div className="w-dvw overflow-hidden">
+          {/* <ScrollingCards data={content} /> */}
+          <div className="w-full">
+        <Marquee className="[--duration:25s]" pauseOnHover applyMask={false}>
+          {data.map((card, index) => {
+            if (card.type === "testimonial") {
+          return <TestimonialCard key={index} {...card} />;
+            }
+            return <ImageCard key={index} {...card} />;
+          })}
+        </Marquee>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

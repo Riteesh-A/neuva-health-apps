@@ -35,7 +35,7 @@ export const SlugHeader = ({ slug }: { slug: string }) => {
             <SelectTrigger
               className={cn(
                 buttonVariants({ variant: "link" }),
-                "border-none focus:border-none focus-visible:border-none"
+                "border-none shadow-none focus:border-none focus-visible:border-none"
               )}
             >
               <SelectValue

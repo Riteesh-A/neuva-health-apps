@@ -1,4 +1,5 @@
 import CommonQuestions from "@/core/components/home/CommonQuestions";
+import CTACards from '@/core/components/home/CTACards';
 import { SlugHeader } from "@/core/components/home/slug-header";
 import TakeFirstStep from "@/core/components/home/TakeFirstStep";
 import TrustedByMen from "@/core/components/home/TrustedByMen";
@@ -21,9 +22,10 @@ export default async function HomeSlugLayout({
     <div className="flex flex-col overflow-x-hidden">
       <SlugHeader slug={slug} />
       {children}
-      <Separator />
+      {/* <Separator /> */}
       <TrustedByMen className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
       <CommonQuestions className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+      <CTACards className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto"  />
       <TakeFirstStep className="p-20 w-full px-4 md:px-10 mx-auto" />
       <Separator />
     </div>
