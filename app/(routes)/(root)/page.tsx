@@ -1,3 +1,4 @@
+import { Button } from "@/core/components/ui/button";
 import { categories } from "@/lib/categories";
 import HeroCards from "./_components/HeroCards";
 
@@ -6,10 +7,10 @@ export default async function HomeSlugPage() {
 
   return (
     <div className="flex flex-col overflow-x-hidden">
-      <div className="flex flex-col pb-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto">
+      <div className="flex flex-col pb-20 max-w-screen-xl w-full px-4 md:px-6 mx-auto">
         <HeroCards />
       </div>
-      {/* <div className="flex flex-col items-center p-20 gap-20 max-w-screen-lg w-full px-4 md:px-10 mx-auto">
+      {/* <div className="flex flex-col items-center p-20 gap-20 max-w-screen-lg w-full px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center text-center w-full gap-6">
           <h1 className="text-2xl md:text-4xl font-medium md:w-1/2 tracking-tight">
             {category?.heroSubTitle}
@@ -49,24 +50,76 @@ export default async function HomeSlugPage() {
 
       {/* <Separator /> */}
 
-      {/* <div className="flex flex-col p-20 gap-20 max-w-screen-lg w-full px-4 md:px-10 mx-auto">
+      <div className="flex flex-col p-10 md:p-20 gap-10 md:gap-20 max-w-screen-lg w-full px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center text-center w-full gap-6">
-          <h1 className="text-4xl font-medium w-1/2 tracking-tight">
-            How does this medication work?
+          <h1 className="text-3xl md:text-6xl font-semibold tracking-tight">
+            How do these medications work?
           </h1>
-          <p className="font-medium text-muted-foreground">
+          <p className="font-extralight text-lg">
             Daily treatments to help manage symptoms and improve wellbeing.
           </p>
         </div>
 
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-col h-96 bg-[#FCF9F9]" />
-          <div className="flex justify-center items-center gap-3">
-            <Button>Buy now</Button>
-            <Button variant="outline">Is this right for me?</Button>
+        <div className="flex flex-col gap-2">
+          <div className="flex px-6 flex-col items-left text-left w-full gap-2">
+            <h2 className="text-lg md:text-2xl font-medium">
+              Weight Loss Medications
+            </h2>
+          </div>
+          <div
+            className="h-64 md:h-[900px] scale-100 md:scale:90 bg-[#FCF9F9] bg-cover bg-center rounded-xl"
+            style={{
+              backgroundImage: `url(/assets/how_it_works.jpg)`,
+              scale: typeof window !== "undefined" && window.innerWidth >= 768 ? "1" : "0.9",
+            }}
+          />
+          <div className="flex  px-6 flex-col items-left text-left w-full gap-2">
+            <h3 className="text-lg md:text-xl font-semibold">
+             Lose up to 20% of initial body weight
+            </h3>
+            <p className="text-sm text-left md:text-base font-light text-muted-foreground">
+              Based on clinical studies of Mounjaro (Tirzepatide)
+            </p>
+          </div>
+          <div className="flex justify-center items-center gap-3 mt-4">
+            <Button className="text-sm md:text-base">Buy now</Button>
+            <Button variant="outline" className="text-sm md:text-base">
+              Is this right for me?
+            </Button>
           </div>
         </div>
-      </div> */}
+
+        <div className="flex flex-col gap-2">
+          <div className="flex px-6 flex-col items-left text-left w-full gap-2">
+            <h2 className="text-lg md:text-2xl font-medium">
+              How tadalafil (cialis) or sildenafil (viagra) works for erectile dysfunction
+            </h2>
+          </div>
+          <div
+            className="h-64 md:h-[900px] scale-100 md:scale:90 bg-[#FCF9F9] bg-cover bg-center rounded-xl"
+            style={{
+              backgroundImage: `url(/assets/how_tadalifil.jpg)`,
+              scale: typeof window !== "undefined" && window.innerWidth >= 768 ? "1" : "0.9",
+            }}
+          />
+          <div className="flex  px-6 flex-col items-left text-left w-full gap-2">
+            {/* <h3 className="text-lg md:text-xl font-semibold">
+             Lose up to 20% of initial body weight
+            </h3> */}
+            <p className="text-sm text-left md:text-base font-light text-muted-foreground">
+            Tadalafil (Cialis) and sildenafil (Viagra) help increase blood flow to the penis, making it easier to get and keep an erection when sexually aroused. They work by relaxing the muscles in blood vessels and blocking an enzyme that restricts blood flow. These medicines don’t cause an erection on their own—they just make it easier when the moment is right.
+            </p>
+          </div>
+          <div className="flex justify-center items-center gap-3 mt-4">
+            <Button className="text-sm md:text-base">Buy now</Button>
+            <Button variant="outline" className="text-sm md:text-base">
+              Is this right for me?
+            </Button>
+          </div>
+        </div>
+
+        
+      </div>
     </div>
   );
 }

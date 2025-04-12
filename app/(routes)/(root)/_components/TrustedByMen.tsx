@@ -10,17 +10,18 @@ import { cn } from "@/core/lib/utils";
 const testimonials: Testimonial[] = [
   {
     quote: [
-      { text: "Neuva Health is truly setting a new standard in accessible, outcome-driven care." },
+      { text: "Neuva Health is truly setting a new standard in accessible, outcome-driven care.",
+        highlight: true,
+       },
       {
         text: " Whether it’s weight loss, sexual health, or mental health, Neuva remains on the forefront of treatment options—always guided by the latest clinical research and in consultation with leading experts across specialties.",
+      },
+      {
+        text: " \nAs a medical professional, I’m particularly impressed by Neuva’s commitment to safety, transparency, and evidence-based protocols.",
         highlight: true,
       },
       {
-        text: " As a medical professional, I’m particularly impressed by Neuva’s commitment to safety, transparency, and evidence-based protocols.",
-        highlight: true,
-      },
-      {
-        text: " \nWe’ve already begun to see tremendous interest and highly promising outcomes with our weight loss treatments.",
+        text: " We’ve already begun to see tremendous interest and highly promising outcomes with our weight loss treatments.",
       },
       {
         text: " It’s exciting to be part of a platform that’s making quality care this personalized and scalable.",
