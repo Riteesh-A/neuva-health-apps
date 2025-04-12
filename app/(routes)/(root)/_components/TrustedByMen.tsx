@@ -17,7 +17,7 @@ const testimonials: Testimonial[] = [
         text: " Whether it’s weight loss, sexual health, or mental health, Neuva remains on the forefront of treatment options—always guided by the latest clinical research and in consultation with leading experts across specialties.",
       },
       {
-        text: " \nAs a medical professional, I’m particularly impressed by Neuva’s commitment to safety, transparency, and evidence-based protocols.",
+        text: " \n\nAs a medical professional, I’m particularly impressed by Neuva’s commitment to safety, transparency, and evidence-based protocols.",
         highlight: true,
       },
       {
