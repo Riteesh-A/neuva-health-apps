@@ -1,14 +1,15 @@
-import { Button } from "@/core/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/core/components/ui/card";
-import { Separator } from "@/core/components/ui/separator";
 import { categories } from "@/lib/categories";
+import HeroCards from "./_components/HeroCards";
 
 export default async function HomeSlugPage() {
   const category = categories.find((cat) => cat.slug === "have-better-sex");
 
   return (
     <div className="flex flex-col overflow-x-hidden">
-      <div className="flex flex-col items-center p-20 gap-20 max-w-screen-lg w-full px-4 md:px-10 mx-auto">
+      <div className="flex flex-col pb-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto">
+        <HeroCards />
+      </div>
+      {/* <div className="flex flex-col items-center p-20 gap-20 max-w-screen-lg w-full px-4 md:px-10 mx-auto">
         <div className="flex flex-col items-center text-center w-full gap-6">
           <h1 className="text-2xl md:text-4xl font-medium md:w-1/2 tracking-tight">
             {category?.heroSubTitle}
@@ -44,11 +45,11 @@ export default async function HomeSlugPage() {
             </Card>
           ))}
         </div>
-      </div>
+      </div> */}
 
-      <Separator />
+      {/* <Separator /> */}
 
-      <div className="flex flex-col p-20 gap-20 max-w-screen-lg w-full px-4 md:px-10 mx-auto">
+      {/* <div className="flex flex-col p-20 gap-20 max-w-screen-lg w-full px-4 md:px-10 mx-auto">
         <div className="flex flex-col items-center text-center w-full gap-6">
           <h1 className="text-4xl font-medium w-1/2 tracking-tight">
             How does this medication work?
@@ -65,7 +66,7 @@ export default async function HomeSlugPage() {
             <Button variant="outline">Is this right for me?</Button>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

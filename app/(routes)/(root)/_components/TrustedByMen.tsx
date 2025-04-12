@@ -10,87 +10,93 @@ import { cn } from "@/core/lib/utils";
 const testimonials: Testimonial[] = [
   {
     quote: [
-      { text: "The online consultation was professional and discreet." },
+      { text: "As a physician, I appreciate how Neuva prioritizes patient privacy and comfort." },
       {
-        text: " The doctor was knowledgeable and helped me understand my options.",
+        text: " The platform allows me to deliver quality care without compromising discretion.",
         highlight: true,
       },
     ],
-    name: "Rajesh K.",
+    name: "Dr. Meera Nair",
     image:
-      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    location: "32, Bangalore",
+      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    location: "MBBS, MD – Hyderabad",
   },
   {
     quote: [
-      { text: "I was hesitant to seek help," },
-      { text: " but Neuva made the process comfortable.", highlight: true },
-      { text: "The medication has made a significant difference." },
-    ],
-    name: "Vikram S.",
-    location: "41, Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    quote: [
+      { text: "Neuva makes it seamless for doctors like me to consult and prescribe online," },
       {
-        text: "The assessment was easy to complete, and I got my prescription the same day.",
+        text: " ensuring patients receive timely treatment and accurate guidance.",
         highlight: true,
       },
-      { text: " The quality of the medication is excellent." },
+      { text: " It's a true leap forward in modern medicine." },
     ],
-    name: "Arjun T.",
-    location: "35, Delhi",
+    name: "Dr. Anil Verma",
+    location: "MBBS – Mumbai",
     image:
-      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-
-  {
-    quote: [
-      { text: "The online consultation was professional and discreet." },
-      {
-        text: " The doctor was knowledgeable and helped me understand my options.",
-        highlight: true,
-      },
-    ],
-    name: "Rajesh K.",
-    image:
-      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    location: "32, Bangalore",
-  },
-  {
-    quote: [
-      { text: "I was hesitant to seek help," },
-      { text: " but Neuva made the process comfortable.", highlight: true },
-      { text: "The medication has made a significant difference." },
-    ],
-    name: "Vikram S.",
-    location: "41, Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     quote: [
       {
-        text: "The assessment was easy to complete, and I got my prescription the same day.",
+        text: "The platform is intuitive and streamlines consultations for both doctors and patients.",
         highlight: true,
       },
-      { text: " The quality of the medication is excellent." },
+      { text: " I can confidently recommend it to colleagues in the field." },
     ],
-    name: "Arjun T.",
-    location: "35, Delhi",
+    name: "Dr. Kavita Shah",
+    location: "MD, Dermatology – Delhi",
     image:
-      "https://images.unsplash.com/photo-1560298803-1d998f6b5249?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
+  {
+    quote: [
+      { text: "As a doctor, I’ve seen patients gain access to treatments they would have otherwise avoided." },
+      {
+        text: " Neuva has lowered the barrier to care without lowering standards.",
+        highlight: true,
+      },
+    ],
+    name: "Dr. Chandrashekhar M",
+    image:
+      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    location: "MBBS, MS – Bangalore",
+  },
+  {
+    quote: [
+      { text: "Neuva Health is truly setting a new standard in accessible, outcome-driven care." },
+      {
+        text: " Whether it’s weight loss, sexual health, or mental health, Neuva remains on the forefront of treatment options.",
+        highlight: true,
+      },
+    ],
+    name: "Dr. Paramesh Shamanna",
+    location: "MBBS, MS – Mumbai",
+    image:
+      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    quote: [
+      {
+        text: "I value how Neuva allows me to connect with patients across India without compromising care quality.",
+        highlight: true,
+      },
+      { text: " The platform truly empowers both doctors and patients." },
+    ],
+    name: "Dr. Aditya Rao",
+    location: "MD, Internal Medicine – Chennai",
+    image:
+      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  
 ];
+;
 
 const TrustedByMen = ({ className }: { className?: string }) => {
   return (
     <div className={cn("flex flex-col items-center gap-20", className)}>
       <div className="flex flex-col gap-8 text-center max-w-2xl">
-        <h1 className="text-3xl md:text-6xl tracking-tight">
-          Trusted by Men Across India
+        <h1 className="text-3xl md:text-6xl font-semibold tracking-tight">
+          Trusted by Doctors Across India
         </h1>
         <h2 className="font-extralight text-lg">
           Join thousands of men who have experienced improved health and

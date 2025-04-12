@@ -13,9 +13,9 @@ const links = [
   {
     category: "Company",
     links: [
-      { name: "About", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Press", href: "#" },
+      { name: "Shop", href: "#" },
+      { name: "How it works?", href: "#" },
+      { name: "About Neuva", href: "#" },
       { name: "Blog", href: "#" },
     ],
   },
@@ -32,7 +32,7 @@ const links = [
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col md:flex-row justify-between gap-10 py-10 md:py-20 px-4 md:px-10 max-w-screen-xl self-center w-full">
+    <footer className="flex z-[10] bg-white w-full flex-col md:flex-row justify-between gap-10 py-10 md:py-20 px-4 md:px-10 self-center">
       <div className="flex flex-col gap-3">
         <Logo />
         <div className="flex items-center gap-3 text-black/60">
@@ -51,7 +51,7 @@ const Footer = () => {
         {links.map(({ category, links }, i) => (
           <div key={i} className="flex flex-col md:items-center">
             <div key={i} className="flex flex-col gap-4">
-              <h1 className="text-sm text-primary">{category}</h1>
+              {/* <h1 className="text-sm text-primary">{category}</h1> */}
               <div className="flex flex-col">
                 {links.map(({ name, href }, j) => (
                   <Link

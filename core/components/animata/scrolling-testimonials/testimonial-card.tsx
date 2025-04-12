@@ -19,7 +19,7 @@ export function TestimonialCard({
 }) {
   return (
     <Card
-      className="flex p-0 h-44 w-96 overflow-hidden rounded-xl bg-primary-94"
+      className="flex p-0 h-52 w-96 overflow-hidden rounded-xl bg-primary-94"
       key={name}
     >
       <CardContent className="p-0 flex items-center h-full">

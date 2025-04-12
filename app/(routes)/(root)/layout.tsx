@@ -24,7 +24,7 @@ export default async function HomeSlugLayout({
       <Navbar />
       <SlugHeader slug={"have-better-sex"} />
       {children}
-      <Separator />
+      {/* <Separator /> */}
       <TrustedByMen className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
       <CommonQuestions className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
       <TakeFirstStep className="p-20 w-full px-4 md:px-10 mx-auto" />

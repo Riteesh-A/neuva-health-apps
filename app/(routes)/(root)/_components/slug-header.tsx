@@ -1,15 +1,5 @@
 "use client";
 
-import { buttonVariants } from "@/core/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/core/components/ui/select";
-import { cn } from "@/core/lib/utils";
 import { categories } from "@/lib/categories";
 import { notFound, useRouter } from "next/navigation";
 import { PiHospital, PiPackage } from "react-icons/pi";
@@ -28,7 +18,7 @@ export const SlugHeader = ({ slug }: { slug: string }) => {
   return (
     <div className="flex flex-col p-20 px-4 md:px-20 mx-auto">
       <div className="flex flex-col items-center gap-8 max-w-screen-lg w-full">
-        <div className="flex items-center gap-3 p-1">
+        {/* <div className="flex items-center gap-3 p-1">
           <span>Home</span>
           <span>/</span>
           <Select onValueChange={(value) => router.push(`/home/${value}`)}>
@@ -61,7 +51,7 @@ export const SlugHeader = ({ slug }: { slug: string }) => {
               </SelectGroup>
             </SelectContent>
           </Select>
-        </div>
+        </div> */}
 
         <div className="flex flex-col items-center text-center md:w-3/4">
           <h1 className="text-3xl md:text-5xl font-semibold tracking-tight md:leading-15">
