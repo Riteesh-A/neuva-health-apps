@@ -115,9 +115,7 @@ const Navbar = () => {
               Sign In
             </a>
             </Button>
-          <Button size={"lg"} variant={"outline"}>
-            Sign In
-          </Button>
+          
           <MobileMenu className="md:hidden" />
         </div>
       </div>
