@@ -82,9 +82,22 @@ export default async function HomeSlugPage() {
             </p>
           </div>
           <div className="flex justify-center items-center gap-3 mt-4">
-            <Button className="text-sm md:text-base">Buy now</Button>
-            <Button variant="outline" className="text-sm md:text-base">
+            <Button
+              className="text-sm md:text-base"
+              asChild
+            >
+              <a href="https://wa.me/918904967444?text=LoseWeight" target="_blank" rel="noopener noreferrer">
+              Buy now
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              className="text-sm md:text-base"
+              asChild
+            >
+              <a href="https://wa.me/918904967444?text=Consultation" target="_blank" rel="noopener noreferrer">
               Is this right for me?
+              </a>
             </Button>
           </div>
         </div>
@@ -111,9 +124,22 @@ export default async function HomeSlugPage() {
             </p>
           </div>
           <div className="flex justify-center items-center gap-3 mt-4">
-            <Button className="text-sm md:text-base">Buy now</Button>
-            <Button variant="outline" className="text-sm md:text-base">
+          <Button
+              className="text-sm md:text-base"
+              asChild
+            >
+              <a href="https://wa.me/918904967444?text=BetterSex" target="_blank" rel="noopener noreferrer">
+              Buy now
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              className="text-sm md:text-base"
+              asChild
+            >
+              <a href="https://wa.me/918904967444?text=Consultation" target="_blank" rel="noopener noreferrer">
               Is this right for me?
+              </a>
             </Button>
           </div>
         </div>
