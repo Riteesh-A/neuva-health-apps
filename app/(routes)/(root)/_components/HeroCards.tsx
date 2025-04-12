@@ -22,7 +22,7 @@ const HeroCards = () => {
       text: "Lose weight",
       subtitle: "Starting from ₹3500",
       img: "/assets/blue-pills.png",
-      url: "https://s3-alpha-sig.figma.com/img/c7e1/b758/b832df8a58cfef1039e364d8ea41d24a?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UbND9auF3LNR88Lb8wvdfafyl72ebU9IR678TeOvacnqAL092ZxaBxR7rQDSlaXgzSfSIpl2uWzaQqrcxyPHUp-xO8Jziyb~uB3~wf3Gu6alZQ8Mcf2vaZLB3vMpb7YuajanRhrgKLEgktYw8M9cpUpNoz~-U2Rnkl~iyGJ0ZdQ5iggUpC0BaQ1CAb4YXRNXtLQHUT3DUoYEjZZj7ixHoH8Y~FgzHKHP6sNpfE-DTrZWPLrm4I5fs0h-FY64DDikB22f6po22ryIQRy~a4g~hiaCVIrt~G9Nv1TnbX8eta7jJzlYkGVdvghUpFWHjTVYvJV6k~gK~Jvy5HoqTJN-ag__",
+      url: "https://s3-alpha-sig.figma.com/img/4dad/4f28/a4e39cd76c1b3ab52a1168fe084ba9a0?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=lhfTIkjYQx4TXug1V0rrVTdVw8CHet~NtntxGOG-Vcrs-T6HJWfYWlrQqIFvEpVQwv8RV1YBFP6n3Bi1s1l50Zzn481lMZJshtafCU57cqxfxqTIlW6eI08SKsiFNdETG-ngk9LdAZpgcr81GZ9q7-UZrSC3UgOROOmbxwf7YqliUHyF3I-Yj5Bpoky3XBfuXi3jqEGGCbOXkLXnNSTRox59RuSb3z4N118qTBCBetAXTRzP9N7btdEB3KKtaK3WQpPeLPcAEh~A7jdg3rbaowPNfUYbslLisbl0qjvN5moa3RbjNgRnxg3UEKT8fIIPDUhpU7rG018vGW5lIGvIew__",
     },
     {
       href: "https://wa.me/918904967444?text==TackleAnxiety",
@@ -30,7 +30,7 @@ const HeroCards = () => {
       text: "Tackle Anxiety",
       subtitle: "Starting from ₹599",
       img: "/assets/kwik-pen.png",
-      url: "https://s3-alpha-sig.figma.com/img/4dad/4f28/a4e39cd76c1b3ab52a1168fe084ba9a0?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=lhfTIkjYQx4TXug1V0rrVTdVw8CHet~NtntxGOG-Vcrs-T6HJWfYWlrQqIFvEpVQwv8RV1YBFP6n3Bi1s1l50Zzn481lMZJshtafCU57cqxfxqTIlW6eI08SKsiFNdETG-ngk9LdAZpgcr81GZ9q7-UZrSC3UgOROOmbxwf7YqliUHyF3I-Yj5Bpoky3XBfuXi3jqEGGCbOXkLXnNSTRox59RuSb3z4N118qTBCBetAXTRzP9N7btdEB3KKtaK3WQpPeLPcAEh~A7jdg3rbaowPNfUYbslLisbl0qjvN5moa3RbjNgRnxg3UEKT8fIIPDUhpU7rG018vGW5lIGvIew__",
+      url: "https://s3-alpha-sig.figma.com/img/c7e1/b758/b832df8a58cfef1039e364d8ea41d24a?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UbND9auF3LNR88Lb8wvdfafyl72ebU9IR678TeOvacnqAL092ZxaBxR7rQDSlaXgzSfSIpl2uWzaQqrcxyPHUp-xO8Jziyb~uB3~wf3Gu6alZQ8Mcf2vaZLB3vMpb7YuajanRhrgKLEgktYw8M9cpUpNoz~-U2Rnkl~iyGJ0ZdQ5iggUpC0BaQ1CAb4YXRNXtLQHUT3DUoYEjZZj7ixHoH8Y~FgzHKHP6sNpfE-DTrZWPLrm4I5fs0h-FY64DDikB22f6po22ryIQRy~a4g~hiaCVIrt~G9Nv1TnbX8eta7jJzlYkGVdvghUpFWHjTVYvJV6k~gK~Jvy5HoqTJN-ag__",
     },
     // {
     //   href: "/home/regrow-hair",

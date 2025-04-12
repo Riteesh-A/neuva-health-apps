@@ -97,9 +97,24 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button size={"lg"} className="hidden md:flex">
-            Book Free Consultation
-          </Button>
+            <Button
+            size={"lg"}
+            className="hidden md:flex"
+            asChild
+            >
+            <a href="https://wa.me/918904967444?text=Consultation" target="_blank" rel="noopener noreferrer">
+              Book Free Consultation
+            </a>
+            </Button>
+            <Button
+            size={"lg"}
+            variant={"outline"}
+            asChild
+            >
+            <a href="https://wa.me/918904967444?text=Consultation" target="_blank" rel="noopener noreferrer">
+              Sign In
+            </a>
+            </Button>
           <Button size={"lg"} variant={"outline"}>
             Sign In
           </Button>

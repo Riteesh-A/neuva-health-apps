@@ -39,7 +39,7 @@ const Footer = () => {
           <Link href={"#"}>
             <IoLogoFacebook className="size-8" />
           </Link>
-          <Link href={"#"}>
+          <Link href={"https://www.instagram.com/neuva_health/"}>
             <FaInstagram className="size-8" />
           </Link>
           <Link href={"#"}>
