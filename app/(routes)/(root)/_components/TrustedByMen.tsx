@@ -10,41 +10,25 @@ import { cn } from "@/core/lib/utils";
 const testimonials: Testimonial[] = [
   {
     quote: [
-      { text: "As a physician, I appreciate how Neuva prioritizes patient privacy and comfort." },
+      { text: "Neuva Health is truly setting a new standard in accessible, outcome-driven care." },
       {
-        text: " The platform allows me to deliver quality care without compromising discretion.",
+        text: " Whether it’s weight loss, sexual health, or mental health, Neuva remains on the forefront of treatment options—always guided by the latest clinical research and in consultation with leading experts across specialties.",
+        highlight: true,
+      },
+      {
+        text: " As a medical professional, I’m particularly impressed by Neuva’s commitment to safety, transparency, and evidence-based protocols.",
+        highlight: true,
+      },
+      {
+        text: " \nWe’ve already begun to see tremendous interest and highly promising outcomes with our weight loss treatments.",
+      },
+      {
+        text: " It’s exciting to be part of a platform that’s making quality care this personalized and scalable.",
         highlight: true,
       },
     ],
-    name: "Dr. Meera Nair",
-    image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    location: "MBBS, MD – Hyderabad",
-  },
-  {
-    quote: [
-      { text: "Neuva makes it seamless for doctors like me to consult and prescribe online," },
-      {
-        text: " ensuring patients receive timely treatment and accurate guidance.",
-        highlight: true,
-      },
-      { text: " It's a true leap forward in modern medicine." },
-    ],
-    name: "Dr. Anil Verma",
-    location: "MBBS – Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    quote: [
-      {
-        text: "The platform is intuitive and streamlines consultations for both doctors and patients.",
-        highlight: true,
-      },
-      { text: " I can confidently recommend it to colleagues in the field." },
-    ],
-    name: "Dr. Kavita Shah",
-    location: "MD, Dermatology – Delhi",
+    name: "Dr. Paramesh Shamanna",
+    location: "MBBS, MS – Consultant Physician & Advisor, Neuva Health",
     image:
       "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
@@ -61,33 +45,6 @@ const testimonials: Testimonial[] = [
       "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     location: "MBBS, MS – Bangalore",
   },
-  {
-    quote: [
-      { text: "Neuva Health is truly setting a new standard in accessible, outcome-driven care." },
-      {
-        text: " Whether it’s weight loss, sexual health, or mental health, Neuva remains on the forefront of treatment options.",
-        highlight: true,
-      },
-    ],
-    name: "Dr. Paramesh Shamanna",
-    location: "MBBS, MS – Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    quote: [
-      {
-        text: "I value how Neuva allows me to connect with patients across India without compromising care quality.",
-        highlight: true,
-      },
-      { text: " The platform truly empowers both doctors and patients." },
-    ],
-    name: "Dr. Aditya Rao",
-    location: "MD, Internal Medicine – Chennai",
-    image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  
 ];
 ;
 
