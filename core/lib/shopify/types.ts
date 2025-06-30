@@ -122,6 +122,53 @@ export type ShopifyProduct = {
   title: string;
   description: string;
   descriptionHtml: string;
+  benefits:{
+    value:string;
+  }; 
+  minimum_quantity: {
+    value:number;};
+  ingredients: {
+    value:string;
+  }; 
+  how_it_works: {
+    value:string;
+  }; 
+  best_seller: {
+    value:boolean;
+  };
+  numberOfReviews: {
+    value: number;
+  };
+  average_review: {
+    value: number;
+  };
+  sellingPlanGroups: {
+    edges: Array<{
+      node: {
+        id: string;
+        name: string;
+        options: {
+          name: string;
+          values: string[];
+        }[];
+        sellingPlans: {
+          edges: Array<{
+            node: {
+              id: string;
+              name: string;
+              description: string;
+              priceAdjustments: Array<{
+                adjustmentValue: {
+                  adjustmentPercentage?: number;
+                  adjustmentAmount?: Money;
+                };
+              }>;
+            };
+          }>;
+        };
+      };
+    }>;
+  };
   options: ProductOption[];
   priceRange: {
     maxVariantPrice: Money;

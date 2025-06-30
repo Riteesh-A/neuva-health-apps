@@ -65,7 +65,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(hankenGrotesk.className)}>
+      <body suppressHydrationWarning={true} className={cn(hankenGrotesk.className)}>
         <ThemeProvider
           enableSystem
           defaultTheme="light"

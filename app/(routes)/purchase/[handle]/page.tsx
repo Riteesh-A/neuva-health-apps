@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { GridTileImage } from "@/core/components/grid/tile";
-import Footer from "@/core/components/layout/footer";
 import { Gallery } from "@/core/components/product/gallery";
 import { ProductProvider } from "@/core/components/product/product-context";
 import { ProductDescription } from "@/core/components/product/product-description";
@@ -87,8 +86,8 @@ export default async function ProductPage(props: {
         }}
       />
       <div className="mx-auto max-w-(--breakpoint-2xl) px-4">
-        <div className="flex flex-col rounded-lg border p-8 md:p-12 lg:flex-row lg:gap-8">
-          <div className="h-full w-full basis-full lg:basis-4/6">
+        <div className="flex flex-col rounded-lg p-8 md:p-12 lg:flex-row lg:gap-8">
+          <div className="h-full w-full basis-full lg:basis-1/2">
             <Suspense
               fallback={
                 <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />
@@ -103,15 +102,15 @@ export default async function ProductPage(props: {
             </Suspense>
           </div>
 
-          <div className="basis-full lg:basis-2/6">
+          <div className="basis-full lg:basis-1/2">
             <Suspense fallback={null}>
               <ProductDescription product={product} />
             </Suspense>
           </div>
         </div>
-        <RelatedProducts id={product.id} />
+        {/* <RelatedProducts id={product.id} /> */}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </ProductProvider>
   );
 }

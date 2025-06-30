@@ -1,13 +1,12 @@
 "use client";
-
 import {
   useProduct,
   useUpdateURL,
 } from "@/core/components/product/product-context";
 import { ProductOption, ProductVariant } from "@/core/lib/shopify/types";
 import clsx from "clsx";
+import React from "react";
 import { Button } from "../ui/button";
-
 type Combination = {
   id: string;
   availableForSale: boolean;
@@ -17,11 +16,16 @@ type Combination = {
 export function VariantSelector({
   options,
   variants,
+  selectedVariant,
+  setSelectedVariantAction,
 }: {
   options: ProductOption[];
   variants: ProductVariant[];
+  selectedVariant?: ProductVariant | null;
+  setSelectedVariantAction: React.Dispatch<React.SetStateAction<ProductVariant | null>>;
 }) {
   const { state, updateOption } = useProduct();
+  
   const updateURL = useUpdateURL();
   const hasNoOptionsOrJustOneOption =
     !options.length ||
@@ -44,11 +48,11 @@ export function VariantSelector({
   }));
 
   return options.map((option) => (
-    <form key={option.id}>
-      <dl className="mb-8">
-        <dt className="mb-4 text-sm uppercase tracking-wide">{option.name}</dt>
-        <dd className="flex flex-wrap gap-3">
-          {option.values.map((value) => {
+    <div key={option.id}>
+      <div className="">
+        <div className="mb-4 text-sm uppercase tracking-wide">{option.name}</div>
+        <div className="flex flex-row gap-2 w-full">
+          {option.values.map((value, idx) => {
             const optionNameLowerCase = option.name.toLowerCase();
 
             // Base option params on current selectedOptions so we can preserve any other param state.
@@ -71,35 +75,89 @@ export function VariantSelector({
             );
 
             // The option is active if it's in the selected options.
-            const isActive = state[optionNameLowerCase] === value;
+            // const isActive = state[optionNameLowerCase] === value;
+            const isActive =
+              selectedVariant?.selectedOptions.some(
+                (opt) =>
+                  opt.name.toLowerCase() === optionNameLowerCase && opt.value === value
+              ) ?? false;
+            // let isActive = false;
 
             return (
               <Button
-                formAction={() => {
-                  const newState = updateOption(optionNameLowerCase, value);
-                  updateURL(newState);
+                variant="outline"
+                onClick={() => {
+                  console.log("Clicked option:", value);
+                  // Use startTransition to wrap state updates
+                    React.startTransition(() => {
+                  //   Only update the product context, do not update the URL
+                    const selected = variants.find((variant) =>
+                      variant.selectedOptions.every(
+                      (opt) =>
+                        (opt.name.toLowerCase() === optionNameLowerCase
+                        ? value
+                        : state[opt.name.toLowerCase()]) === opt.value
+                      )
+                    );
+                    if (selected) setSelectedVariantAction(selected);
+
+                    const newState = updateOption(optionNameLowerCase, value);
+                    updateURL(newState)
+                    });
                 }}
                 key={value}
                 aria-disabled={!isAvailableForSale}
                 disabled={!isAvailableForSale}
                 title={`${option.name} ${value}${!isAvailableForSale ? " (Out of Stock)" : ""}`}
                 className={clsx(
-                  "flex min-w-[48px] items-center justify-center border bg-neutral-100 px-2 py-1 text-sm dark:bg-neutral-900",
+                  "flex-1 min-w-0 flex items-center justify-start gap-2 border px-auto py-5 text-base font-bold rounded-md",
                   {
-                    "cursor-default ring-2 ring-blue-600": isActive,
-                    "ring-1 ring-transparent transition duration-300 ease-in-out hover:ring-blue-600":
-                      !isActive && isAvailableForSale,
-                    "relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-muted-foreground ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:ring-neutral-700 dark:before:bg-neutral-700":
+                    // Active (selected)
+                    "border-[#2F5F8D] text-[#2F5F8D]": isActive && isAvailableForSale,
+                    // Inactive (not selected, available)
+                    "border-[#C2C7D0] text-[#42474F]": !isActive && isAvailableForSale,
+                    // Out of stock
+                    "border-[#C2C7D0] text-muted-foreground cursor-not-allowed bg-neutral-100 dark:bg-neutral-900":
                       !isAvailableForSale,
                   }
                 )}
               >
+                <span
+                  className={clsx(
+                    "inline-block w-4 h-4 rounded-full border mr-1 flex-shrink-0",
+                    {
+                      // Active (selected)
+                      "border-[#2F5F8D]": isActive && isAvailableForSale,
+                      // Inactive (not selected, available)
+                      "border-[#C2C7D0]": !isActive && isAvailableForSale,
+                      // Out of stock
+                      "border-[#C2C7D0] bg-neutral-200 dark:bg-neutral-800": !isAvailableForSale,
+                    }
+                  )}
+                  style={{
+                    boxSizing: "border-box",
+                    position: "relative",
+                  }}
+                >
+                  {isActive && isAvailableForSale && (
+                    <span
+                      className="block w-2 h-2 rounded-full"
+                      style={{
+                        backgroundColor: "#2F5F8D",
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                      }}
+                    />
+                  )}
+                </span>
                 {value}
               </Button>
             );
           })}
-        </dd>
-      </dl>
-    </form>
+        </div>
+      </div>
+    </div>
   ));
 }
