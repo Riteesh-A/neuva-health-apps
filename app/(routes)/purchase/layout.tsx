@@ -21,9 +21,9 @@ export default async function PurchaseLayout({
       {children}
         
     </div>
+    <CTACards className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto"  />
     <TrustedByMen className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
     <CommonQuestions className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
-    <CTACards className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto"  />
     <Footer/>
     {/* Add your content here */}
 </div>

@@ -84,7 +84,7 @@ function PurchasePlanSelector({ sellingPlanGroups, selectedVariant }: { sellingP
                   </option>
                 ))}
               </select>
-              <span className="font-semibold align-middle py-auto">₹{discountedPrice.toFixed(0)}</span>
+              <span className="font-semibold flex items-center mt-3 h-full">₹{discountedPrice.toFixed(0)}</span>
             </div>
           </div>
         </label>
