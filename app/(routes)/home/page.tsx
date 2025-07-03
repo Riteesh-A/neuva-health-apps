@@ -9,7 +9,7 @@ import TakeFirstStep from "@/core/components/home/TakeFirstStep";
 import TrustedByMen from "@/core/components/home/TrustedByMen";
 import { Separator } from "@/core/components/ui/separator";
 
-import { createClient } from '@/lib/server';
+import { createClient } from '@/app/lib/server';
 export default async function HomePage() {
   const supabase = await createClient()
   

@@ -1,5 +1,6 @@
 'use client'
 
+import { createClient } from '@/app/lib/client'
 import {
   Card,
   CardContent,
@@ -11,7 +12,6 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/core/components/ui/button'
 import { cn } from '@/core/lib/utils'
-import { createClient } from '@/lib/client'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'

@@ -1,4 +1,4 @@
-import { categories } from "@/lib/categories";
+import { categories } from "@/app/lib/categories";
 import { redirect } from "next/navigation";
 
 export default async function HomeSlugPage() {

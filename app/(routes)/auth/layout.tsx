@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/server";
+import { createClient } from "@/app/lib/server";
 import { redirect } from "next/navigation";
 
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {

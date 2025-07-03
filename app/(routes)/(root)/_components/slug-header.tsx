@@ -1,6 +1,6 @@
 "use client";
 
-import { categories } from "@/lib/categories";
+import { categories } from "@/app/lib/categories";
 import { notFound, useRouter } from "next/navigation";
 import { PiHospital, PiPackage } from "react-icons/pi";
 import { TbRosetteDiscountCheck } from "react-icons/tb";

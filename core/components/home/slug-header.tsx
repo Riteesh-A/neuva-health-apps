@@ -1,18 +1,18 @@
 "use client";
 
+import { categories } from "@/app/lib/categories";
 import { cn } from "@/core/lib/utils";
-import { categories } from "@/lib/categories";
 import { notFound, useRouter } from "next/navigation";
 import { PiHospital, PiPackage } from "react-icons/pi";
 import { TbRosetteDiscountCheck } from "react-icons/tb";
 import { buttonVariants } from "../ui/button";
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
 } from "../ui/select";
 
 export const SlugHeader = ({ slug }: { slug: string }) => {

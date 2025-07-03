@@ -1,8 +1,8 @@
+import { createClient } from '@/app/lib/server';
 import { CartProvider } from "@/core/components/cart/cart-context";
 import Footer from "@/core/components/footer";
 import Navbar from "@/core/components/navbar";
 import { getCart } from "@/core/lib/shopify";
-import { createClient } from '@/lib/server';
 export default async function HomeLayout({
   children,
 }: {

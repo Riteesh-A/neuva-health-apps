@@ -1,7 +1,7 @@
 'use client'
 
+import { supabase } from '@/app/lib/supabaseClient'
 import { Button } from '@/core/components/ui/button'
-import { supabase } from '@/lib/supabaseClient'
 import { useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'

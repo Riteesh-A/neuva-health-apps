@@ -1,7 +1,7 @@
 'use client';
 
+import { createClient } from '@/app/lib/server';
 import { Button } from '@/core/components/ui/button';
-import { createClient } from '@/lib/server';
 import dayjs from 'dayjs';
 import { Pencil, Trash2 } from 'lucide-react';
 import { useEffect, useState } from 'react';

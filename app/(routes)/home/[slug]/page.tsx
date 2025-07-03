@@ -1,6 +1,6 @@
+import { categories } from "@/app/lib/categories";
 import { Button } from "@/core/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/core/components/ui/card";
-import { categories } from "@/lib/categories";
 
 interface HomeSlugPageProps {
   params: Promise<{
