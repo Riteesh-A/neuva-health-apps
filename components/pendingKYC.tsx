@@ -3,7 +3,11 @@
 import { Button } from '@/core/components/ui/button';
 import { Clock } from 'lucide-react';
 
-export default function PendingKYC() {
+interface PendingKYCProps {
+  onClose?: () => void; // Optional callback to close the form
+}
+
+export default function PendingKYC({ onClose }: PendingKYCProps) {
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow text-center">
       {/* Icon */}
@@ -29,9 +33,14 @@ export default function PendingKYC() {
       </div>
 
       {/* Optional Navigation */}
-    <Button className="w-full" asChild>
-      <a href="/home/profile">Go to Dashboard</a>
-    </Button>
+      <Button onClick={onClose} className="w-full" asChild>
+        Go to Dashboard
+      </Button>
+      {onClose && (
+        <Button variant="ghost" className="mt-4 w-full" onClick={onClose}>
+          Close
+        </Button>
+      )}
     </div>
   );
 }

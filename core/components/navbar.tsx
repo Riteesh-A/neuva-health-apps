@@ -102,8 +102,9 @@ const Navbar = ({ user }: NavbarProps) => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          
+          <div className="hidden md:block">
             <Consultation user={user}/>
+          </div>
             {user ? (
             <div className="flex flex-row items-center gap-2">
               <CartModal />
@@ -120,14 +121,14 @@ const Navbar = ({ user }: NavbarProps) => {
               </Button>
             </Link>
             )}
-          <MobileMenu className="md:hidden" />
+          <MobileMenu className="md:hidden" user={user}/>
         </div>
       </div>
     </div>
   );
 };
 
-const MobileMenu = ({ className }: { className?: string }) => {
+const MobileMenu = ({ className, user }: { className?: string; user: any }) => {
   return (
     <Sheet>
       <SheetTrigger>
@@ -156,7 +157,7 @@ const MobileMenu = ({ className }: { className?: string }) => {
         </div>
         <Separator />
         <SheetFooter>
-          <Button>Book Free Consultation</Button>
+          <Consultation user={user}/>
         </SheetFooter>
       </SheetContent>
     </Sheet>

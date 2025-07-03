@@ -3,15 +3,18 @@
 import { Button } from '@/core/components/ui/button';
 import { createClient } from '@supabase/supabase-js';
 import { Camera, UploadCloud } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 interface KYCProps {
   user: any; // Replace 'any' with a specific user type if available
+  onClose?: () => void; // Optional callback to close the form
+  setKycStatusAction: React.Dispatch<React.SetStateAction<'noKYC' | 'pending' | 'completed'>>; // Optional callback to update KYC status
 }
-export default function KYCForm({ user }: KYCProps) {
+
+export default function KYCForm({ user, setKycStatusAction }: KYCProps) {
   const [firstName, setFirstName] = useState('John');
   const [lastName, setLastName] = useState('');
   const [mobile, setMobile] = useState('');
@@ -21,6 +24,8 @@ export default function KYCForm({ user }: KYCProps) {
   const [idNumber, setIdNumber] = useState('');
   const [idFile, setIdFile] = useState<File | null>(null);
   const [selfieFile, setSelfieFile] = useState<File | null>(null);
+  const idInputRef = useRef<HTMLInputElement>(null);
+  const selfieInputRef = useRef<HTMLInputElement>(null);
 
   const handleDateChange = (value: string) => {
     setDob(value);
@@ -72,7 +77,43 @@ export default function KYCForm({ user }: KYCProps) {
       kyc_status: false,
     };
 
-    const { error } = await supabase.from('usersKYC').insert([kycData]);
+    const { error } = await supabase.from('usersKYC').upsert([kycData]);
+
+    if (!error) {
+      setKycStatusAction("pending");
+      // Get the inserted KYC record to retrieve its id
+      const { data: kycRows, error: kycFetchError } = await supabase
+        .from('usersKYC')
+        .select('id')
+        .eq('user_id', user.id)
+        .order('updated_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (kycFetchError || !kycRows?.id) {
+        alert('Failed to fetch KYC record for usersData');
+        return;
+      }
+
+      const fullName = [firstName, lastName].filter(Boolean).join(' ');
+      const usersDataPayload = {
+        user_id: user.id,
+        full_name: fullName,
+        email: user.email || null,
+        phone: mobile,
+        kyc_id: kycRows.id,
+      };
+
+      const { error: usersDataError } = await supabase
+        .from('usersData')
+        .upsert([usersDataPayload], { onConflict: 'user_id' });
+
+      if (usersDataError) {
+        alert('Failed to update usersData');
+        return;
+      }
+    }
+
     if (error) {
       alert('Failed to submit KYC');
     } else {
@@ -162,15 +203,18 @@ export default function KYCForm({ user }: KYCProps) {
           className="border rounded-md px-3 py-2 text-sm"
         />
       </div>
-
       {/* Upload ID */}
       <div className="mb-6">
         <label className="block text-sm font-medium mb-2">Upload ID</label>
-        <div className="border-2 border-dashed border-gray-300 rounded-md p-6 text-center cursor-pointer text-sm text-gray-500">
+        <div
+          className="border-2 border-dashed border-gray-300 rounded-md p-6 text-center cursor-pointer text-sm text-gray-500"
+          onClick={() => idInputRef.current?.click()}
+        >
           <input
             type="file"
             accept=".png,.jpg,.jpeg"
             className="hidden"
+            ref={idInputRef}
             onChange={(e) => setIdFile(e.target.files?.[0] || null)}
           />
           {idFile ? (
@@ -184,6 +228,7 @@ export default function KYCForm({ user }: KYCProps) {
           )}
         </div>
       </div>
+         
 
       {/* Selfie Upload */}
       <div className="mb-6">
@@ -191,11 +236,15 @@ export default function KYCForm({ user }: KYCProps) {
         <p className="text-xs text-gray-500 mb-2">
           Please take a clear selfie of yourself holding your ID document. Both your face and the ID should be clearly visible.
         </p>
-        <div className="border-2 border-dashed border-gray-300 rounded-md p-6 text-center cursor-pointer text-sm text-gray-500">
+        <div
+          className="border-2 border-dashed border-gray-300 rounded-md p-6 text-center cursor-pointer text-sm text-gray-500"
+          onClick={() => selfieInputRef.current?.click()}
+        >
           <input
             type="file"
             accept="image/*"
             className="hidden"
+            ref={selfieInputRef}
             onChange={(e) => setSelfieFile(e.target.files?.[0] || null)}
           />
           {selfieFile ? (

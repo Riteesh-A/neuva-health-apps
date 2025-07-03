@@ -6,7 +6,11 @@ import { CheckCircle, User, Video } from 'lucide-react';
 import { useState } from 'react';
 import ConsultationConfirmation from './consultationConfirmation';
 
-export default function ConsultationScheduler({ user, supabase }: { user: any; supabase: any }) {
+export default function ConsultationScheduler({ user, supabase, onClose,
+}: {
+  user: any;
+  supabase: any;
+  onClose?: () => void;}) {
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [selectedTime, setSelectedTime] = useState('11:30 AM');
   const [consultationData, setConsultationData] = useState<any>({
@@ -113,7 +117,7 @@ export default function ConsultationScheduler({ user, supabase }: { user: any; s
   return (
     <div>{consultationData.status !== 'unset' ? 
     (<>
-    <ConsultationConfirmation setConsultationDataAction={setConsultationData} status={consultationData.status} date={consultationData.date} startTime={consultationData.startTime} endTime={consultationData.endTime} meetLink={meetLink}/>
+    <ConsultationConfirmation setConsultationDataAction={setConsultationData} status={consultationData.status} date={consultationData.date} startTime={consultationData.startTime} endTime={consultationData.endTime} meetLink={meetLink} onClose={onClose}/>
     </>
   ) : (<>
     
@@ -121,7 +125,14 @@ export default function ConsultationScheduler({ user, supabase }: { user: any; s
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">Schedule a Consultation</h2>
-        <button className="text-xl font-semibold text-gray-500">×</button>
+        <button
+          className="text-xl font-semibold text-gray-500"
+          onClick={onClose}
+          type="button"
+          aria-label="Close"
+        >
+          ×
+        </button>
       </div>
 
       {/* Progress bar */}

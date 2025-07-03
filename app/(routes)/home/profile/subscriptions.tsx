@@ -47,7 +47,7 @@ function filterOrders(orders: any, filter: string) {
     return orders;
 }
 
-export default function SubscriptionsManagement() {
+export default function SubscriptionsManagement({ user }: { user: any }) {
     const [orderFilter, setOrderFilter] = useState('all');
     const filteredOrders = filterOrders(orders, orderFilter);
 

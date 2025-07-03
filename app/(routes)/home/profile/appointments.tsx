@@ -19,26 +19,16 @@ type Appointment = {
     updated_at: string;
 };
 
-export default async function AppointmentsList() {
+export default function AppointmentsList({ user }: { user: any }) {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
-  const supabase = await createClient();
   
   useEffect(() => {
     const fetchAppointments = async () => {
       setLoading(true);
-
-      
-      const { data: sessionData, error: userError } = await createClient().auth.getSession();
-      const user = sessionData.session?.user;
-
-      if (userError || !user) {
-        console.error('User fetch error:', userError);
-        setLoading(false);
-        return;
-      }
-
-    const { data, error } = await supabase
+      const supabase = await createClient();
+      if (user){
+      const { data, error } = await supabase
       .from('appointments')
       .select('*')
       .eq('user_id', user.id)
@@ -49,7 +39,7 @@ export default async function AppointmentsList() {
       } else {
         setAppointments(data);
       }
-
+      }
       setLoading(false);
     };
 
@@ -57,6 +47,7 @@ export default async function AppointmentsList() {
   }, []);
 
   const handleDelete = async (id: string) => {
+    const supabase = await createClient();
     const { error } = await supabase.from('appointments').delete().eq('id', id);
     if (error) {
       console.error('Error deleting appointment:', error.message);
@@ -99,15 +90,17 @@ export default async function AppointmentsList() {
             <div className="text-sm space-y-1">
               <div className="flex justify-between">
                 <span className="text-gray-500">Doctor Name</span>
-                <span className="font-medium">{appt.doctor_id}</span>
+                {appt.doctor_id ? appt.doctor_id : 'Doctor yet to be assigned'}
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-500">Appointment Date and Time</span>
                 <span className="font-medium">{dateObj.format('h:mm A')} on {dateObj.format('MMM D, YYYY')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-500">Reason for Visit</span>
-                <span className="font-medium">{appt.status}</span>
+                <span className="text-gray-500">Status</span>
+                <span className="font-medium">
+                  {dayjs().isAfter(dateObj) ? 'Over' : appt.status}
+                </span>
               </div>
             </div>
           </div>

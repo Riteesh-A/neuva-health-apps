@@ -79,7 +79,7 @@ function filterOrders(orders: any, filter: string) {
     return orders;
 }
 
-export default function OrderHistory() {
+export default function OrderHistory({ user }: { user: any }) {
     const [orderFilter, setOrderFilter] = useState('all');
     const filteredOrders = filterOrders(orders, orderFilter);
 

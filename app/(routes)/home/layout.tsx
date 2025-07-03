@@ -3,6 +3,7 @@ import { CartProvider } from "@/core/components/cart/cart-context";
 import Footer from "@/core/components/footer";
 import Navbar from "@/core/components/navbar";
 import { getCart } from "@/core/lib/shopify";
+import React from 'react';
 export default async function HomeLayout({
   children,
 }: {
@@ -18,7 +19,9 @@ export default async function HomeLayout({
     <CartProvider cartPromise={cart}>
     <div className="flex flex-col">
       <Navbar user={data?.user}/>
-      {children}
+      {React.isValidElement(children)
+        ? React.cloneElement(children as React.ReactElement<any>, { user: data?.user })
+        : children}
       <Footer />
     </div>
     </CartProvider>

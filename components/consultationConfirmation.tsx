@@ -11,6 +11,7 @@ interface Props {
   endTime: string;   // Example: "11:15 AM"
   meetLink: string; // Optional, if you want to display the link
   setConsultationDataAction: Dispatch<SetStateAction<any>>;
+  onClose?: () => void; 
 }
 
 export default function ConsultationConfirmation({
@@ -19,7 +20,8 @@ export default function ConsultationConfirmation({
   startTime,
   endTime,
   meetLink,
-  setConsultationDataAction
+  setConsultationDataAction,
+  onClose
 }: Props) {
   if (status === 'fail') {
     return (
@@ -52,6 +54,7 @@ export default function ConsultationConfirmation({
         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
           </svg>
           <span className="text-sm text-blue-600">Loading meeting link...</span>
+          <span className="text-sm text-gray">Don't navigate away for a while</span>
         </div>
       ) : meetLink && (
         <div className="flex flex-col items-center gap-2 mb-4">
@@ -105,8 +108,8 @@ export default function ConsultationConfirmation({
       {/* Action Buttons */}
       <div className="flex flex-col justify-between gap-3">
         <Button variant="outline" className="w-full">View Order Details</Button>
-        <Button className="w-full" asChild>
-      <a href="/home/profile">Go to Dashboard</a>
+        <Button onClick={onClose} className="w-full" asChild>
+      Go to Dashboard
     </Button>
       </div>
 
