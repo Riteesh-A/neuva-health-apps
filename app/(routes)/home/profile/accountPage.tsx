@@ -1,5 +1,7 @@
 'use client';
 
+import { createClient } from '@/app/lib/client';
+import { supabase } from '@/app/lib/supabaseClient';
 import { Button } from '@/core/components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
@@ -14,6 +16,7 @@ const sections = [
     'Appointments',
     'My Profile',
 ];
+const supabaseClient = createClient();
 
 export default function AccountPage({ user }: { user: any }) {
     const [activeSection, setActiveSection] = useState('Order History');
@@ -36,7 +39,7 @@ export default function AccountPage({ user }: { user: any }) {
     return (
         <div className="flex flex-col md:flex-row h-screen">
             {/* Mobile dropdown */}
-            <div className="md:hidden px-4 py-2 flex justify-center">
+            <div className="md:hidden px-4 py-2 flex justify-between align-middle">
                 <button
                     className="flex gap-2 items-center font-bold text-lg"
                     onClick={() => setIsOpen(!isOpen)}
@@ -48,9 +51,20 @@ export default function AccountPage({ user }: { user: any }) {
                         <ChevronDown className="w-5 h-5" />
                     )}
                 </button>
-
+                    <div className="flex flex-col items-center justify-center h-full mb-4">
+                        <Button
+                            className="px-4 py-2 text-white transition"
+                            onClick={async () => {
+                                await supabase.auth.signOut();
+                                await supabaseClient.auth.signOut();
+                                window.location.href = '/auth/login';
+                            }}
+                        >
+                            Logout
+                        </Button>
+                    </div>
                 {isOpen && (
-                    <div className="absolute top-36 z-10 left-4 right-4 bg-white border rounded-md shadow-md mt-2">
+                    <div className="absolute top-48 z-10 left-4 right-4 bg-white border rounded-md shadow-md mt-2">
                         {sections.map((section) => (
                             <button
                                 key={section}
@@ -86,7 +100,20 @@ export default function AccountPage({ user }: { user: any }) {
                             {section}
                         </Button>
                     ))}
+                    <div className="flex flex-col items-start h-full mb-4">
+                        <Button
+                            className="px-4 py-2 text-white transition"
+                            onClick={async () => {
+                                await supabase.auth.signOut();
+                                await supabaseClient.auth.signOut();
+                                window.location.href = '/auth/login';
+                            }}
+                        >
+                            Logout
+                        </Button>
+                    </div>
                 </nav>
+                
             </div>
 
             {/* Content Area */}

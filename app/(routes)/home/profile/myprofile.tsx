@@ -68,6 +68,7 @@ export default function UserProfile({user}:{user:any}) {
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-6">
       {/* Profile Image */}
+
       <div className="bg-white p-4 rounded-md shadow-sm flex items-center gap-4">
         {userData.picture ? (
           <img
