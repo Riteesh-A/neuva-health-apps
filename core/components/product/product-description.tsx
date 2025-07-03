@@ -1,10 +1,10 @@
 "use client"
-import { AddToCart } from "@/core/components/cart/add-to-cart";
 import Prose from "@/core/components/prose";
 import { Product, ProductVariant } from "@/core/lib/shopify/types";
 import { ChevronDownCircle, ChevronLeft } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
+import { BuyNow } from './../cart/buy-now';
 import PurchasePlanSelector from "./purchase-plan-selector";
 import { VariantSelector } from "./variant-selector";
 
@@ -87,7 +87,7 @@ export function ProductDescription({ product }: { product: Product }) {
         <PurchasePlanSelector selectedVariant={selectedVariant} sellingPlanGroups={product.sellingPlanGroups} />
         <div className="flex flex-row h-12 gap-4 w-full">
           <div className="w-1/3 flex items-center">
-            <div className="flex items-center justify-between w-full max-w-[140px] rounded-full border border-gray-300 px-2 py-1 bg-white">
+            <div className="flex items-center justify-between w-full rounded-full border border-gray-300 px-2 py-1 bg-white">
               <button
                 type="button"
                 className="text-[#2F5F8D] text-xl px-2 rounded-full focus:outline-none"
@@ -134,10 +134,11 @@ export function ProductDescription({ product }: { product: Product }) {
               </button>
             </div>
           </div>
-          <div className="w-2/3 flex items-end">
-            <Button className="w-full" variant="default">
+          <div className="w-2/3 flex items-center">
+            {/* <Button className="w-full" variant="default">
               Buy Now
-            </Button>
+            </Button> */}
+            <BuyNow product={product}/>
           </div>
         </div>
         <div className="rounded-md bg-[#D1E4FF] p-4 flex justify-between">
@@ -152,7 +153,7 @@ export function ProductDescription({ product }: { product: Product }) {
 
         <Accordion product={product} />
       </div>
-      <AddToCart product={product} />
+      {/* <AddToCart product={product} /> */}
     </div>
   );
 }

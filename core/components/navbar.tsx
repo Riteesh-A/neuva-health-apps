@@ -1,5 +1,8 @@
 "use client";
 
+import Consultation from "@/components/consultation";
+import { CurrentUserAvatar } from "@/components/current-user-avatar";
+import CartModal from "@/core/components/cart/modal";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Menu } from "lucide-react";
 import Link from "next/link";
@@ -15,7 +18,6 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "./ui/sheet";
-
 const items = [
   { icon: "fas fa-male", text: "10,000+ Men Helped" },
   { icon: "fas fa-stethoscope", text: "Licensed Doctors" },
@@ -28,15 +30,18 @@ const items = [
 ];
 
 const links = [
-  { text: "Home", href: "#" },
-  { text: "Shop", href: "#" },
-  { text: "How it works?", href: "#" },
-  { text: "About Neuva", href: "#" },
+  { text: "Home", href: "/home" },
+  { text: "Shop", href: "/home/have-better-sex" },
+  { text: "How it works?", href: "/home/have-better-sex" },
+  { text: "About Neuva", href: "" },
 ];
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+interface NavbarProps {
+  user?: any;
+}
 
+const Navbar = ({ user }: NavbarProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const handleScroll = () => {
     if (window.scrollY > 100) setIsScrolled(true);
     else setIsScrolled(false);
@@ -97,12 +102,24 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button size={"lg"} className="hidden md:flex">
-            Book Free Consultation
-          </Button>
-          <Button size={"lg"} variant={"outline"}>
-            Sign In
-          </Button>
+          
+            <Consultation user={user}/>
+            {user ? (
+            <div className="flex flex-row items-center gap-2">
+              <CartModal />
+              <Link
+                href={"/home/profile"}>
+              
+              <CurrentUserAvatar />
+              </Link>
+            </div>
+            ) : (
+            <Link href="/auth/login">
+              <Button size={"lg"} variant={"outline"}>
+              Sign In
+              </Button>
+            </Link>
+            )}
           <MobileMenu className="md:hidden" />
         </div>
       </div>

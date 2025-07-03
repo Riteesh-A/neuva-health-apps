@@ -1,7 +1,7 @@
 'use client'
 
+import { Button } from '@/core/components/ui/button'
 import { createClient } from '@/lib/client'
-import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 
 export function LogoutButton() {

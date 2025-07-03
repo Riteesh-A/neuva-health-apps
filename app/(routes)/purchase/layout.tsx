@@ -5,6 +5,7 @@ import CTACards from "@/core/components/home/CTACards";
 import TrustedByMen from "@/core/components/home/TrustedByMen";
 import Navbar from "@/core/components/navbar";
 import { getCart } from "@/core/lib/shopify";
+import { createClient } from "@/lib/server";
 
 export default async function PurchaseLayout({
   children,
@@ -12,18 +13,23 @@ export default async function PurchaseLayout({
   children: React.ReactNode;
 }) {
   const cart = getCart();
-
+  const supabase = await createClient()
+  
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    // redirect('/auth/login')
+  }
   return (
     <CartProvider cartPromise={cart}>
     <div>
-    <Navbar/>
+    <Navbar user={data?.user}/>
     <div className='mx-30  flex flex-col space-y-20'>
       {children}
         
     </div>
-    <CTACards className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto"  />
     <TrustedByMen className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
     <CommonQuestions className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+    <CTACards className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto"  />
     <Footer/>
     {/* Add your content here */}
 </div>
