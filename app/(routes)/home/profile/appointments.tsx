@@ -1,12 +1,11 @@
 'use client';
 
-import { createClient } from '@/app/lib/server';
+import { createClient } from '@/app/lib/client';
 import { Button } from '@/core/components/ui/button';
 import dayjs from 'dayjs';
 import { Pencil, Trash2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-const supabase = await createClient();
 type Appointment = {
     id: string;
     created_at: string;
@@ -20,18 +19,18 @@ type Appointment = {
     updated_at: string;
 };
 
-export default function AppointmentsList() {
+export default async function AppointmentsList() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
-
+  const supabase = await createClient();
+  
   useEffect(() => {
     const fetchAppointments = async () => {
       setLoading(true);
 
-      const {
-        data: { user },
-        error: userError,
-      } = await supabase.auth.getUser();
+      
+      const { data: sessionData, error: userError } = await createClient().auth.getSession();
+      const user = sessionData.session?.user;
 
       if (userError || !user) {
         console.error('User fetch error:', userError);
