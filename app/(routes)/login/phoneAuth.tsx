@@ -1,6 +1,7 @@
 'use client'
 
-import { supabase } from '@/app/lib/supabaseClient'
+// import { supabase } from '@/app/lib/supabaseClient'
+import { createClient } from '@/app/lib/client'
 import { Button } from '@/core/components/ui/button'
 import { useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
@@ -14,6 +15,7 @@ export default function PhoneAuth() {
 
   const sendOtp = async () => {
     setLoading(true); setErrorMsg(null)
+    const supabase = createClient()
     const { error } = await supabase.auth.signInWithOtp({
       phone,
       options: { shouldCreateUser: true }
@@ -25,6 +27,7 @@ export default function PhoneAuth() {
 
   const verifyOtp = async () => {
     setLoading(true); setErrorMsg(null)
+    const supabase = createClient()
     const { data, error } = await supabase.auth.verifyOtp({
       phone,
       token: otp,
