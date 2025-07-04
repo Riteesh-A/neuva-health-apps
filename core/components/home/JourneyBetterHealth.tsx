@@ -163,12 +163,12 @@ const JourneyBetterHealth = ({ className }: { className?: string }) => {
     // Pin the section
     const pinTl = gsap.timeline({
       scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: `+=${sectionHeight}`,
-        pin: sectionRef.current,
-        pinSpacing: true,
-        scrub: true,
+      trigger: containerRef.current,
+      start: "top-=64 top", // Add 32px margin at the top
+      end: `+=${sectionHeight}`,
+      pin: sectionRef.current,
+      pinSpacing: true,
+      scrub: true,
       }
     });
 
@@ -329,7 +329,7 @@ const JourneyBetterHealth = ({ className }: { className?: string }) => {
   };
 
   return (
-    <>
+    <div>
     {isMobile ? (<>
     <div className="flex flex-col h-fit gap-6 mx-4 mt-4">
       <Card className="shadow-none border-0 bg-primary-96 p-0 overflow-hidden h-60">
@@ -540,7 +540,7 @@ const JourneyBetterHealth = ({ className }: { className?: string }) => {
       </div>
     </div>
     </>)}
-    </>
+    </div>
   );
 };
 

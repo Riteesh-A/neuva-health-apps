@@ -32,8 +32,8 @@ const items = [
 const links = [
   { text: "Home", href: "/home" },
   { text: "Shop", href: "/home/have-better-sex" },
-  { text: "How it works?", href: "/home/have-better-sex" },
-  { text: "About Neuva", href: "" },
+  { text: "How it works?", href: "/home/have-better-sex#how-this-medicine-works" },
+  { text: "About Neuva", href: "/home#about-neuva-health" },
 ];
 
 interface NavbarProps {
@@ -59,7 +59,7 @@ const Navbar = ({ user }: NavbarProps) => {
       <div
         className={cn(
           "flex items-center h-10 p-2 px-4 bg-blue-100 transition-all duration-300",
-          isScrolled ? "opacity-0 h-0" : "opacity-100"
+          isScrolled ? " hidden opacity-0 h-0" : "opacity-100"
         )}
       >
         <h1 className="whitespace-nowrap md:px-4">Why Neuva?</h1>
@@ -84,7 +84,10 @@ const Navbar = ({ user }: NavbarProps) => {
       </div>
       <div
         className={cn(
-          "flex items-center max-w-screen-xl px-4 py-3 md:p-4 md:px-14 w-full self-center justify-between"
+          "flex items-center max-w-screen-xl px-4 py-3 md:p-4 md:px-14 w-full self-center justify-between transition-all duration-300",
+          isScrolled
+        ? "bg-white/70 backdrop-blur-md bg-[url('/grain.png')]"
+        : "bg-white"
         )}
       >
         <div className="flex items-center gap-[60px]">

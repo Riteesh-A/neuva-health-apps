@@ -17,11 +17,15 @@ export default async function HomeLayout({
   }
   return (
     <CartProvider cartPromise={cart}>
-    <div className="flex flex-col">
-      <Navbar user={data?.user}/>
+    <div className="flex flex-col min-h-screen">
+      <div className="sticky top-0 z-50">
+      <Navbar user={data?.user} />
+      </div>
+      <div className="flex-1">
       {React.isValidElement(children)
         ? React.cloneElement(children as React.ReactElement<any>, { user: data?.user })
         : children}
+      </div>
       <Footer />
     </div>
     </CartProvider>

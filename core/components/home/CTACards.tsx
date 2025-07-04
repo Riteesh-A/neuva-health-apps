@@ -72,14 +72,14 @@ const cardDataByPath: Record<string, Array<{
     
   ],
 };
-const CTACards = ({ className }: { className?: string }) => {
+const CTACards = ({ className, id }: { className?: string; id?: string }) => {
   const pathname = usePathname();
   let cards = cardDataByPath[pathname] || [];
   if (cards.length === 0 && pathname.startsWith("/purchase/")) {
     cards = cardDataByPath["/home/have-better-sex"] || [];
   }
   return (
-    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-6 p-6", className)}>
+    <div id={id||""} className={cn("grid grid-cols-1 sm:grid-cols-2 gap-6 p-6", className)}>
       {cards.map((card, index) => (
         <div
           key={index}

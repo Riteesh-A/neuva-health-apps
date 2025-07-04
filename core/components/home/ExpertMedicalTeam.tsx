@@ -28,7 +28,7 @@ const team: FeatureCardProps["feature"][] = [
   },
 ];
 
-const ExpertMedicalTeam = ({ className }: { className?: string }) => {
+const ExpertMedicalTeam = ({ className, id }: { className?: string; id?: string }) => {
   const isMobile = useIsMobile();
 
   const cardWidth = 96 * 4;
@@ -37,6 +37,7 @@ const ExpertMedicalTeam = ({ className }: { className?: string }) => {
 
   return (
     <section
+     id={id || ""}
       className={cn(
         "storybook-fix flex w-full flex-col items-center gap-4 py-10 md:mt-[100vh]",
         className

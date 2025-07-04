@@ -22,7 +22,11 @@ export function ProductDescription({ product }: { product: Product }) {
   return (
     <div>
       <div className="mb-6 flex flex-col pb-6 gap-7">
-        <Button variant="outline" className="w-fit" > <ChevronLeft /> Back to Products</Button>
+        <Button variant="outline" className="w-fit" asChild>
+          <a href="/home/have-better-sex">
+            <ChevronLeft /> Back to Products
+          </a>
+        </Button>
         <div className="flex flex-col gap-5">
           <div className="flex flex-row gap-4 align-middle">
             <h1 className=" text-4xl text-[#42474F] font-bold">{product.title}</h1>

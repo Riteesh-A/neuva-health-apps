@@ -27,9 +27,9 @@ const faqs = [
   },
 ];
 
-const CommonQuestions = ({ className }: { className?: string }) => {
+const CommonQuestions = ({ className, id }: { className?: string; id?: string }) => {
   return (
-    <div className={cn("flex flex-col items-center gap-20", className)}>
+    <div id={id||""} className={cn("flex flex-col items-center gap-20", className)}>
       <div className="flex flex-col gap-8 text-center max-w-xl">
         <h1 className="text-3xl md:text-6xl font-bold tracking-tight">
           Common Questions

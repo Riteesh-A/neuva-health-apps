@@ -90,9 +90,9 @@ const data: BottomCardProps[] = [
   },
 ];
 
-const TakeFirstStep = ({ className }: { className?: string }) => {
+const TakeFirstStep = ({ className, id }: { className?: string; id?: string }) => {
   return (
-    <div className={cn("flex flex-col items-center gap-8", className)}>
+    <div id={id||""} className={cn("flex flex-col items-center gap-8", className)}>
       <div className="flex flex-col gap-8 text-center max-w-xl">
         <h1 className="text-3xl md:text-6xl font-bold tracking-tight">
           Take the First Step Today

@@ -37,7 +37,7 @@ export default async function HomePage() {
                 
       <JourneyBetterHealth className="w-full mx-auto" />
       {/* <SolutionsEveryNeed /> */}
-      <ExpertMedicalTeam className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
+      <ExpertMedicalTeam id={"about-neuva-health"} className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
       <QualityTreatment className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
       <PrivacyMatters className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
       {/* <Separator /> */}
