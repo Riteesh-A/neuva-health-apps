@@ -1,3 +1,4 @@
+"use cache";
 import { Button } from "@/core/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/core/components/ui/card";
 import { getProducts } from "@/core/lib/shopify";

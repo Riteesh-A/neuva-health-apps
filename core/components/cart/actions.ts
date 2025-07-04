@@ -97,6 +97,7 @@ export async function updateItemQuantity(
 
 export async function redirectToCheckout() {
   let cart = await getCart();
+  // redirect("/home/assessment");
   redirect(cart!.checkoutUrl);
 }
 

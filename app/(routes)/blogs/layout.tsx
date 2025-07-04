@@ -16,7 +16,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
     <CartProvider cartPromise={cart}>
     <div>
     <Navbar user={data?.user}/>
-    <div className='mx-30  flex flex-col space-y-20'>
+    <div className='md:mx-30  flex flex-col md:space-y-20 space-y-10'>
       {children}
         
     </div>

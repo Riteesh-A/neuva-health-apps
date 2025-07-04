@@ -1,13 +1,16 @@
 "use client";
 
+import { createClient } from '@/app/lib/client';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Circle, CircleDot, Square, SquareCheck } from "lucide-react";
+import { redirect } from "next/navigation";
 import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { Button } from "../ui/button";
 import { Form, FormField } from "../ui/form";
 import { Progress } from "../ui/progress";
+import AssessmentResult from './assessment-result';
 
 type SelectTypeQuestion = {
   title: string;
@@ -34,52 +37,64 @@ type QuestionType = SelectTypeQuestion | RangeTypeQuestion;
 
 const questions: QuestionType[] = [
   {
-    title: "QUESTION 1 OF 4",
-    question: "What is your primary health concern?",
+    title: "Let's start with your goals",
+    question: "What would you like help with today?",
     multiselect: true,
     options: [
-      { key: "general-check-up", value: "General Check-up", inactiveIcon: Square, activeIcon: SquareCheck },
-      { key: "mental-health", value: "Mental Health", inactiveIcon: Square, activeIcon: SquareCheck },
-      { key: "chronic-pain", value: "Chronic Pain", inactiveIcon: Square,  activeIcon: SquareCheck },
-      { key: "other", value: "Other", inactiveIcon: Square, activeIcon: SquareCheck },
+      { key: "better-sex", value: "Improve intimate life", inactiveIcon: Square, activeIcon: SquareCheck },
+      { key: "lose-weight", value: "Weight management", inactiveIcon: Square, activeIcon: SquareCheck },
+      { key: "regrow-hair", value: "Hair restoration", inactiveIcon: Square, activeIcon: SquareCheck },
+      { key: "tackle-anxiety", value: "Mental wellness", inactiveIcon: Square, activeIcon: SquareCheck },
     ],
     type: "select",
   },
   {
-    title: "QUESTION 2 OF 4",
-    question: "How often do you experience this?",
+    title: "Understanding your situation",
+    question: "Have you tried any treatments or medications before for this?",
     multiselect: false,
     options: [
-      { key: "always", value: "Always", inactiveIcon: Circle, activeIcon: CircleDot },
-      { key: "more-than-half-the-time", value: "More than half the time", inactiveIcon: Circle, activeIcon: CircleDot },
-      { key: "sometimes", value: "Sometimes", inactiveIcon: Circle, activeIcon: CircleDot },
-      { key: "rarely", value: "Rarely", inactiveIcon: Circle, activeIcon: CircleDot },
-      { key: "never", value: "Never", inactiveIcon: Circle, activeIcon: CircleDot },
+      { key: "never", value: "No, this is my first time seeking help", inactiveIcon: Circle, activeIcon: CircleDot },
+      { key: "tried-otc", value: "Yes, tried over-the-counter solutions", inactiveIcon: Circle, activeIcon: CircleDot },
+      { key: "tried-prescription", value: "Yes, tried prescription medications", inactiveIcon: Circle, activeIcon: CircleDot },
+      { key: "currently-using", value: "Currently using medication", inactiveIcon: Circle, activeIcon: CircleDot },
     ],
     type: "select",
   },
   {
-    title: "QUESTION 3 OF 4",
-    question: "Rate the severity of your issue.",
+    title: "Impact Assessment",
+    question: "How much is this affecting your quality of life?",
     min: 1,
-    minText: "Inconvenient",
+    minText: "Mild concern",
     max: 5,
-    maxText: "Unbearable",
+    maxText: "Significant impact",
     interval: 1,
     type: "range",
   },
   {
-    title: "QUESTION 4 OF 4",
-    question: "Do you have any of the following health issues?",
+    title: "Medical Background",
+    question: "Please select any conditions you have been diagnosed with:",
     multiselect: true,
     options: [
-      { key: "diabetes", value: "Diabetes", inactiveIcon: Square, activeIcon: SquareCheck },
-      { key: "hypertension", value: "Hypertension", inactiveIcon: Square, activeIcon: SquareCheck },
-      { key: "erectile-dysfunction", value: "Erectile Dysfunction", inactiveIcon: Square, activeIcon: SquareCheck },
-      { key: "other", value: "Other", inactiveIcon: Square, activeIcon: SquareCheck },
+      { key: "heart", value: "Heart or blood pressure issues", inactiveIcon: Square, activeIcon: SquareCheck },
+      { key: "liver", value: "Liver problems", inactiveIcon: Square, activeIcon: SquareCheck },
+      { key: "depression", value: "Depression or mood disorders", inactiveIcon: Square, activeIcon: SquareCheck },
+      { key: "medications", value: "Currently taking other medications", inactiveIcon: Square, activeIcon: SquareCheck },
+      { key: "none", value: "None of these apply to me", inactiveIcon: Square, activeIcon: SquareCheck },
     ],
     type: "select",
   },
+  {
+    title: "Frequency Check",
+    question: "How often do you experience this concern?",
+    multiselect: false,
+    options: [
+      { key: "daily", value: "Daily", inactiveIcon: Circle, activeIcon: CircleDot },
+      { key: "few-times-week", value: "Few times a week", inactiveIcon: Circle, activeIcon: CircleDot },
+      { key: "occasionally", value: "Occasionally", inactiveIcon: Circle, activeIcon: CircleDot },
+      { key: "rarely", value: "Rarely", inactiveIcon: Circle, activeIcon: CircleDot },
+    ],
+    type: "select",
+  }
 ];
 
 const schema = z.object({
@@ -291,7 +306,45 @@ export const AssessmentForm = () => {
 
     return <QuestionView question={incompleteQuestion} index={index} />;
   };
+  const supabase = createClient(
+  );
 
+  async function saveAssessment(answers: any) {
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
+    if (authError || !user) {
+      console.error("Authentication error:", authError);
+      redirect("/auth/login");
+    }
+    const { error } = await supabase.from("assessments").insert([
+      {
+        user_id: user.id,
+        answers,
+      },
+    ]);
+    if (error) {
+      throw error;
+    }
+  }
+
+  // Example usage after form submit
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    const answers = form.getValues("questions");
+    try {
+      await saveAssessment(answers);
+      setSubmitted(true);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsSubmitting(false);
+      // redirect("/home");
+    }
+  };
   return (
     <Form {...form}>
       <form className="flex flex-col h-full">
@@ -329,8 +382,8 @@ export const AssessmentForm = () => {
             <RenderIncompleteQuestion />
           )}
 
-          {checkpoint >= questions.length &&
-            form.getValues("questions").every((q) => q.answer) && (
+          {checkpoint >= questions.length && !submitted && 
+            (form.getValues("questions").every((q) => q.answer) && (
               <div className="flex flex-col gap-10">
                 <div className="flex flex-col gap-3">
                   <h1 className="uppercase text-xs">Health Assessment</h1>
@@ -341,10 +394,28 @@ export const AssessmentForm = () => {
                     We appreciate your time and effort in completing this
                     assessment.
                   </p>
+                  <p className='font-light'>
+                    Your assessment is ready
+                    </p>
                 </div>
-                <Button>Continue</Button>
+                {/* <Button>Continue</Button> */}
+                <Button
+                  type="button"
+                  onClick={() => {
+                  handleSubmit();
+                  }}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "View Assessment"}
+                </Button>
               </div>
-            )}
+            ))}
+          
+          {submitted && (
+            <div className="flex flex-col gap-3">
+              <AssessmentResult answers={form.getValues("questions")}/>
+              </div>)}
+          
         </div>
       </form>
     </Form>
