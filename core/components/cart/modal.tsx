@@ -2,6 +2,7 @@
 
 import LoadingDots from "@/core/components/loading-dots";
 import Price from "@/core/components/price";
+import { Button } from "@/core/components/ui/button";
 import { DEFAULT_OPTION } from "@/core/lib/constants";
 import { createUrl } from "@/core/lib/utils";
 import { Dialog, Transition } from "@headlessui/react";
@@ -11,7 +12,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
-import { Button } from "../ui/button";
 import { createCartAndSetCookie, redirectToCheckout } from "./actions";
 import { useCart } from "./cart-context";
 import { DeleteItemButton } from "./delete-item-button";
@@ -247,8 +247,9 @@ function CheckoutButton() {
 
   return (
     <Button
-      className="block w-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
+      className="w-full"
       type="submit"
+      variant="default"
       disabled={pending}
     >
       {pending ? <LoadingDots className="bg-white" /> : "Proceed to Checkout"}

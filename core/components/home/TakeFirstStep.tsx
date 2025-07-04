@@ -103,8 +103,17 @@ const TakeFirstStep = ({ className, id }: { className?: string; id?: string }) =
         </h2>
       </div>
       <div className="flex flex-col w-full md:flex-row md:justify-center gap-4">
-        <Button className="text-white">Start Free Assessment</Button>
-        <Button variant={"outline"}>Book Consultation</Button>
+        <Button className="text-white" asChild>
+          <a href="/home/assessments">Start Free Assessment</a>
+        </Button>
+        <Button
+          variant="outline"
+          onClick={() => {
+            window.dispatchEvent(new Event("openConsultationModal"));
+          }}
+        >
+          Book Consultation
+        </Button>
       </div>
       {typeof window !== "undefined" && window.location.pathname !== "/home" && (
         <div className="w-dvw overflow-hidden">

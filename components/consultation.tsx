@@ -16,7 +16,13 @@ interface ConsultationProps {
 
 export default function Consultation({ user }: ConsultationProps) {
     const [showconsultation, setShowConsultation] = useState(false);
-    
+    useEffect(() => {
+        const openConsultationModal = () => setShowConsultation(true);
+        window.addEventListener("openConsultationModal", openConsultationModal);
+        return () => {
+            window.removeEventListener("openConsultationModal", openConsultationModal);
+        };
+    }, []);
     // Fetch KYC data for the user when component mounts or user changes
     const [data, setData] = useState<any>(null);
     const [error, setError] = useState<any>(null);

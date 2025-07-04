@@ -71,7 +71,9 @@ const QualityTreatment = ({ className }: { className?: string }) => {
         ))}
       </div>
       <div>
-        <Button variant={"outline"}> Explore Products</Button>
+        <Button asChild variant="outline">
+          <a href="/home/have-better-sex">Explore Products</a>
+        </Button>
       </div>
     </div>
   );

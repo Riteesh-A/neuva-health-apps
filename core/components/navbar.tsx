@@ -55,7 +55,12 @@ const Navbar = ({ user }: NavbarProps) => {
   }, []);
 
   return (
-    <div className="flex flex-col z-30">
+    <div
+      className={cn(
+      "flex flex-col z-30",
+      typeof window !== "undefined" && window.location.pathname === "/home/assessment" ? "bg-white" : ""
+      )}
+    >
       <div
         className={cn(
           "flex items-center h-10 p-2 px-4 bg-blue-100 transition-all duration-300",
@@ -87,43 +92,45 @@ const Navbar = ({ user }: NavbarProps) => {
           "flex items-center max-w-screen-xl px-4 py-3 md:p-4 md:px-14 w-full self-center justify-between transition-all duration-300",
           isScrolled
         ? "bg-white/70 backdrop-blur-md bg-[url('/grain.png')]"
-        : "bg-white"
+        : (typeof window !== "undefined" && window.location.pathname === "/home/assessment"
+            ? "bg-white "
+            : "bg-white")
         )}
       >
         <div className="flex items-center gap-[60px]">
           <Logo className="text-sm md:text-xl leading-4 md:leading-5" />
           <div className="hidden md:flex items-center">
-            {links.map((link, i) => (
-              <Link
-                key={i}
-                href={link.href}
-                className="p-3 lg:px-5 whitespace-nowrap font-medium"
-              >
-                {link.text}
-              </Link>
-            ))}
+        {links.map((link, i) => (
+          <Link
+            key={i}
+            href={link.href}
+            className="p-3 lg:px-5 whitespace-nowrap font-medium"
+          >
+            {link.text}
+          </Link>
+        ))}
           </div>
         </div>
         <div className="flex items-center gap-2">
           <div className="hidden md:block">
-            <Consultation user={user}/>
+        <Consultation user={user}/>
           </div>
-            {user ? (
-            <div className="flex flex-row items-center gap-2">
-              <CartModal />
-              <Link
-                href={"/home/profile"}>
-              
-              <CurrentUserAvatar />
-              </Link>
-            </div>
-            ) : (
-            <Link href="/auth/login">
-              <Button size={"lg"} variant={"outline"}>
-              Sign In
-              </Button>
-            </Link>
-            )}
+        {user ? (
+        <div className="flex flex-row items-center gap-2">
+          <CartModal />
+          <Link
+            href={"/home/profile"}>
+          
+          <CurrentUserAvatar />
+          </Link>
+        </div>
+        ) : (
+        <Link href="/auth/login">
+          <Button size={"lg"} variant={"outline"}>
+          Sign In
+          </Button>
+        </Link>
+        )}
           <MobileMenu className="md:hidden" user={user}/>
         </div>
       </div>

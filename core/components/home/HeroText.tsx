@@ -64,7 +64,9 @@ const HeroText = () => {
         <Button asChild variant={"default"}>
           <a href="/home/assessment">Start Free Assessment</a>
         </Button>
-        <Button variant={"outline"}>Explore Products</Button>
+        <Button asChild variant={"outline"}>
+          <a href="/home/have-better-sex">Explore Products</a>
+        </Button>
       </motion.header>
     </div>
   );

@@ -146,7 +146,13 @@ const ExpertMedicalTeam = ({ className, id }: { className?: string; id?: string 
           },
         }}
       >
-        <Button className="md:mt-20" variant={"outline"}>
+        <Button
+          className="md:mt-20"
+          variant={"outline"}
+          onClick={() => {
+            window.dispatchEvent(new Event("openConsultationModal"));
+          }}
+        >
           Book a Consultation
         </Button>
       </motion.div>

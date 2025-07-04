@@ -10,6 +10,7 @@ const cardDataByPath: Record<string, Array<{
   subtitle: string;
   buttonText: string;
   image: string;
+  url: string;
 }>> = {
   
   "/home/have-better-sex": [
@@ -18,12 +19,14 @@ const cardDataByPath: Record<string, Array<{
         subtitle: "Answer a few questions about your \nhealth in just 3 minutes.",
         buttonText: "Explore Products",
         image: "/assets/card_bg_1.jpeg",
+        url: "/home/tackle-anxiety",
       },
       {
         title: "Lose weight",
         subtitle: "Answer a few questions about your \nhealth in just 3 minutes.",
         buttonText: "Explore Products",
         image: "/assets/card_bg_2.jpeg",
+        url: "/home/lose-weight",
       },
   ],
   "/home/lose-weight": [
@@ -32,12 +35,14 @@ const cardDataByPath: Record<string, Array<{
         subtitle: "Answer a few questions about your health \nin just 3 minutes.",
         buttonText: "Explore Products",
         image: "/assets/card_bg_1.jpeg",
+        url: "/home/tackle-anxiety",
       },
       {
         title: "Have Longer Sex",
         subtitle: "Improve stamina and confidence with \npersonalized solutions.",
         buttonText: "Explore Products",
         image: "/assets/bg-bed-couple.jpg",
+        url: "/home/have-better-sex",
       },
   ],
   "/home/tackle-anxiety": [
@@ -46,12 +51,14 @@ const cardDataByPath: Record<string, Array<{
         subtitle: "Improve stamina and confidence with \npersonalized solutions.",
         buttonText: "Explore Products",
         image: "/assets/bg-bed-couple.jpg",
+        url: "/home/have-better-sex",
       },
       {
         title: "Lose weight",
         subtitle: "Answer a few questions about your \nhealth in just 3 minutes.",
         buttonText: "Explore Products",
         image: "/assets/card_bg_2.jpeg",
+        url: "/home/lose-weight",
       },
   ],
   "/home/regrow-hair": [
@@ -60,12 +67,14 @@ const cardDataByPath: Record<string, Array<{
         subtitle: "Improve stamina and confidence with \npersonalized solutions.",
         buttonText: "Explore Products",
         image: "/assets/bg-bed-couple.jpg",
+        url: "/home/have-better-sex",
       },
       {
         title: "Tackle Anxiety",
         subtitle: "Answer a few questions about your health \nin just 3 minutes.",
         buttonText: "Explore Products",
         image: "/assets/card_bg_1.jpeg",
+        url: "/home/tackle-anxiety",
       },
   ],
   "/home": [
@@ -95,8 +104,12 @@ const CTACards = ({ className, id }: { className?: string; id?: string }) => {
           <div className="absolute inset-0 flex flex-col justify-end text-center p-6 text-white items-center">
             <h2 className="text-5xl font-bold">{card.title}</h2>
             <p className="mt-6 text-lg whitespace-pre-line font-light">{card.subtitle}</p>
-            <Button variant={"default"} className="w-fit mt-6 bg-white text-black">
-              Explore Products
+            <Button
+              asChild
+              variant={"default"}
+              className="w-fit mt-6 bg-white text-black"
+            >
+              <a href={card.url || "#"}>{card.buttonText}</a>
             </Button>
           </div>
         </div>

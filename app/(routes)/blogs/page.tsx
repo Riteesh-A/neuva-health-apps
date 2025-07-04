@@ -2,44 +2,44 @@ import { Blog7 } from "@/components/blog7";
 
 
 export default function BlogsPage() {
-  const tagline = "Latest Updates";
-  const heading = "Blog Posts";
-  const description = "Discover the latest trends, tips, and best practices in modern web development. From UI components to design systems, stay updated with our expert insights.";
-  const buttonText = "View all articles";
-  const buttonUrl = "https://shadcnblocks.com";
+  const tagline = "Insights & Updates";
+  const heading = "Neuva Health Blog";
+  const description = "Stay informed with the latest news, health tips, and research from Neuva Health. Explore expert advice, wellness guides, and updates on our services.";
+  const buttonText = "Read all blog posts";
+  const buttonUrl = "/blogs";
   const posts = [
     {
       id: "post-1",
-      title: "Getting Started with shadcn/ui Components",
+      title: "5 Ways to Improve Your Mental Wellbeing",
       summary:
-        "Learn how to quickly integrate and customize shadcn/ui components in your Next.js projects. We'll cover installation, theming, and best practices for building modern interfaces.",
-      label: "Tutorial",
-      author: "Sarah Chen",
-      published: "1 Jan 2024",
-      url: "https://shadcnblocks.com",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+        "Discover practical strategies to boost your mental health and maintain emotional balance in your daily life.",
+      label: "Wellness",
+      author: "Dr. Priya Sharma",
+      published: "10 Feb 2024",
+      url: "/blogs/mental-wellbeing",
+      image: "/assets/blogs/bg-bed-couple.jpg",
     },
     {
       id: "post-2",
-      title: "Building Accessible Web Applications",
+      title: "Understanding Preventive Healthcare",
       summary:
-        "Explore how to create inclusive web experiences using shadcn/ui's accessible components. Discover practical tips for implementing ARIA labels, keyboard navigation, and semantic HTML.",
-      label: "Accessibility",
-      author: "Marcus Rodriguez",
-      published: "1 Jan 2024",
-      url: "https://shadcnblocks.com",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+        "Learn why preventive care is essential and how regular checkups can help you stay ahead of potential health issues.",
+      label: "Prevention",
+      author: "Dr. Arjun Patel",
+      published: "22 Jan 2024",
+      url: "/blogs/preventive-healthcare",
+      image: "/assets/blogs/journey_to_better_health.svg",
     },
     {
       id: "post-3",
-      title: "Modern Design Systems with Tailwind CSS",
+      title: "Nutrition Tips for a Healthier Life",
       summary:
-        "Dive into creating scalable design systems using Tailwind CSS and shadcn/ui. Learn how to maintain consistency while building flexible and maintainable component libraries.",
-      label: "Design Systems",
-      author: "Emma Thompson",
-      published: "1 Jan 2024",
-      url: "https://shadcnblocks.com",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+        "Explore evidence-based nutrition advice to help you make healthier food choices and improve your overall wellbeing.",
+      label: "Nutrition",
+      author: "Neha Verma, RD",
+      published: "5 Jan 2024",
+      url: "/blogs/nutrition-tips",
+      image: "/assets/blogs/fit-man-smiling.png",
     },
   ];
     return <Blog7 tagline={tagline} heading={heading} description={description} buttonText={buttonText} buttonUrl={buttonUrl} posts={posts}  />;

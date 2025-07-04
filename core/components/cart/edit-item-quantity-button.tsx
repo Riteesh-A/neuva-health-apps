@@ -22,9 +22,9 @@ function SubmitButton({ type }: { type: "plus" | "minus" }) {
       )}
     >
       {type === "plus" ? (
-        <PlusIcon className="h-4 w-4 text-muted-foreground" />
+        <PlusIcon className="h-4 w-4 text-white" />
       ) : (
-        <MinusIcon className="h-4 w-4 text-muted-foreground" />
+        <MinusIcon className="h-4 w-4 text-white" />
       )}
     </Button>
   );
