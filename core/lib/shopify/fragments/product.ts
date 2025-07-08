@@ -72,6 +72,9 @@ const productFragment = /* GraphQL */ `
     average_review: metafield(namespace: "custom", key: "average_review") {
       value
     }
+    rx: metafield(namespace: "custom", key: "rx") {
+      value
+    }
     seo {
       ...seo
     }

@@ -142,6 +142,9 @@ export type ShopifyProduct = {
   average_review: {
     value: number;
   };
+  rx: {
+    value: boolean;
+  }
   sellingPlanGroups: {
     edges: Array<{
       node: {

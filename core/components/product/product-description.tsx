@@ -1,7 +1,7 @@
 "use client"
 import Prose from "@/core/components/prose";
 import { Product, ProductVariant } from "@/core/lib/shopify/types";
-import { ChevronDownCircle, ChevronLeft } from "lucide-react";
+import { ChevronDownCircle, ChevronLeft, ClipboardPlus } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { BuyNow } from './../cart/buy-now';
@@ -29,7 +29,21 @@ export function ProductDescription({ product }: { product: Product }) {
         </Button>
         <div className="flex flex-col gap-5">
           <div className="flex flex-row gap-4 align-middle">
-            <h1 className=" text-4xl text-[#42474F] font-bold">{product.title}</h1>
+            <div>
+                <h1 className="text-4xl text-[#42474F] font-bold">
+                {product.title.replace(/weekly subscription \(\d+ doses\)/i, '').trim()}
+                </h1>
+                {/(weekly|monthly) subscription \((\d+) doses\)/i.test(product.title) && (
+                <p className="text-lg text-gray-500 mt-1">
+                  {product.title.toLowerCase().includes("weekly") ? "Weekly" : "Monthly"} Subscription
+
+                  ({" "}{product.title.match(/(\d+) doses/i)?.[1]} doses per {" "}
+                  {product.title.toLowerCase().includes("weekly") ? "week" : "month"} {" "}
+                  )
+
+                </p>
+                )}
+            </div>
             {product.best_seller.value && (
               <span className="rounded-full bg-[#F8738F] px-3 py-2 text-xs text-white h-fit w-fit">
                 Bestseller
@@ -87,6 +101,19 @@ export function ProductDescription({ product }: { product: Product }) {
             <span className="text-[#2F5F8D] font-bold text-base">{product.numberOfReviews.value} reviews</span>
           </div>
         </div>
+        {product.rx?.value && (
+          <div className="rounded-md bg-[#D1E4FF] text-sm p-4 flex flex-col gap-2">
+            <div className="flex flex-row items-center gap-2">
+            <ClipboardPlus size={16}  />
+            <span className="font-bold">Prescription Required</span>
+            </div>
+            <div>
+              <p className="font-light text-[#42474F]">
+                We will connect you with a Neuva Health consultant to review your health profile and provide a prescription if necessary.
+              </p>
+            </div>
+            </div>
+        )}
         <VariantSelector selectedVariant={selectedVariant} setSelectedVariantAction={setSelectedVariant} options={product.options} variants={product.variants} />
         <PurchasePlanSelector selectedVariant={selectedVariant} sellingPlanGroups={product.sellingPlanGroups} />
         <div className="flex flex-row h-12 gap-4 w-full">
