@@ -37,8 +37,7 @@ export function ProductDescription({ product }: { product: Product }) {
                 <p className="text-lg text-gray-500 mt-1">
                   {product.title.toLowerCase().includes("weekly") ? "Weekly" : "Monthly"} Subscription
 
-                  ({" "}{product.title.match(/(\d+) doses/i)?.[1]} doses per {" "}
-                  {product.title.toLowerCase().includes("weekly") ? "week" : "month"} {" "}
+                  ( Total {" "}{product.title.match(/(\d+) doses/i)?.[1]} doses 
                   )
 
                 </p>
