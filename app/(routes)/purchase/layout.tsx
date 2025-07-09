@@ -16,17 +16,17 @@ export default async function PurchaseLayout({
   const supabase = await createClient()
   
   const { data, error } = await supabase.auth.getUser()
-  if (error || !data?.user) {
-    // redirect('/auth/login')
-  }
+  // if (error || !data?.user) {
+  //   // redirect('/auth/login')
+  // }
   return (
     <CartProvider cartPromise={cart}>
     <div>
     <Navbar user={data?.user}/>
-    <div className='mx-30  flex flex-col space-y-20'>
+    <main className='mx-30  flex flex-col space-y-20'>
       {children}
         
-    </div>
+    </main>
     <TrustedByMen className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
     <CommonQuestions className="p-10 md:p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />
     <CTACards className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto"  />

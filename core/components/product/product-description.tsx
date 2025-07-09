@@ -9,7 +9,7 @@ import PurchasePlanSelector from "./purchase-plan-selector";
 import { VariantSelector } from "./variant-selector";
 
 export function ProductDescription({ product }: { product: Product }) {
-  console.log(product);
+  // console.log(product);
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
   // useEffect(() => {
   //   if (product.variants.length > 0 && product.variants[0]) {
@@ -114,6 +114,7 @@ export function ProductDescription({ product }: { product: Product }) {
             </div>
         )}
         <VariantSelector selectedVariant={selectedVariant} setSelectedVariantAction={setSelectedVariant} options={product.options} variants={product.variants} />
+        
         <PurchasePlanSelector selectedVariant={selectedVariant} sellingPlanGroups={product.sellingPlanGroups} />
         <div className="flex flex-row h-12 gap-4 w-full">
           <div className="w-1/3 flex items-center">

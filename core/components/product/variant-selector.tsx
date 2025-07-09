@@ -50,7 +50,15 @@ export function VariantSelector({
   return options.map((option) => (
     <div key={option.id}>
       <div className="">
-        <div className="mb-4 text-sm uppercase tracking-wide">{option.name}</div>
+        <div className="flex gap-2 items-center mb-4">
+          <div className="text-sm uppercase tracking-wide">{option.name}</div>
+          {selectedVariant && (
+            <div className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+              {selectedVariant.price.currencyCode === 'INR' ? '₹' : selectedVariant.price.currencyCode}
+              {selectedVariant.price.amount}
+            </div>
+          )}
+        </div>
         <div className="flex flex-row gap-2 w-full">
           {option.values.map((value, idx) => {
             const optionNameLowerCase = option.name.toLowerCase();

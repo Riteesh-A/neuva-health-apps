@@ -115,15 +115,15 @@ const Navbar = ({ user }: NavbarProps) => {
           <div className="hidden md:block">
         <Consultation user={user}/>
           </div>
-        {user ? (
-        <div className="flex flex-row items-center gap-2">
+           <div className="flex flex-row items-center gap-2">
           <CartModal />
+        {user ? (
+       
           <Link
             href={"/home/profile"}>
           
           <CurrentUserAvatar />
           </Link>
-        </div>
         ) : (
         <Link href="/auth/login">
           <Button size={"lg"} variant={"outline"}>
@@ -131,6 +131,8 @@ const Navbar = ({ user }: NavbarProps) => {
           </Button>
         </Link>
         )}
+        </div>
+
           <MobileMenu className="md:hidden" user={user}/>
         </div>
       </div>

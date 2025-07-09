@@ -21,8 +21,8 @@ function SubmitButton({
 
   if (!selectedVariantId) {
     return (
-      <Button aria-label="Please select an option" disabled>
-        Buy Now
+      <Button aria-label="Please select an option" disabled className="w-full">
+        Select a variant
       </Button>
       // <Button className="w-full" variant="default">
       //         Buy Now
