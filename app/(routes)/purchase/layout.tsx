@@ -23,7 +23,7 @@ export default async function PurchaseLayout({
     <CartProvider cartPromise={cart}>
     <div>
     <Navbar user={data?.user}/>
-    <main className='mx-30  flex flex-col space-y-20'>
+    <main className='lg:mx-30 md:mx-10 flex flex-col space-y-20'>
       {children}
         
     </main>
