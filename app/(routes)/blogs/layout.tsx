@@ -5,25 +5,25 @@ import Navbar from "@/core/components/navbar";
 import { getCart } from "@/core/lib/shopify";
 import React from 'react';
 export default async function Layout({ children }: { children: React.ReactNode }) {
-    const cart = getCart();
-      const supabase = await createClient()
-      
-      const { data, error } = await supabase.auth.getUser()
-      if (error || !data?.user) {
-        // redirect('/auth/login')
-      }
-    return (
+  const cart = getCart();
+  const supabase = await createClient()
+
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    // redirect('/auth/login')
+  }
+  return (
     <CartProvider cartPromise={cart}>
-    <div>
-    <Navbar user={data?.user}/>
-    <div className='md:mx-30  flex flex-col md:space-y-20 space-y-10'>
-      {children}
-        
-    </div>
-    
-    <Footer/>
-    {/* Add your content here */}
-</div>
-</CartProvider>
-    );
+      <div>
+        <Navbar user={data?.user} />
+        <div className='md:mx-30  flex flex-col md:space-y-20 space-y-10'>
+          {children}
+
+        </div>
+
+        <Footer />
+        {/* Add your content here */}
+      </div>
+    </CartProvider>
+  );
 }
