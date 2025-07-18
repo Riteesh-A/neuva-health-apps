@@ -101,7 +101,7 @@ export function PrescriptionUpload({ user }: { user: any }) {
           {error && <p className="text-red-600 text-sm">{error}</p>}
           {!submitted && (
             <div className="w-full space-y-3 sm:space-y-4">
-              <Button  className="w-full" id="submit-prescription">
+              <Button className="w-full" id="submit-prescription">
                 Submit Prescription
               </Button>
               <div className="relative">
@@ -116,8 +116,11 @@ export function PrescriptionUpload({ user }: { user: any }) {
                 className="w-full"
                 onClick={() => (window.location.href = "https://book.healthplix.com/dr-dr-abhay-kr-rohatgi-general-physician-426-cmr-rd-hr")}
               >
-                Schedule Consultation
+                Schedule Consultation Directly
               </Button>
+              <h2 className="text-sm font-light text-center">
+                and we will give you a prescription after your consultation.
+              </h2>
             </div>
           )}
           {submitted && (

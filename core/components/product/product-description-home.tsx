@@ -1,14 +1,11 @@
 "use client"
 import Prose from "@/core/components/prose";
 import { Product, ProductVariant } from "@/core/lib/shopify/types";
-import { ChevronDownCircle, ChevronLeft, ClipboardPlus } from "lucide-react";
+import { ChevronDownCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
-import { BuyNow } from './../cart/buy-now';
-import PurchasePlanSelector from "./purchase-plan-selector";
-import { VariantSelector } from "./variant-selector";
 
-export function ProductDescription({ product }: { product: Product }) {
+export function ProductDescriptionHome({ product }: { product: Product }) {
   // console.log(product);
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
   // useEffect(() => {
@@ -23,7 +20,7 @@ export function ProductDescription({ product }: { product: Product }) {
     <div>
       <div className="mb-6 flex flex-col pb-6 gap-7">
         <Button variant="outline" className="w-fit" asChild>
-          <a href="/home/have-better-sex">
+          <a href="/home">
             <ChevronLeft /> Back to Products
           </a>
         </Button>
@@ -55,7 +52,11 @@ export function ProductDescription({ product }: { product: Product }) {
               html={product.descriptionHtml}
             />
           ) : null}
-          <div className="flex flex-row gap-2">
+          
+        </div>
+
+        <Accordion product={product} />
+        <div className="flex flex-row gap-2">
             <div className="flex items-center gap-1">
               {[1, 2, 3, 4, 5].map((star) => {
                 const rating = product.average_review.value;
@@ -99,90 +100,9 @@ export function ProductDescription({ product }: { product: Product }) {
             </div>
             <span className="text-[#2F5F8D] font-bold text-base">{product.numberOfReviews.value} reviews</span>
           </div>
-        </div>
-        {product.rx?.value && (
-          <div className="rounded-md bg-[#D1E4FF] text-sm p-4 flex flex-col gap-2">
-            <div className="flex flex-row items-center gap-2">
-            <ClipboardPlus size={16}  />
-            <span className="font-bold">Prescription Required</span>
-            </div>
-            <div>
-              <p className="font-light text-[#42474F]">
-                We will connect you with a Neuva Health consultant to review your health profile and provide a prescription if necessary.
-              </p>
-            </div>
-            </div>
-        )}
-        <VariantSelector selectedVariant={selectedVariant} setSelectedVariantAction={setSelectedVariant} options={product.options} variants={product.variants} />
-        
-        <PurchasePlanSelector selectedVariant={selectedVariant} sellingPlanGroups={product.sellingPlanGroups} />
-        <div className="flex flex-row h-12 gap-4 w-full">
-          <div className="w-1/3 flex items-center">
-            <div className="flex items-center justify-between w-full rounded-full border border-gray-300 px-2 py-1 bg-white">
-              <button
-                type="button"
-                className="text-[#2F5F8D] text-xl px-2 rounded-full focus:outline-none"
-                aria-label="Decrease quantity"
-                onClick={() => {
-                  const input = document.getElementById("quantity") as HTMLInputElement;
-                  if (input) {
-                    const min = Number(input.min) || 1;
-                    const val = Math.max(Number(input.value) - 1, min);
-                    input.value = val.toString();
-                    input.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                }}
-              >
-                -
-                </button>
-              <input
-                id="quantity"
-                type="text"
-                min={product.minimum_quantity.value || 1}
-                defaultValue={product.minimum_quantity.value || 1}
-                className="w-12 text-center bg-transparent outline-none border-none appearance-none"
-                style={{
-                  WebkitAppearance: "none",
-                  MozAppearance: "textfield",
-                  appearance: "textfield",
-                }}
-                onWheel={e => (e.target as HTMLInputElement).blur()}
-              />
-              <button
-                type="button"
-                className="text-[#2F5F8D] text-xl px-2 rounded-full focus:outline-none"
-                aria-label="Increase quantity"
-                onClick={() => {
-                  const input = document.getElementById("quantity") as HTMLInputElement;
-                  if (input) {
-                    const val = Number(input.value) + 1;
-                    input.value = val.toString();
-                    input.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                }}
-              >
-                +
-              </button>
-            </div>
-          </div>
-          <div className="w-2/3 flex items-center">
-            {/* <Button className="w-full" variant="default">
-              Buy Now
-            </Button> */}
-            <BuyNow product={product}/>
-          </div>
-        </div>
-        <div className="rounded-md bg-[#D1E4FF] p-4 flex justify-between">
-          <div className="flex flex-row gap-2">
-              <img src="/icons/info.svg" alt="minimum quantity" />
-              <span className="font-bold" >Minimum Quantity for this product</span>
-          </div>
-          <span className="font-light text-[#42474F]">{product.minimum_quantity.value} units</span>
-        </div>
-        
-        <hr className="border-t border-gray-200 dark:border-neutral-700" />
-
-        <Accordion product={product} />
+          <Button asChild>
+              <a href={`/purchase/${product.handle}`}>Get Started <ChevronRight /> </a>
+            </Button>
       </div>
       {/* <AddToCart product={product} /> */}
     </div>
@@ -219,12 +139,7 @@ export function Accordion({ product }: { product: Product }) {
                 .join("\n")}
             </p>,
     },
-    {
-      key: "ingredients",
-      label: "Ingredients",
-      show: !!product.ingredients.value,
-      content: <p>{product.ingredients.value}</p>,
-    },
+   
   ];
   return (
     <div className="flex flex-col gap-2">
