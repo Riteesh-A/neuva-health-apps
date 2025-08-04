@@ -1,6 +1,5 @@
 "use client";
 
-import Consultation from "@/components/consultation";
 import { CurrentUserAvatar } from "@/components/current-user-avatar";
 import CartModal from "@/core/components/cart/modal";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -11,13 +10,7 @@ import { cn } from "../lib/utils";
 import { Logo } from "./logo";
 import { Button, buttonVariants } from "./ui/button";
 import { Separator } from "./ui/separator";
-import {
-  Sheet,
-  SheetContent,
-  SheetFooter,
-  SheetHeader,
-  SheetTrigger,
-} from "./ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./ui/sheet";
 const items = [
   { icon: "fas fa-male", text: "10,000+ Men Helped" },
   { icon: "fas fa-stethoscope", text: "Licensed Doctors" },
@@ -30,10 +23,13 @@ const items = [
 ];
 
 const links = [
-  { text: "Home", href: "/home" },
-  { text: "Shop", href: "/home/have-better-sex" },
-  { text: "How it works?", href: "/home/have-better-sex#how-this-medicine-works" },
-  { text: "About Neuva", href: "/home#about-neuva-health" },
+  { text: "Home", href: "/home/lose-weight" },
+  { text: "Shop", href: "/shop" },
+  // {
+  //   text: "How it works?",
+  //   href: "/home/have-better-sex#how-this-medicine-works",
+  // },
+  { text: "About Neuva", href: "" },
 ];
 
 interface NavbarProps {
@@ -57,8 +53,11 @@ const Navbar = ({ user }: NavbarProps) => {
   return (
     <div
       className={cn(
-      "flex flex-col z-30",
-      typeof window !== "undefined" && window.location.pathname === "/home/assessment" ? "bg-white" : ""
+        "flex flex-col z-30",
+        typeof window !== "undefined" &&
+          window.location.pathname === "/home/assessment"
+          ? "bg-white"
+          : ""
       )}
     >
       <div
@@ -91,49 +90,47 @@ const Navbar = ({ user }: NavbarProps) => {
         className={cn(
           "flex items-center max-w-screen-xl px-4 py-3 md:p-4 md:px-14 w-full self-center justify-between transition-all duration-300",
           isScrolled
-        ? "bg-white/70 backdrop-blur-md bg-[url('/grain.png')]"
-        : (typeof window !== "undefined" && window.location.pathname === "/home/assessment"
-            ? "bg-white "
-            : "bg-white")
+            ? "bg-white/70 backdrop-blur-md bg-[url('/grain.png')]"
+            : typeof window !== "undefined" &&
+                window.location.pathname === "/home/assessment"
+              ? "bg-white "
+              : "bg-white"
         )}
       >
         <div className="flex items-center gap-[60px]">
           <Logo className="text-sm md:text-xl leading-4 md:leading-5" />
           <div className="hidden md:flex items-center">
-        {links.map((link, i) => (
-          <Link
-            key={i}
-            href={link.href}
-            className="p-3 lg:px-5 whitespace-nowrap font-medium"
-          >
-            {link.text}
-          </Link>
-        ))}
+            {links.map((link, i) => (
+              <Link
+                key={i}
+                href={link.href}
+                className="p-3 lg:px-5 whitespace-nowrap font-medium"
+              >
+                {link.text}
+              </Link>
+            ))}
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
         <Consultation user={user}/>
+          </div> */}
+          <div className="flex flex-row items-center gap-2">
+            <CartModal />
+            {user ? (
+              <Link href={"/home/profile"}>
+                <CurrentUserAvatar />
+              </Link>
+            ) : (
+              <Link href="/auth/login">
+                <Button size={"lg"} variant={"outline"}>
+                  Sign In
+                </Button>
+              </Link>
+            )}
           </div>
-           <div className="flex flex-row items-center gap-2">
-          <CartModal />
-        {user ? (
-       
-          <Link
-            href={"/home/profile"}>
-          
-          <CurrentUserAvatar />
-          </Link>
-        ) : (
-        <Link href="/auth/login">
-          <Button size={"lg"} variant={"outline"}>
-          Sign In
-          </Button>
-        </Link>
-        )}
-        </div>
 
-          <MobileMenu className="md:hidden" user={user}/>
+          <MobileMenu className="md:hidden" user={user} />
         </div>
       </div>
     </div>
@@ -168,9 +165,9 @@ const MobileMenu = ({ className, user }: { className?: string; user: any }) => {
           ))}
         </div>
         <Separator />
-        <SheetFooter>
-          <Consultation user={user}/>
-        </SheetFooter>
+        {/* <SheetFooter>
+          <Consultation user={user} />
+        </SheetFooter> */}
       </SheetContent>
     </Sheet>
   );

@@ -20,20 +20,25 @@ export default async function ProductCards({ slug }: { slug: string }) {
           <CardContent className="p-4 md:p-6 pb-0 flex flex-col h-full relative z-0">
             <div className="flex flex-col justify-between">
               <h1 className="text-4xl text-[#42474F] font-bold">
-                {product.title.replace(/weekly subscription \(\d+ doses\)/i, '').trim()}
+                {product.title
+                  .replace(/weekly subscription \(\d+ doses\)/i, "")
+                  .trim()}
               </h1>
-              {/(weekly|monthly) subscription \((\d+) doses\)/i.test(product.title) && (
+              {/(weekly|monthly) subscription \((\d+) doses\)/i.test(
+                product.title
+              ) && (
                 <div>
                   <p className="text-lg text-gray-500 mt-1">
-                    {product.title.toLowerCase().includes("weekly") ? "Weekly" : "Monthly"} Subscription
+                    {product.title.toLowerCase().includes("weekly")
+                      ? "Weekly"
+                      : "Monthly"}{" "}
+                    Subscription
                   </p>
                   <p>
-                    ( Total {" "}{product.title.match(/(\d+) doses/i)?.[1]} doses
-                    )
+                    ( Total {product.title.match(/(\d+) doses/i)?.[1]} doses )
                   </p>
                 </div>
               )}
-
             </div>
             <div
               className="w-full bg-contain bg-bottom bg-no-repeat"
@@ -43,7 +48,8 @@ export default async function ProductCards({ slug }: { slug: string }) {
               }}
             />
             <div className="inline-block bg-secondary text-foreground rounded-full p-2 px-4 w-fit font-semibold my-4 shadow-sm">
-              Starting from {product.priceRange.minVariantPrice.currencyCode} {product.priceRange.minVariantPrice.amount}
+              Starting from {product.priceRange.minVariantPrice.currencyCode}{" "}
+              {product.priceRange.minVariantPrice.amount}
             </div>
             <div>
               <Accordion product={product} />
@@ -51,7 +57,9 @@ export default async function ProductCards({ slug }: { slug: string }) {
           </CardContent>
           <CardFooter className="flex flex-col items-stretch p-4 md:p-6">
             <Button asChild>
-              <a href={`/purchase/${product.handle}/about`}>Get Started <ChevronRight /> </a>
+              <a href={`/purchase/${product.handle}`}>
+                Get Started <ChevronRight />{" "}
+              </a>
             </Button>
           </CardFooter>
         </Card>
@@ -59,4 +67,3 @@ export default async function ProductCards({ slug }: { slug: string }) {
     </div>
   );
 }
-

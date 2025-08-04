@@ -1,5 +1,4 @@
 import { categories } from "@/app/lib/categories";
-import ProductCardsHome from "@/core/components/home/ProductCardsHome";
 interface HomeSlugPageProps {
   params: Promise<{
     slug: string;
@@ -7,10 +6,10 @@ interface HomeSlugPageProps {
 }
 
 export default async function HomePage() {
-  const slug = 'lose-weight'; 
-  
+  const slug = "lose-weight";
+
   // Fetch products from Shopify that have the tag matching the slug
-  
+
   const category = categories.find((cat) => cat.slug === slug);
 
   return (
@@ -24,7 +23,6 @@ export default async function HomePage() {
             {category?.heroDescription}
           </p>
         </div> */}
-        <ProductCardsHome slug={slug}/>
       </div>
     </div>
   );

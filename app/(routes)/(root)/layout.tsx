@@ -22,7 +22,7 @@ export default async function HomeSlugLayout({
   return (
     <div className="flex flex-col">
       <Navbar />
-      <SlugHeader slug={"have-better-sex"} />
+      <SlugHeader slug={"lose-weight"} />
       {children}
       {/* <Separator /> */}
       <TrustedByMen className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto" />

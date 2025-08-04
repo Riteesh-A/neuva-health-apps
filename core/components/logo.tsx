@@ -5,7 +5,7 @@ export const Logo = ({ className }: { className?: string }) => {
   let companyName = "Neuva Health";
   return (
     <a
-      href="/"
+      href="/home/lose-weight"
       className={cn(
         "flex flex-col text-2xl lowercase font-light leading-6",
         youngSerif.className,

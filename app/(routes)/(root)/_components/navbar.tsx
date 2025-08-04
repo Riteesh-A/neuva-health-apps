@@ -28,10 +28,9 @@ const items = [
 ];
 
 const links = [
-  { text: "Home", href: "#" },
-  { text: "Shop", href: "#" },
-  { text: "How it works?", href: "#" },
-  { text: "About Neuva", href: "#" },
+  { text: "Home", href: "/home/lose-weight" },
+  { text: "Shop", href: "/shop" },
+  { text: "About Neuva", href: "" },
 ];
 
 const Navbar = () => {
@@ -97,7 +96,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-            <Button
+          {/* <Button
             size={"lg"}
             className="hidden md:flex"
             asChild
@@ -105,17 +104,17 @@ const Navbar = () => {
             <a href="https://wa.me/918904967444?text=Consultation" target="_blank" rel="noopener noreferrer">
               Book Free Consultation
             </a>
-            </Button>
-            <Button
-            size={"lg"}
-            variant={"outline"}
-            asChild
+            </Button> */}
+          <Button size={"lg"} variant={"outline"} asChild>
+            <a
+              href="https://wa.me/918904967444?text=Consultation"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-            <a href="https://wa.me/918904967444?text=Consultation" target="_blank" rel="noopener noreferrer">
               Sign In
             </a>
-            </Button>
-          
+          </Button>
+
           <MobileMenu className="md:hidden" />
         </div>
       </div>
