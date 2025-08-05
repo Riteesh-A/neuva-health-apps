@@ -1,9 +1,16 @@
 import { categories } from "@/app/lib/categories";
-import { redirect } from "next/navigation";
+// Remove the redirect import since we're not using it anymore
+// import { redirect } from "next/navigation";
 
 export default async function HomeSlugPage() {
-  const category = categories.find((cat) => cat.slug === "have-better-sex");
-  redirect("/home");
+  // Remove the redirect line since it's now handled in next.config.ts
+  // redirect("/home/lose-weight");
+  
+  // You can either:
+  // Option A: Return null since this page will never be reached
+  return null;
+  
+  // Option B: Keep the content as a fallback (uncomment the existing code)
   // return (
   //   <div className="flex flex-col overflow-x-hidden">
   //     <div className="flex flex-col pb-20 max-w-screen-xl w-full px-4 md:px-6 mx-auto">
@@ -143,7 +150,6 @@ export default async function HomeSlugPage() {
   //         </div>
   //       </div>
 
-        
   //     </div>
   //   </div>
   // );

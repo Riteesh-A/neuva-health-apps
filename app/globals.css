@@ -339,6 +339,10 @@ button {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: var(--font-display);
+  --font-headline: var(--font-headline);
+  --font-label: var(--font-label);
+  --font-body: var(--font-body);
 }
 
 @layer base {
@@ -1630,3 +1634,110 @@ body {
 .bg-success-100 {
   background-color: var(--success-100);
 }
+
+/* Typography utilities */
+@utility type-display-x-lg {
+  font-size: 64px;
+  line-height: 72px;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+}
+@utility type-display-lg {
+  font-size: 57px;
+  line-height: 64px;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+}
+@utility type-display-md {
+  font-size: 45px;
+  line-height: 52px;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+}
+@utility type-display-sm {
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+}
+
+@utility type-headline-lg {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+}
+@utility type-headline-md {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+}
+@utility type-headline-sm {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+}
+
+@utility type-label-lg {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+@utility type-label-lg-prominent {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  letter-spacing: normal;
+}
+@utility type-label-md {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+@utility type-label-md-prominent {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: bold;
+  letter-spacing: normal;
+}
+@utility type-label-sm {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+
+@utility type-body-lg {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: light;
+  letter-spacing: normal;
+}
+@utility type-body-md {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: light;
+  letter-spacing: normal;
+}
+@utility type-body-sm {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: light;
+  letter-spacing: normal;
+}
+
+
+@utility section-y {
+  @apply py-20;
+}
+
+@utility container {
+  @apply max-w-screen-xl mx-auto px-4 md:px-10;
+}
+
+

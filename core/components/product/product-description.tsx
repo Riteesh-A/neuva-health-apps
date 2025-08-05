@@ -1,16 +1,18 @@
-"use client"
+"use client";
 import Prose from "@/core/components/prose";
 import { Product, ProductVariant } from "@/core/lib/shopify/types";
 import { ChevronDownCircle, ChevronLeft, ClipboardPlus } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
-import { BuyNow } from './../cart/buy-now';
+import { BuyNow } from "./../cart/buy-now";
 import PurchasePlanSelector from "./purchase-plan-selector";
 import { VariantSelector } from "./variant-selector";
 
 export function ProductDescription({ product }: { product: Product }) {
   // console.log(product);
-  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
+    null
+  );
   // useEffect(() => {
   //   if (product.variants.length > 0 && product.variants[0]) {
   //     setSelectedVariant(product.variants[0]);
@@ -23,25 +25,29 @@ export function ProductDescription({ product }: { product: Product }) {
     <div>
       <div className="mb-6 flex flex-col pb-6 gap-7">
         <Button variant="outline" className="w-fit" asChild>
-          <a href="/home/have-better-sex">
+          <a href="/shop">
             <ChevronLeft /> Back to Products
           </a>
         </Button>
         <div className="flex flex-col gap-5">
           <div className="flex flex-row gap-4 align-middle">
             <div>
-                <h1 className="text-4xl text-[#42474F] font-bold">
-                {product.title.replace(/weekly subscription \(\d+ doses\)/i, '').trim()}
-                </h1>
-                {/(weekly|monthly) subscription \((\d+) doses\)/i.test(product.title) && (
+              <h1 className="text-4xl text-[#42474F] font-bold">
+                {product.title
+                  .replace(/weekly subscription \(\d+ doses\)/i, "")
+                  .trim()}
+              </h1>
+              {/(weekly|monthly) subscription \((\d+) doses\)/i.test(
+                product.title
+              ) && (
                 <p className="text-lg text-gray-500 mt-1">
-                  {product.title.toLowerCase().includes("weekly") ? "Weekly" : "Monthly"} Subscription
-
-                  ( Total {" "}{product.title.match(/(\d+) doses/i)?.[1]} doses 
-                  )
-
+                  {product.title.toLowerCase().includes("weekly")
+                    ? "Weekly"
+                    : "Monthly"}{" "}
+                  Subscription ( Total{" "}
+                  {product.title.match(/(\d+) doses/i)?.[1]} doses )
                 </p>
-                )}
+              )}
             </div>
             {product.best_seller.value && (
               <span className="rounded-full bg-[#F8738F] px-3 py-2 text-xs text-white h-fit w-fit">
@@ -60,7 +66,8 @@ export function ProductDescription({ product }: { product: Product }) {
               {[1, 2, 3, 4, 5].map((star) => {
                 const rating = product.average_review.value;
                 let fillPercent = 0;
-                fillPercent = Math.max(0, Math.min(1, rating - (star - 1))) * 100;
+                fillPercent =
+                  Math.max(0, Math.min(1, rating - (star - 1))) * 100;
                 return (
                   <svg
                     key={star}
@@ -85,37 +92,50 @@ export function ProductDescription({ product }: { product: Product }) {
                     </defs>
                     <path
                       d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2         9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                      fill={fillPercent === 100 ? "#2F5F8D" : `url(#star-gradient-${star}-${fillPercent})`}
+                      fill={
+                        fillPercent === 100
+                          ? "#2F5F8D"
+                          : `url(#star-gradient-${star}-${fillPercent})`
+                      }
                       stroke="#2F5F8D"
                       strokeWidth={1.5}
                     />
                   </svg>
-
                 );
               })}
-              
-              
+
               {/* <span className="ml-2 text-sm text-gray-500">({product.average_review.value})</span> */}
             </div>
-            <span className="text-[#2F5F8D] font-bold text-base">{product.numberOfReviews.value} reviews</span>
+            <span className="text-[#2F5F8D] font-bold text-base">
+              {product.numberOfReviews.value} reviews
+            </span>
           </div>
         </div>
         {product.rx?.value && (
           <div className="rounded-md bg-[#D1E4FF] text-sm p-4 flex flex-col gap-2">
             <div className="flex flex-row items-center gap-2">
-            <ClipboardPlus size={16}  />
-            <span className="font-bold">Prescription Required</span>
+              <ClipboardPlus size={16} />
+              <span className="font-bold">Prescription Required</span>
             </div>
             <div>
               <p className="font-light text-[#42474F]">
-                We will connect you with a Neuva Health consultant to review your health profile and provide a prescription if necessary.
+                We will connect you with a Neuva Health consultant to review
+                your health profile and provide a prescription if necessary.
               </p>
             </div>
-            </div>
+          </div>
         )}
-        <VariantSelector selectedVariant={selectedVariant} setSelectedVariantAction={setSelectedVariant} options={product.options} variants={product.variants} />
-        
-        <PurchasePlanSelector selectedVariant={selectedVariant} sellingPlanGroups={product.sellingPlanGroups} />
+        <VariantSelector
+          selectedVariant={selectedVariant}
+          setSelectedVariantAction={setSelectedVariant}
+          options={product.options}
+          variants={product.variants}
+        />
+
+        <PurchasePlanSelector
+          selectedVariant={selectedVariant}
+          sellingPlanGroups={product.sellingPlanGroups}
+        />
         <div className="flex flex-row h-12 gap-4 w-full">
           <div className="w-1/3 flex items-center">
             <div className="flex items-center justify-between w-full rounded-full border border-gray-300 px-2 py-1 bg-white">
@@ -124,7 +144,9 @@ export function ProductDescription({ product }: { product: Product }) {
                 className="text-[#2F5F8D] text-xl px-2 rounded-full focus:outline-none"
                 aria-label="Decrease quantity"
                 onClick={() => {
-                  const input = document.getElementById("quantity") as HTMLInputElement;
+                  const input = document.getElementById(
+                    "quantity"
+                  ) as HTMLInputElement;
                   if (input) {
                     const min = Number(input.min) || 1;
                     const val = Math.max(Number(input.value) - 1, min);
@@ -134,7 +156,7 @@ export function ProductDescription({ product }: { product: Product }) {
                 }}
               >
                 -
-                </button>
+              </button>
               <input
                 id="quantity"
                 type="text"
@@ -146,14 +168,16 @@ export function ProductDescription({ product }: { product: Product }) {
                   MozAppearance: "textfield",
                   appearance: "textfield",
                 }}
-                onWheel={e => (e.target as HTMLInputElement).blur()}
+                onWheel={(e) => (e.target as HTMLInputElement).blur()}
               />
               <button
                 type="button"
                 className="text-[#2F5F8D] text-xl px-2 rounded-full focus:outline-none"
                 aria-label="Increase quantity"
                 onClick={() => {
-                  const input = document.getElementById("quantity") as HTMLInputElement;
+                  const input = document.getElementById(
+                    "quantity"
+                  ) as HTMLInputElement;
                   if (input) {
                     const val = Number(input.value) + 1;
                     input.value = val.toString();
@@ -169,17 +193,19 @@ export function ProductDescription({ product }: { product: Product }) {
             {/* <Button className="w-full" variant="default">
               Buy Now
             </Button> */}
-            <BuyNow product={product}/>
+            <BuyNow product={product} />
           </div>
         </div>
         <div className="rounded-md bg-[#D1E4FF] p-4 flex justify-between">
           <div className="flex flex-row gap-2">
-              <img src="/icons/info.svg" alt="minimum quantity" />
-              <span className="font-bold" >Minimum Quantity for this product</span>
+            <img src="/icons/info.svg" alt="minimum quantity" />
+            <span className="font-bold text-sm">
+              If you’re new to the treatment, recommended starting doses are{" "}
+              <u>2.5mg</u>.
+            </span>
           </div>
-          <span className="font-light text-[#42474F]">{product.minimum_quantity.value} units</span>
         </div>
-        
+
         <hr className="border-t border-gray-200 dark:border-neutral-700" />
 
         <Accordion product={product} />
@@ -192,15 +218,14 @@ export function ProductDescription({ product }: { product: Product }) {
 export function Accordion({ product }: { product: Product }) {
   const [openKey, setOpenKey] = useState<string | null>(null);
   const accordionData = [
-    
     {
       key: "how_it_works",
       label: "How It Works",
       show: !!product.how_it_works,
       content: (
         <p>
-          {JSON.parse(product.how_it_works.value).children
-            .map((child: any) =>
+          {JSON.parse(product.how_it_works.value)
+            .children.map((child: any) =>
               child.children.map((innerChild: any) => innerChild.value).join("")
             )
             .join("\n")}
@@ -211,13 +236,15 @@ export function Accordion({ product }: { product: Product }) {
       key: "benefits",
       label: "Benefits",
       show: !!product.benefits.value,
-      content: <p>
-              {JSON.parse(product.benefits.value).children
-                .map((child: any) =>
-                  child.children.map((innerChild: any) => innerChild.value).join("")
-                )
-                .join("\n")}
-            </p>,
+      content: (
+        <p>
+          {JSON.parse(product.benefits.value)
+            .children.map((child: any) =>
+              child.children.map((innerChild: any) => innerChild.value).join("")
+            )
+            .join("\n")}
+        </p>
+      ),
     },
     {
       key: "ingredients",
@@ -232,13 +259,13 @@ export function Accordion({ product }: { product: Product }) {
         (section) =>
           section.show && (
             <div key={section.key} className="border-b">
-                <button
+              <button
                 type="button"
                 className="w-full flex justify-between items-center py-3 text-left leading-[20px] tracking-[0.1%] font-bold text-base focus:outline-none"
                 onClick={() =>
                   setOpenKey(openKey === section.key ? null : section.key)
                 }
-                >
+              >
                 <span>{section.label}</span>
                 <ChevronDownCircle
                   className={`transition-transform duration-200 ${openKey === section.key ? "rotate-180" : ""}`}
@@ -246,9 +273,11 @@ export function Accordion({ product }: { product: Product }) {
                   fill="black"
                   stroke="white"
                 />
-                </button>
+              </button>
               {openKey === section.key && (
-                <div className="px-4 pb-4 font-[300] text-[14px] text-[#42474F]">{section.content}</div>
+                <div className="px-4 pb-4 font-[300] text-[14px] text-[#42474F]">
+                  {section.content}
+                </div>
               )}
             </div>
           )

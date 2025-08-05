@@ -191,6 +191,9 @@ dependencies:
   mixpanel:
     specifier: ^0.18.1
     version: 0.18.1
+  mixpanel-browser:
+    specifier: ^2.67.0
+    version: 2.67.0
   motion:
     specifier: ^12.5.0
     version: 12.23.12(react-dom@19.0.0)(react@19.0.0)

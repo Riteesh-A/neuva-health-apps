@@ -6,6 +6,15 @@ export default {
     reactOwnerStack: true,
     newDevOverlay: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home/lose-weight',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
