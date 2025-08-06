@@ -1,11 +1,11 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import ProductDosage from "../product/product-dosage";
 import ProductEffectiveness from "../product/product-effectiveness";
 import ProductEligibility from "../product/product-eligibility";
 import ProductReason from "../product/product-reason";
 import ProductUsage from "../product/product-usage";
+import TimelineComponent from "../product/timeline";
 import WhatIsProduct from "../product/what-is-product";
 // import WhatIsWegovy from "./WhatIsWegovy";
 
@@ -105,7 +105,28 @@ export default function ConditionalProductInfo() {
             </div>
           }
         />
-        <ProductDosage />
+        <TimelineComponent
+          header="Mounjaro doses"
+          steps={[
+            {
+              value: "2.5mg",
+              title: "Starting dose",
+              description: "Starting dose",
+            },
+            {
+              value: "5–7.5mg",
+              title: "Maintenance dose",
+              description:
+                "5mg is the first maintenance dose, often prescribed after 4 weeks. 7.5mg is then available via a dose increase request",
+            },
+            {
+              value: "10–15mg",
+              title: "Higher maintenance",
+              description:
+                "10mg and 15mg are the higher maintenance doses, achieved by titrating up by 2.5mg every 4 weeks",
+            },
+          ]}
+        />
         <ProductEligibility
           title="Who is eligible for Mounjaro?"
           description={

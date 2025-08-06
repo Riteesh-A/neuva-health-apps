@@ -1,48 +1,32 @@
 // core/components/product/product-dosage.tsx
 
-const steps = [
-  {
-    dose: "2.5mg",
-    title: "Starting dose",
-    description: "Starting dose",
-  },
-  {
-    dose: "5–7.5mg",
-    title: "Maintenance dose",
-    description:
-      "5mg is the first maintenance dose, often prescribed after 4 weeks. 7.5mg is then available via a dose increase request",
-  },
-  {
-    dose: "10–15mg",
-    title: "Higher maintenance",
-    description:
-      "10mg and 15mg are the higher maintenance doses, achieved by titrating up by 2.5mg every 4 weeks",
-  },
-];
-
-export default function ProductDosage() {
+export default function TimelineComponent({
+  steps,
+  header,
+}: {
+  steps?: { value: string; title: string; description: string }[];
+  header?: string;
+}) {
   // 4 dots for 3 columns
-  const dotCount = steps.length + 1;
+  const dotCount = steps?.length ? steps.length + 1 : 0;
 
   return (
     <div className="w-full container flex flex-col items-center section-y">
-      <h2 className="type-headline-sm md:type-headline-lg mb-10">
-        Mounjaro doses
-      </h2>
+      <h2 className="type-headline-sm md:type-headline-lg mb-10">{header}</h2>
       <div className="relative">
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-3 text-center mb-12 gap-6 md:gap-0">
-          {steps.map((step, idx) => (
+          {steps?.map((step, idx) => (
             <div key={idx} className="px-4">
               <div className="type-headline-sm md:type-headline-md font-bold mb-2">
-                {step.dose}
+                {step.value}
               </div>
               <div className="type-body-md md:type-body-lg font-semibold mb-2">
                 {step.title}
               </div>
               <div className="text-gray-600">{step.description}</div>
               {/* Horizontal break on mobile - hidden on desktop */}
-              {idx < steps.length - 1 && (
+              {idx < steps?.length - 1 && (
                 <div className="md:hidden border-b border-gray-300 mt-6 pb-6"></div>
               )}
             </div>
@@ -56,7 +40,7 @@ export default function ProductDosage() {
             style={{ height: 0 }}
           ></div>
           {/* Dots */}
-          {[...Array(dotCount)].map((_, idx) => (
+          {[...Array(dotCount || 0)].map((_, idx) => (
             <div
               key={idx}
               className="absolute z-10 w-5 h-5 bg-gray-700 rounded-full border-2 border-white"

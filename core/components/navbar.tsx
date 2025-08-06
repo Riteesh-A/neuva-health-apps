@@ -38,32 +38,50 @@ interface NavbarProps {
 
 const Navbar = ({ user }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const handleScroll = () => {
-    if (window.scrollY > 100) setIsScrolled(true);
-    else setIsScrolled(false);
-  };
+  const [isAssessmentPage, setIsAssessmentPage] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    // Check if we're on assessment page
+    setIsAssessmentPage(window.location.pathname === "/home/assessment");
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateScrollState = () => {
+      const currentScrollY = window.scrollY;
+
+      // Add a buffer zone to prevent rapid state changes
+      if (currentScrollY > 120 && !isScrolled) {
+        setIsScrolled(true);
+      } else if (currentScrollY < 80 && isScrolled) {
+        setIsScrolled(false);
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
     };
-  }, []);
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateScrollState);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [isScrolled]);
 
   return (
     <div
-      className={cn(
-        "flex flex-col z-30",
-        typeof window !== "undefined" &&
-          window.location.pathname === "/home/assessment"
-          ? "bg-white"
-          : ""
-      )}
+      className={cn("flex flex-col z-30", isAssessmentPage ? "bg-white" : "")}
     >
       <div
         className={cn(
-          "flex items-center h-10 p-2 px-4 bg-blue-100 transition-all duration-300",
-          isScrolled ? " hidden opacity-0 h-0" : "opacity-100"
+          "flex items-center p-2 px-4 bg-blue-100 transition-all duration-300 ease-out overflow-hidden",
+          isScrolled ? "h-0 opacity-0 py-0" : "h-10 opacity-100"
         )}
       >
         <h1 className="whitespace-nowrap md:px-4">Why Neuva?</h1>
@@ -88,12 +106,11 @@ const Navbar = ({ user }: NavbarProps) => {
       </div>
       <div
         className={cn(
-          "flex items-center max-w-screen-xl px-4 py-3 md:p-4 md:px-14 w-full self-center justify-between transition-all duration-300",
+          "flex items-center max-w-screen-xl px-4 py-3 md:p-4 md:px-14 w-full self-center justify-between transition-all duration-300 ease-out",
           isScrolled
             ? "bg-white/70 backdrop-blur-md bg-[url('/grain.png')]"
-            : typeof window !== "undefined" &&
-                window.location.pathname === "/home/assessment"
-              ? "bg-white "
+            : isAssessmentPage
+              ? "bg-white"
               : "bg-white"
         )}
       >

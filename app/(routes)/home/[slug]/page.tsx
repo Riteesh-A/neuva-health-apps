@@ -8,9 +8,27 @@ interface HomeSlugPageProps {
 
 export default async function HomeSlugPage({ params }: HomeSlugPageProps) {
   const { slug } = await params;
-  
+
+  // Show "Coming soon" for all slugs except 'lose-weight'
+  if (slug !== "lose-weight") {
+    return (
+      <div className="flex flex-col overflow-x-hidden">
+        <div className="flex flex-col items-center p-10 md:p-20 gap-10 md:gap-20 max-w-screen-lg w-full mx-auto">
+          <div className="flex flex-col items-center text-center w-full gap-4 md:gap-6">
+            <h1 className="text-2xl md:type-display-lg w-full md:w-1/2 tracking-tight">
+              . . In due time!
+            </h1>
+            <p className="text-sm md:type-body-md font-medium text-muted-foreground">
+              Stay tuned for more information.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // Fetch products from Shopify that have the tag matching the slug
-  
+
   const category = categories.find((cat) => cat.slug === slug);
 
   return (
@@ -25,7 +43,7 @@ export default async function HomeSlugPage({ params }: HomeSlugPageProps) {
           </p>
         </div>
 
-        <ProductCards slug={slug}/>
+        <ProductCards slug={slug} />
       </div>
 
       {/* <div className="flex flex-col p-10 md:p-20 gap-10 md:gap-20 max-w-screen-lg w-full px-4 md:px-10 mx-auto">
