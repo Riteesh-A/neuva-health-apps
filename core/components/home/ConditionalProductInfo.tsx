@@ -227,9 +227,218 @@ export default function ConditionalProductInfo() {
   }
 
   // TODO: Add Wegovy Description
-  // if (pathname.includes("wegovy-ozempic-weekly-subscription-4-doses-copy")) {
-  //   return <WhatIsWegovy />;
-  // }
+  if (pathname.includes("wegovy-ozempic")) {
+    return (
+      <div>
+        <WhatIsProduct
+          title="What is Wegovy?"
+          description={`Wegovy (semaglutide) is a new medication licensed for weight loss in certain groups of people. The active ingredient (semaglutide) was originally designed for use in the treatment of type 2 diabetes,¹ used to help manage blood sugar levels more effectively, but due to positive impact on peoples weight being seen it was approved for use in the treatment of obesity in 2023. Taken once a week through a simple injection, Wegovy is now licensed for use as a weight loss medication.¹ `}
+          children={
+            <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
+              Insert Doctor card
+            </div>
+          }
+        />
+        <ProductEffectiveness
+          title="How effective is Wegovy?"
+          description={
+            <div className="space-y-3">
+              <div className="type-body-md md:type-body-lg font-light">
+                Wegovy has shown excellent results for weight loss. Clinical
+                studies have demonstrated that people using Wegovy achieve
+                significant weight loss compared to those on other weight loss
+                medications.
+              </div>
+              <ul className="my-5 list-disc pl-4 list-inside space-y-3 type-body-md md:type-body-lg font-light tracking-tight">
+                <li>
+                  Patients lost an average of 15-18% of their body weight over
+                  68 weeks in clinical trials, with some achieving up to 20%
+                  weight loss.<sup>2</sup>
+                </li>
+                <li>
+                  Weight loss increased with higher doses (0.5 mg, 1.0 mg, 1.7
+                  mg, and 2.4 mg), showing a clear dose-response relationship.
+                  <sup>2</sup>
+                </li>
+                <li>
+                  More participants achieved at least 5%, 10%, and 15% body
+                  weight reductions compared to those on placebo.<sup>2</sup>
+                </li>
+              </ul>
+            </div>
+          }
+          children={
+            <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
+              Insert Picture
+            </div>
+          }
+        />
+        <ProductReason
+          title="Why choose Wegovy?"
+          description={
+            <div>
+              <div className="md:type-body-lg font-light">
+                Wegovy works by targeting the GLP-1 receptor pathway in the
+                body, which plays a crucial role in appetite regulation. Here's
+                how it works:¹
+              </div>
+              <ul className="my-5 list-disc pl-4 list-inside space-y-3 type-body-md md:type-body-lg font-light tracking-tight">
+                <li>
+                  <strong className="font-bold">Reduces appetite:</strong>{" "}
+                  Wegovy helps to control hunger by affecting hormones that
+                  signal fullness, so you feel satisfied with less food.
+                </li>
+                <li>
+                  <strong className="font-bold">Slows gastric emptying:</strong>{" "}
+                  It slows down how quickly food leaves your stomach, helping
+                  you feel full for longer periods.
+                </li>
+                <li>
+                  <strong className="font-bold">
+                    Improves blood sugar control:
+                  </strong>{" "}
+                  It helps regulate blood sugar levels, which can reduce
+                  cravings and improve overall metabolic health.
+                </li>
+                <li>
+                  <strong className="font-bold">Long-lasting effects:</strong>{" "}
+                  With a half-life of about one week, Wegovy stays active in
+                  your system, allowing for convenient once-weekly injections.
+                </li>
+                <li>
+                  <strong className="font-bold">Proven Results:</strong>{" "}
+                  Clinical studies have shown average weight reductions of
+                  15-18% over 68 weeks, making it one of the most effective
+                  weight loss medications available.
+                </li>
+              </ul>
+            </div>
+          }
+          children={
+            <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
+              Insert Picture
+            </div>
+          }
+        />
+        <TimelineComponent
+          header="Wegovy doses"
+          steps={[
+            {
+              value: "0.25mg",
+              title: "Starting dose",
+              description: "Starting dose for the first 4 weeks",
+            },
+            {
+              value: "0.5mg",
+              title: "Maintenance dose",
+              description:
+                "0.5mg is the first maintenance dose, prescribed after 4 weeks",
+            },
+            {
+              value: "1.0mg",
+              title: "Higher maintenance",
+              description: "1.0mg is achieved by titrating up every 4 weeks",
+            },
+          ]}
+        />
+        <ProductEligibility
+          title="Who is eligible for Wegovy?"
+          description={
+            <div className="space-y-5">
+              <div className="type-body-md md:type-body-lg font-light">
+                Wegovy is recommended for managing obesity as part of a
+                comprehensive plan that includes a reduced-calorie diet and
+                increased physical activity. To be eligible for Wegovy, you must
+                meet the following criteria:
+              </div>
+              <ul className="my-5 list-disc pl-4 list-inside space-y-3 type-body-md md:type-body-lg font-light tracking-tight">
+                <li>An initial BMI of at least 30 kg/m².</li>
+                <li>
+                  Or a BMI of 27 kg/m² to &lt;30 kg/m² (overweight) in the
+                  presence of at least one weight-related comorbid condition.
+                </li>
+              </ul>
+              <div className="type-body-md md:type-body-lg font-light">
+                Wegovy is designed to support significant weight loss alongside
+                lifestyle changes, helping to improve health outcomes for those
+                at higher risk due to obesity. If you fit these criteria, then
+                you may be eligible for treatment.
+              </div>
+              <div className="space-y-3">
+                <h2 className="type-label-lg-prominent md:type-headline-sm">
+                  Who should not take Wegovy?
+                </h2>
+                <div className="type-body-md md:type-body-lg font-light">
+                  You shouldn't take Wegovy if you:
+                </div>
+                <ul className="my-3 list-disc pl-4 list-inside space-y-3 type-body-md md:type-body-lg font-light tracking-tight">
+                  <li>Are pregnant or breastfeeding.</li>
+                  <li>
+                    Have a history of medullary thyroid cancer or MEN2 syndrome.
+                  </li>
+                  <li>Have severe gastrointestinal disease or pancreatitis.</li>
+                  <li>Are allergic to semaglutide or any pen components.</li>
+                </ul>
+              </div>
+            </div>
+          }
+          children={
+            <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
+              Insert Picture
+            </div>
+          }
+        />
+        <ProductUsage
+          title="How to use Wegovy?"
+          description={
+            <div>
+              <div className="type-body-md md:type-body-lg font-light">
+                Taking Wegovy is simple and straightforward. It comes in a
+                pre-filled injection pen that you take once a week. You can
+                inject Wegovy in the following areas:
+              </div>
+              <ul className="my-5 list-disc pl-4 list-inside space-y-3 type-body-md md:type-body-lg font-light tracking-tight">
+                <li>
+                  <strong className="font-bold">Stomach:</strong> At least 2
+                  inches away from your belly button.
+                </li>
+                <li>
+                  <strong className="font-bold">Thighs:</strong> Either thigh is
+                  suitable, just avoid the inner thigh.
+                </li>
+                <li>
+                  <strong className="font-bold">Upper arm:</strong> The back of
+                  the upper arm if someone else is administering the injection.
+                </li>
+              </ul>
+              <div className="type-body-md md:type-body-lg font-light">
+                Make sure to rotate the injection site each week to prevent
+                irritation. Avoid areas that are bruised, red, or sore. After
+                use, simply dispose of the pen safely in a yellow sharps bin and
+                you're good to go.
+              </div>
+            </div>
+          }
+          faqs={[
+            {
+              question: "How do I store Wegovy?",
+              answer:
+                "Wegovy should be stored at room temperature, between 20°C and 25°C (68°F to 77°F). Keep it away from direct sunlight and heat sources.",
+            },
+            {
+              question: "Wegovy step-by-step instructions",
+              answer: "Todo",
+            },
+            {
+              question: "What if I miss a dose?",
+              answer:
+                "If you miss a dose of Wegovy, you should take it within 5 days. If more than 5 days have passed you should skip the dose and take your next one on your usual day.",
+            },
+          ]}
+        />
+      </div>
+    );
+  }
 
   return null;
 }

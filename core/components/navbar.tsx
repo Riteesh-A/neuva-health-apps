@@ -12,14 +12,13 @@ import { Button, buttonVariants } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./ui/sheet";
 const items = [
-  { icon: "fas fa-male", text: "10,000+ Men Helped" },
   { icon: "fas fa-stethoscope", text: "Licensed Doctors" },
   { icon: "fas fa-box", text: "Discreet Delivery" },
   { icon: "fas fa-heartbeat", text: "Comprehensive Care" },
   { icon: "fas fa-user-md", text: "Expert Advice" },
   { icon: "fas fa-shield-alt", text: "Privacy Guaranteed" },
   { icon: "fas fa-pills", text: "Quality Medication" },
-  { icon: "fas fa-phone", text: "24/7 Support" },
+  { icon: "fas fa-computer", text: "Online Consultation" },
 ];
 
 const links = [
