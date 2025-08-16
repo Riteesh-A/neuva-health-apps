@@ -7,12 +7,12 @@ import { PiHospital, PiPackage } from "react-icons/pi";
 import { TbRosetteDiscountCheck } from "react-icons/tb";
 import { buttonVariants } from "../ui/button";
 import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "../ui/select";
 
 export const SlugHeader = ({ slug }: { slug: string }) => {
@@ -26,7 +26,7 @@ export const SlugHeader = ({ slug }: { slug: string }) => {
   }
 
   return (
-    <div className="flex flex-col p-6 sm:p-10 md:p-20 mx-auto">
+    <div className="flex flex-col p-6 sm:p-10 md:px-20 md:py-6 mx-auto">
       <div className="flex flex-col items-center gap-6 sm:gap-8 max-w-screen-lg w-full">
       <div className="flex flex-wrap items-center gap-2 sm:gap-3 p-1 text-sm sm:text-base">
         <span>Home</span>
@@ -72,17 +72,17 @@ export const SlugHeader = ({ slug }: { slug: string }) => {
       <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-15 justify-between">
         <div className="flex items-center gap-2 sm:gap-3">
         <TbRosetteDiscountCheck className="text-xl sm:text-2xl text-primary" />
-        <span className="text-sm sm:text-base">Clinically-proven ingredients</span>
+        <span className="text-sm sm:text-base">Lose up to 21% body weight</span>
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
         <PiHospital className="text-xl sm:text-2xl text-primary" />
-        <span className="text-sm sm:text-base">No Clinic visit required</span>
+        <span className="text-sm sm:text-base">No clinic visit required</span>
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
         <PiPackage className="text-xl sm:text-2xl text-primary" />
-        <span className="text-sm sm:text-base">Discreet Delivery</span>
+        <span className="text-sm sm:text-base">Home Delivery</span>
         </div>
       </div>
       </div>

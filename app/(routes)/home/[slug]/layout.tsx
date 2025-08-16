@@ -1,9 +1,6 @@
 import CommonQuestions from "@/core/components/home/CommonQuestions";
-import CTACards from "@/core/components/home/CTACards";
 import MeetTheExpert from "@/core/components/home/meet-the-expert";
 import { SlugHeader } from "@/core/components/home/slug-header";
-import TakeFirstStep from "@/core/components/home/TakeFirstStep";
-import TrustedByMen from "@/core/components/home/TrustedByMen";
 import TimelineComponent from "@/core/components/product/timeline";
 import { Separator } from "@/core/components/ui/separator";
 
@@ -42,7 +39,7 @@ export default async function HomeSlugLayout({
                 value: "Today",
                 title: "Simple assessment",
                 description:
-                  "Take our online consultation. If eligible, you'll receive your clinically-prescribed medication swiftly. Access your clinicians and coaches through the app.",
+                  "Upload your prescription or Schedule your online consultation. If eligible, you'll receive your clinically-prescribed medication swiftly, delivered to your home.",
               },
               {
                 value: "1-6 Months",
@@ -54,26 +51,26 @@ export default async function HomeSlugLayout({
                 value: "6-12 Months",
                 title: "Lasting change",
                 description:
-                  "With continued support from your coach, adopt healthier lifestyle habits to help maintain weight loss.",
+                  "With continued support from Neuva Health, adopt healthier lifestyle habits to help maintain weight loss.",
               },
             ]}
           />
-          <TrustedByMen
+          {/* <TrustedByMen
             id="trusted-by-men"
             className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto"
-          />
+          /> */}
           <CommonQuestions
             id="common-questions"
             className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto"
           />
-          <CTACards
+          {/* <CTACards
             id="cta-cards"
             className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto"
-          />
-          <TakeFirstStep
+          /> */}
+          {/* <TakeFirstStep
             id="take-first-step"
             className="p-20 w-full px-4 md:px-10 mx-auto"
-          />
+          /> */}
           <Separator />
         </>
       )}

@@ -13,7 +13,7 @@ export default async function HomeSlugPage({ params }: HomeSlugPageProps) {
   if (slug !== "lose-weight") {
     return (
       <div className="flex flex-col overflow-x-hidden">
-        <div className="flex flex-col items-center p-10 md:p-20 gap-10 md:gap-20 max-w-screen-lg w-full mx-auto">
+        <div className="flex flex-col items-center p-10 md:px-20 md:py-10 gap-10 md:gap-20 max-w-screen-lg w-full mx-auto">
           <div className="flex flex-col items-center text-center w-full gap-4 md:gap-6">
             <h1 className="text-2xl md:type-display-lg w-full md:w-1/2 tracking-tight">
               . . In due time!
@@ -33,7 +33,7 @@ export default async function HomeSlugPage({ params }: HomeSlugPageProps) {
 
   return (
     <div className="flex flex-col overflow-x-hidden">
-      <div className="flex flex-col items-center p-10 md:p-20 gap-10 md:gap-20 max-w-screen-lg w-full mx-auto">
+      <div className="flex flex-col items-center p-10 md:px-20 md:py-10 gap-10 md:gap-20 max-w-screen-lg w-full mx-auto">
         <div className="flex flex-col items-center text-center w-full gap-4 md:gap-6">
           <h1 className="text-2xl md:text-4xl font-medium w-full md:w-1/2 tracking-tight">
             {category?.heroSubTitle}

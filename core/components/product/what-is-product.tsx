@@ -6,7 +6,7 @@ const WhatIsProduct = ({
   children,
 }: {
   title: string;
-  description: string;
+  description: string | React.ReactNode;
   children: React.ReactNode;
 }) => {
   return (

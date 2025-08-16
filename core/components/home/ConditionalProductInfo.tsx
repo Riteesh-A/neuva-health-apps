@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import NeuvaTirzepatideChart from "../product/effective-graph";
 import ProductEffectiveness from "../product/product-effectiveness";
 import ProductEligibility from "../product/product-eligibility";
 import ProductReason from "../product/product-reason";
@@ -17,7 +18,23 @@ export default function ConditionalProductInfo() {
       <div>
         <WhatIsProduct
           title="What is Mounjaro?"
-          description={`Mounjaro (tirzepatide) is a new medication licensed for weight loss in certain groups of people. The active ingredient (tirzepatide) was originally designed for use in the treatment of type 2 diabetes,¹ used to help manage blood sugar levels more effectively, but due to positive impact on peoples weight being seen it was approved for use in the treatment of obesity in 2023. Taken once a week through a simple injection, Mounjaro is now licensed for use as a weight loss medication.¹ `}
+          description={
+            <div className="space-y-3">
+              <div className="type-body-md md:type-body-lg font-light">
+                Mounjaro (tirzepatide) is a new medication licensed for weight
+                loss in certain groups of people. The active ingredient
+                (tirzepatide) was originally designed for use in the treatment
+                of type 2 diabetes,¹ used to help manage blood sugar levels more
+                effectively, but due to positive impact on peoples weight being
+                seen it was approved for use in the treatment of obesity in
+                2023.
+              </div>
+              <div className="type-body-md md:type-body-lg font-light">
+                Taken once a week through a simple injection, Mounjaro is now
+                licensed for use as a weight loss medication.¹
+              </div>
+            </div>
+          }
           children={
             <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
               Insert Doctor card
@@ -52,11 +69,7 @@ export default function ConditionalProductInfo() {
               </ul>
             </div>
           }
-          children={
-            <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
-              Insert Picture
-            </div>
-          }
+          children={<NeuvaTirzepatideChart />}
         />
         <ProductReason
           title="Why choose Mounjaro?"
@@ -232,7 +245,39 @@ export default function ConditionalProductInfo() {
       <div>
         <WhatIsProduct
           title="What is Wegovy?"
-          description={`Wegovy (semaglutide) is a new medication licensed for weight loss in certain groups of people. The active ingredient (semaglutide) was originally designed for use in the treatment of type 2 diabetes,¹ used to help manage blood sugar levels more effectively, but due to positive impact on peoples weight being seen it was approved for use in the treatment of obesity in 2023. Taken once a week through a simple injection, Wegovy is now licensed for use as a weight loss medication.¹ `}
+          description={
+            <div className="space-y-3">
+              <div className="type-body-md md:type-body-lg font-light space-y-5">
+                <p>
+                  <span className="md:type-body-lg font-light">
+                    Wegovy is a prescription weight loss treatment that contains
+                    the active ingredient semaglutide, belonging to a group of
+                    medications called GLP-1 inhibitors.¹
+                  </span>
+                </p>
+                <p>
+                  <span className="md:type-body-lg font-light">
+                    It works by mimicking a naturally occurring hormone in the
+                    body called GLP-1, stimulating nerve receptors in the brain
+                    that control appetite, so you feel less hungry and have
+                    fewer cravings.¹
+                  </span>
+                </p>
+                <p>
+                  <span className="md:type-body-lg font-light">
+                    Additionally, it stimulates the release of insulin from
+                    pancreatic beta cells, as GLP-1 is present in both the
+                    pancreas and the brain.³ Implementing behavioural change
+                    strategies alongside the treatment is known to be an
+                    effective method for weight loss.
+                  </span>
+                  <span className="md:type-body-lg font-light">
+                    <sup>2</sup>
+                  </span>
+                </p>
+              </div>
+            </div>
+          }
           children={
             <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
               Insert Doctor card
@@ -243,28 +288,23 @@ export default function ConditionalProductInfo() {
           title="How effective is Wegovy?"
           description={
             <div className="space-y-3">
-              <div className="type-body-md md:type-body-lg font-light">
-                Wegovy has shown excellent results for weight loss. Clinical
-                studies have demonstrated that people using Wegovy achieve
-                significant weight loss compared to those on other weight loss
-                medications.
+              <div className="type-body-md md:type-body-lg font-light space-y-3">
+                <p>
+                  In a major clinical trial, participants who received the full
+                  therapeutic dose of 2.4 mg per week lost an average of{" "}
+                  <strong>15% of their body weight over 68 weeks</strong>,
+                  compared to just <strong>2.4%</strong> in those who received a
+                  placebo. This level of weight loss is significantly greater
+                  than what’s typically seen with lifestyle changes alone.
+                  <sup>1</sup>
+                </p>
+                <p>
+                  The study found a clear dose-response relationship, whereby
+                  lower doses of semaglutide (such as 1.0 mg or 1.7 mg) led to
+                  less weight loss, while the 2.4 mg dose produced the most
+                  substantial effects.<sup>1</sup>
+                </p>
               </div>
-              <ul className="my-5 list-disc pl-4 list-inside space-y-3 type-body-md md:type-body-lg font-light tracking-tight">
-                <li>
-                  Patients lost an average of 15-18% of their body weight over
-                  68 weeks in clinical trials, with some achieving up to 20%
-                  weight loss.<sup>2</sup>
-                </li>
-                <li>
-                  Weight loss increased with higher doses (0.5 mg, 1.0 mg, 1.7
-                  mg, and 2.4 mg), showing a clear dose-response relationship.
-                  <sup>2</sup>
-                </li>
-                <li>
-                  More participants achieved at least 5%, 10%, and 15% body
-                  weight reductions compared to those on placebo.<sup>2</sup>
-                </li>
-              </ul>
             </div>
           }
           children={
@@ -346,39 +386,25 @@ export default function ConditionalProductInfo() {
           description={
             <div className="space-y-5">
               <div className="type-body-md md:type-body-lg font-light">
-                Wegovy is recommended for managing obesity as part of a
-                comprehensive plan that includes a reduced-calorie diet and
-                increased physical activity. To be eligible for Wegovy, you must
-                meet the following criteria:
+                Wegovy is suitable for people struggling with weight management
+                who meet specific criteria. To be eligible, you need to have a
+                BMI of 30 or more, or over 27 if you have a weight-related
+                condition like high blood pressure, cardiovascular disease, or
+                type 2 diabetes. It should only be taken alongside making
+                lifestyle and dietary changes.<sup>4</sup>
               </div>
-              <ul className="my-5 list-disc pl-4 list-inside space-y-3 type-body-md md:type-body-lg font-light tracking-tight">
-                <li>An initial BMI of at least 30 kg/m².</li>
-                <li>
-                  Or a BMI of 27 kg/m² to &lt;30 kg/m² (overweight) in the
-                  presence of at least one weight-related comorbid condition.
-                </li>
-              </ul>
               <div className="type-body-md md:type-body-lg font-light">
-                Wegovy is designed to support significant weight loss alongside
-                lifestyle changes, helping to improve health outcomes for those
-                at higher risk due to obesity. If you fit these criteria, then
-                you may be eligible for treatment.
+                It’s designed for those who have already tried traditional
+                weight loss methods without success and are ready for a new
+                approach to achieving their health goals.<sup>4</sup>
               </div>
-              <div className="space-y-3">
-                <h2 className="type-label-lg-prominent md:type-headline-sm">
-                  Who should not take Wegovy?
-                </h2>
-                <div className="type-body-md md:type-body-lg font-light">
-                  You shouldn't take Wegovy if you:
-                </div>
-                <ul className="my-3 list-disc pl-4 list-inside space-y-3 type-body-md md:type-body-lg font-light tracking-tight">
-                  <li>Are pregnant or breastfeeding.</li>
-                  <li>
-                    Have a history of medullary thyroid cancer or MEN2 syndrome.
-                  </li>
-                  <li>Have severe gastrointestinal disease or pancreatitis.</li>
-                  <li>Are allergic to semaglutide or any pen components.</li>
-                </ul>
+              <div className="type-body-md md:type-body-lg font-light">
+                To be considered for Wegovy, you’ll need to complete an online
+                questionnaire that gathers key information about your health and
+                weight management journey.<sup>4</sup> Following this, you’ll
+                have a consultation with a Numan clinician who will assess your
+                eligibility based on their clinical judgement and your medical
+                history.
               </div>
             </div>
           }
@@ -391,32 +417,13 @@ export default function ConditionalProductInfo() {
         <ProductUsage
           title="How to use Wegovy?"
           description={
-            <div>
-              <div className="type-body-md md:type-body-lg font-light">
-                Taking Wegovy is simple and straightforward. It comes in a
-                pre-filled injection pen that you take once a week. You can
-                inject Wegovy in the following areas:
-              </div>
-              <ul className="my-5 list-disc pl-4 list-inside space-y-3 type-body-md md:type-body-lg font-light tracking-tight">
-                <li>
-                  <strong className="font-bold">Stomach:</strong> At least 2
-                  inches away from your belly button.
-                </li>
-                <li>
-                  <strong className="font-bold">Thighs:</strong> Either thigh is
-                  suitable, just avoid the inner thigh.
-                </li>
-                <li>
-                  <strong className="font-bold">Upper arm:</strong> The back of
-                  the upper arm if someone else is administering the injection.
-                </li>
-              </ul>
-              <div className="type-body-md md:type-body-lg font-light">
-                Make sure to rotate the injection site each week to prevent
-                irritation. Avoid areas that are bruised, red, or sore. After
-                use, simply dispose of the pen safely in a yellow sharps bin and
-                you're good to go.
-              </div>
+            <div className="type-body-md md:type-body-lg font-light">
+              Taking Wegovy is straightforward with the right guidance. It comes
+              as a pre-filled injection pen that you use once a week. To take
+              Wegovy, you first prepare (prime) the pen, choose an injection
+              site - like your stomach or thigh - and inject the dose following
+              the instructions. Dispose of the needle safely in the yellow
+              sharps bin, and store your pen with the cap on until the next use.
             </div>
           }
           faqs={[

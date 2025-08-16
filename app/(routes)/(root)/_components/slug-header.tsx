@@ -62,7 +62,7 @@ export const SlugHeader = ({ slug }: { slug: string }) => {
         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-15 justify-between">
           <div className="flex items-center gap-3">
             <TbRosetteDiscountCheck />
-            <span className="">Clinically-proven ingredients</span>
+            <span className="">Lose up to 21% body weight</span>
           </div>
 
           <div className="flex items-center gap-3">

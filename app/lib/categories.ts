@@ -36,9 +36,9 @@ export const categories: ProductCategory[] = [
   },
   {
     slug: "lose-weight",
-    heroTitle: "Manage Weight with Science-Backed Medication",
+    heroTitle: "Long-term Weight Loss with Science Backed Medication",
     heroSubTitle: "Achieve your weight goals with clinical support",
-    heroDescription: "Daily medications that fit seamlessly into your routine.",
+    heroDescription: "Once-weekly medications that fit seamlessly into your routine.",
     products: [
       {
         title: "Tirzepatide (Mounjaro)",
