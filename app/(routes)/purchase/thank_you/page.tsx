@@ -1,10 +1,10 @@
 import { createClient } from "@/app/lib/server";
-import { PrescriptionUpload } from "@/components/prescriptionUpload";
+import { ConsultationFlow } from "@/components/consultationFlow";
+
 export default async function Page() {
   const supabase = await createClient();
-  const { data, error } = await supabase.auth.getUser()
+  const { data, error } = await supabase.auth.getUser();
   const user = data?.user;
-  return (
-    <PrescriptionUpload user={user} />
-  );
+
+  return <ConsultationFlow user={user} />;
 }

@@ -37,7 +37,7 @@ export default function ConditionalProductInfo() {
           }
           children={
             <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
-              Insert Doctor card
+              {/* Insert Doctor card */}
             </div>
           }
         />
@@ -72,7 +72,7 @@ export default function ConditionalProductInfo() {
           children={<NeuvaTirzepatideChart />}
         />
         <ProductReason
-          title="Why choose Mounjaro?"
+          title="Why does Mounjaro work?"
           description={
             <div>
               <div className="md:type-body-lg font-light">
@@ -113,9 +113,11 @@ export default function ConditionalProductInfo() {
             </div>
           }
           children={
-            <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
-              Insert Picture
-            </div>
+            <img
+              className="rounded-xl max-w-md place-content-center"
+              src="/assets/mounjaro-work.jpg"
+              alt="Mounjaro Why it works"
+            />
           }
         />
         <TimelineComponent
@@ -182,9 +184,11 @@ export default function ConditionalProductInfo() {
             </div>
           }
           children={
-            <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
-              Insert Picture
-            </div>
+            <img
+              className="rounded-xl max-w-md place-content-center"
+              src="/assets/eligibility-image.jpg"
+              alt="Mounjaro Eligibility"
+            />
           }
         />
         <ProductUsage
@@ -221,12 +225,168 @@ export default function ConditionalProductInfo() {
           faqs={[
             {
               question: "How do I store Mounjaro?",
-              answer:
-                "Mounjaro should be stored at room temperature, between 20°C and 25°C (68°F to 77°F). Keep it away from direct sunlight and heat sources.",
+              answer: (
+                <div className="space-y-4 text-left">
+                  <div>
+                    Keep your Mounjaro KwikPen in the refrigerator at 2°C to
+                    8°C. Do not freeze it. If needed, Mounjaro can be stored
+                    unrefrigerated for up to 30 days, as long as the temperature
+                    stays below 30°C. After 30 days out of the fridge, the pen
+                    must be discarded, even if it hasn't been used. Always check
+                    the expiry date before use. The shelf life of a
+                    refrigerated, unopened pen is 24 months, and the expiry date
+                    of your pen will be printed on the box.
+                  </div>
+                </div>
+              ),
             },
             {
               question: "Mounjaro step-by-step instructions",
-              answer: "Todo",
+              answer: (
+                <div>
+                  <div className="space-y-4 text-left">
+                    <div className="space-y-3">
+                      <div>
+                        <h5 className="font-medium">
+                          Step 1: Prepare your pen
+                        </h5>
+                        <ul className="list-disc pl-5 space-y-1 mt-2">
+                          <li>
+                            Select the correct Mounjaro KwikPen with your
+                            prescribed weekly dose.
+                          </li>
+                          <li>
+                            Check the pen: make sure the medication is clear and
+                            colourless/slightly yellow, and that the pen is
+                            undamaged and within its expiry date.
+                          </li>
+                          <li>Pull off the pen cap.</li>
+                          <li>Wipe the red inner seal with an alcohol wipe.</li>
+                          <li>
+                            Always use a new needle. Inspect the needle
+                            packaging and cap for damage. If damaged, dispose
+                            and use a new one.
+                          </li>
+                          <li>
+                            Remove the paper tab from the needle. Push it
+                            straight onto the pen and twist until secure.
+                          </li>
+                          <li>
+                            Remove both the outer and inner caps from the
+                            needle.
+                          </li>
+                          <li>
+                            Prime the pen: turn the dose knob slowly until you
+                            hear two clicks and the extended line appears in the
+                            dose window (this is the prime position).
+                          </li>
+                          <li>
+                            Hold the pen with the needle pointing up. Gently tap
+                            the cartridge holder to move air bubbles to the top.
+                          </li>
+                          <li>
+                            Push in the dose knob fully and count to 5. '0'
+                            should appear in the dose window and a drop of
+                            medicine should come out.
+                          </li>
+                          <li>
+                            If no medicine appears, repeat up to 2 more times.
+                            If still no drop, change the needle and try again.
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h5 className="font-medium">
+                          Step 2: Choose your injection site
+                        </h5>
+                        <ul className="list-disc pl-5 space-y-1 mt-2">
+                          <li>
+                            You can inject into your stomach (at least 2 inches
+                            away from your belly button) or the front of your
+                            thighs.
+                          </li>
+                          <li>
+                            If someone else is helping, they can inject into
+                            your upper arm.
+                          </li>
+                          <li>
+                            Rotate injection sites each week to avoid
+                            irritation, even if using the same general area.
+                          </li>
+                          <li>
+                            Make sure the skin is clean and undamaged. Clean
+                            with an alcohol wipe and allow to dry.
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h5 className="font-medium">Step 3: Inject the dose</h5>
+                        <ul className="list-disc pl-5 space-y-1 mt-2">
+                          <li>
+                            Turn the dose knob until it stops and the '1' is
+                            shown in the dose window.
+                          </li>
+                          <li>
+                            Position the pen firmly against your skin where you
+                            plan to inject.
+                          </li>
+                          <li>
+                            Push the pen down with steady pressure, then press
+                            and hold the dose knob until it stops.
+                          </li>
+                          <li>Count to 5 slowly while holding the knob.</li>
+                          <li>
+                            Ensure the '0' appears in the dose window before
+                            removing the needle from your skin.
+                          </li>
+                          <li>
+                            If you notice any blood, press gently with a
+                            tissue—do not rub the area.
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h5 className="font-medium">
+                          Step 4: Dispose and store safely
+                        </h5>
+                        <ul className="list-disc pl-5 space-y-1 mt-2">
+                          <li>
+                            Without touching the needle, guide it into the outer
+                            needle cap placed on a flat surface.
+                          </li>
+                          <li>
+                            Once the needle is covered, push the outer cap on
+                            fully.
+                          </li>
+                          <li>
+                            Unscrew the needle and dispose of it in a sharps
+                            bin.
+                          </li>
+                          <li>
+                            Never recap the inner needle—this can lead to
+                            accidental injury.
+                          </li>
+                          <li>
+                            Always remove the needle after each injection to
+                            prevent blockages, infection, and incorrect dosing.
+                          </li>
+                          <li>
+                            Replace the pen cap and store the pen properly, away
+                            from light.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-sm text-gray-600">
+                    If you're ever unsure, contact Neuva Health for help.
+                  </div>
+                </div>
+              ),
             },
             {
               question: "What if I miss a dose?",
@@ -280,7 +440,7 @@ export default function ConditionalProductInfo() {
           }
           children={
             <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
-              Insert Doctor card
+              {/* Insert Doctor card */}
             </div>
           }
         />
@@ -308,9 +468,11 @@ export default function ConditionalProductInfo() {
             </div>
           }
           children={
-            <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
-              Insert Picture
-            </div>
+            <img
+              className="rounded-xl max-w-sm place-content-center"
+              src="/assets/product-effectiveness.jpg"
+              alt="Wegovy Effectiveness"
+            />
           }
         />
         <ProductReason
@@ -356,7 +518,7 @@ export default function ConditionalProductInfo() {
           }
           children={
             <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
-              Insert Picture
+              {/* Insert Picture */}
             </div>
           }
         />
@@ -410,7 +572,7 @@ export default function ConditionalProductInfo() {
           }
           children={
             <div className="flex flex-col text-destructive/80 items-center text-left w-full gap-4 md:gap-6">
-              Insert Picture
+              {/* Insert Picture` */}
             </div>
           }
         />

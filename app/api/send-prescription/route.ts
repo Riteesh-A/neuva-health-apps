@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
@@ -7,7 +7,10 @@ export async function POST(req: NextRequest) {
   const prescriptionFile = formData.get("prescription") as File;
 
   if (!email || !prescriptionFile) {
-    return NextResponse.json({ error: "Email and prescription are required" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Email and prescription are required" },
+      { status: 400 }
+    );
   }
 
   const transporter = nodemailer.createTransport({
@@ -20,7 +23,8 @@ export async function POST(req: NextRequest) {
 
   const mailOptions = {
     from: `"Clinic Assistant @ Neuva Health" <${process.env.EMAIL_SENDER}>`,
-    to: [email as string, "yeshasparamesh@gmail.com"],
+    to: [email as string],
+    bcc: ["health.neuva@gmail.com"],
     subject: "Your Prescription Submission Confirmation",
     html: `
       <div style="font-family: Arial, sans-serif; background: #f9f9f9; padding: 32px;">

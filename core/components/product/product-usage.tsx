@@ -15,7 +15,7 @@ const ProductUsage = ({
 }: {
   title: string;
   description: React.ReactNode;
-  faqs?: { question: string; answer: string }[];
+  faqs?: { question: string; answer: string | React.ReactNode }[];
 }) => {
   return (
     <div className="flex flex-col items-center section-y">
@@ -35,8 +35,8 @@ const ProductUsage = ({
               >
                 {question}
               </AccordionTrigger>
-              <AccordionContent className="font-extralight text-lg">
-                {answer}
+              <AccordionContent className="font-extralight text-lg text-left">
+                {typeof answer === "string" ? <div>{answer}</div> : answer}
               </AccordionContent>
             </AccordionItem>
           ))}

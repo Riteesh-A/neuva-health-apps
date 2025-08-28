@@ -1,6 +1,7 @@
 import CommonQuestions from "@/core/components/home/CommonQuestions";
 import MeetTheExpert from "@/core/components/home/meet-the-expert";
 import { SlugHeader } from "@/core/components/home/slug-header";
+import WeightSlider from "@/core/components/home/weight-slider";
 import TimelineComponent from "@/core/components/product/timeline";
 import { Separator } from "@/core/components/ui/separator";
 
@@ -30,6 +31,7 @@ export default async function HomeSlugLayout({
           id="how-this-medicine-works"
           className="p-20 max-w-screen-xl w-full px-4 md:px-10 mx-auto"
           /> */}
+          <WeightSlider />
           <MeetTheExpert />
 
           <TimelineComponent
